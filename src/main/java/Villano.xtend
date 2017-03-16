@@ -3,16 +3,21 @@ import java.util.List
 class Villano {
 	
 	String nombre
-	String sexo
+	Sexo sexo
 	List<String> señasParticulares
 	List<String> hobbies
 	
-	new(String unNombre) {
-		nombre = unNombre
+	new(String nombre, Sexo sexo) {
+		this.nombre = nombre
+		this.sexo = sexo
 	}
 	
-	def getGetNombre() {
+	def getNombre() {
 		nombre
+	}
+	
+	def getSexo() {
+		sexo.name()
 	}
 	
 }

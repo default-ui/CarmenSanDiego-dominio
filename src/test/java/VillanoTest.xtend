@@ -4,17 +4,24 @@ import org.junit.Before
 
 class VillanoTest {
 	
-	Villano unVillano
+	Sexo sexoFemenino
+	Sexo sexoMasculino
+	Villano carmen
 	
 	@Before
 	def void init() {
-		unVillano = new Villano('Carmen SanDiego')
+		
+		sexoFemenino = Sexo.Femenino
+		sexoMasculino = Sexo.Masculino
+		
+		carmen = new Villano('Carmen Sandiego', sexoFemenino)
 	}
 	
 	@Test
 	def void test_getters() {
 		
-		assertEquals('Carmen SanDiego', unVillano.getNombre)
+		assertEquals('Carmen Sandiego', carmen.getNombre)
+		assertEquals('Femenino', carmen.getSexo)
 		
 	}
 	
