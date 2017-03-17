@@ -7,7 +7,7 @@ class Banco implements Lugar {
 	@Accessors String nombre = "Bank"
 	
 	override obtenerPistas() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		return "PistaBanco"
 	}
 	
 }

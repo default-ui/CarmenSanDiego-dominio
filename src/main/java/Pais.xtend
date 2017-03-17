@@ -8,9 +8,12 @@ class Pais {
 	@Accessors val caracteristicas = <String>newArrayList()
 	@Accessors val conexiones = <Pais>newArrayList()
 	@Accessors val lugares = <Lugar>newArrayList()
+	@Accessors var EstadoOcupante estadoOcupante
+	
 	
 	new(String nombre){
 		this.nombre = nombre
+		this.estadoOcupante = new EstadoCuidador()
 	}
 	
 	def void agregarCaracteristica(String caracteristica){
@@ -51,4 +54,17 @@ class Pais {
 		this.eliminarLugar(antiguo)
 		this.agregarLugar(nuevo)
 	}
+	
+	def obtenerPista(Lugar lugar) {
+		this.lugares.get(lugares.indexOf(lugar)).obtenerPistas()
+	}
+	
+	def String obtenerPistas(Lugar lugar){
+		this.estadoOcupante.responder(this, lugar)
+	}
+	
+	def void setEstado(EstadoOcupante estado){
+		this.estadoOcupante = estado
+	}
+	
 }

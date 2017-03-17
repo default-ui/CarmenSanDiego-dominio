@@ -1,10 +1,12 @@
+package carmenSanDiego
+
 import java.util.List
 
 class Villano {
 	
 	String nombre
 	Sexo sexo
-	List<String> señasParticulares
+	List<String> senasParticulares
 	List<String> hobbies
 	
 	new(String nombre, Sexo sexo) {

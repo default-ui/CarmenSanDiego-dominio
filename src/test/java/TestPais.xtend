@@ -39,4 +39,27 @@ class TestPais {
 		assertEquals(miPais.lugares.size,1)
 		assertEquals(miPais.lugares.get(0).nombre, "Bank")
 	}
+	
+	@Test def comprobarEstadoCuidador(){
+		val miPais = new Pais("Rusia")
+		val miBanco = new Banco
+		miPais.agregarLugar(miBanco)
+		assertEquals(miPais.obtenerPistas(miBanco),"Keeper")
+	}
+	
+	@Test def comprobarCambioAEstadoVillano(){
+		val miPais = new Pais("Rusia")
+		val miBanco = new Banco
+		miPais.agregarLugar(miBanco)
+		miPais.setEstado(new EstadoVillano())
+		assertEquals(miPais.obtenerPistas(miBanco),"Villain")
+	}
+	
+	@Test def obtienePistaDeBancoSiEstaEnEstadoInformante(){
+		val miPais = new Pais("Rusia")
+		val miBanco = new Banco
+		miPais.agregarLugar(miBanco)
+		miPais.setEstado(new EstadoInformante())
+		assertEquals(miPais.obtenerPistas(miBanco),"PistaBanco")
+	}
 }

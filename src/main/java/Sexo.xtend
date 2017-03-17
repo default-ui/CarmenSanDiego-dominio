@@ -1,3 +1,4 @@
+package carmenSanDiego
 
 enum Sexo {
 	Masculino,
