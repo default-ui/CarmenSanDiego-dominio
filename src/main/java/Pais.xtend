@@ -2,6 +2,8 @@
 package carmenSanDiego
 
 import org.eclipse.xtend.lib.annotations.Accessors
+import java.util.Random
+import java.util.ArrayList
 
 class Pais {
 	@Accessors String nombre
@@ -66,6 +68,13 @@ class Pais {
 	
 	def void setEstado(EstadoOcupante estado){
 		this.estadoOcupante = estado
+	}
+	
+	def Pais obtenerConexionSinRepetidos(ArrayList<Pais> paises) {
+		val conexionesSinRepetidos = <Pais>newArrayList()
+		for (Pais p:conexiones)
+			if (!paises.contains(p)) conexionesSinRepetidos.add(p)
+		return conexionesSinRepetidos.get(new Random().nextInt(conexionesSinRepetidos.size()))
 	}
 	
 }
