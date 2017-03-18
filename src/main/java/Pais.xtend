@@ -11,6 +11,7 @@ class Pais {
 	@Accessors var EstadoOcupante estadoOcupante
 	
 	
+	
 	new(String nombre){
 		this.nombre = nombre
 		this.estadoOcupante = new EstadoCuidador()
