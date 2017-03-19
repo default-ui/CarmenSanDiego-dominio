@@ -77,4 +77,12 @@ class Pais {
 		return conexionesSinRepetidos.get(new Random().nextInt(conexionesSinRepetidos.size()))
 	}
 	
+	def reporte() {
+		"TODO: auto-generated method stub"
+	}
+	
+	def objeto() {
+		"TODO: auto-generated method stub"
+	}
+	
 }
