@@ -14,5 +14,5 @@ hs_err_pid*
 /.classpath
 /.project
 .settings
-src/main/xtend-gen
-src/test/xtend-gen
+/xtend-gen/
+/bin/
