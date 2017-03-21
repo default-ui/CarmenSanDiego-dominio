@@ -27,7 +27,7 @@ class Expediente {
 
 	
 	def void generarExpedienteAleatorio(){
-        val reader = new BufferedReader(new FileReader("dataVillanos.csv"))
+        val reader = new BufferedReader(new FileReader("src/main/resources/dataVillanos.csv"))
 		val lines = new ArrayList()
 		var line = null as String
 		val senas = obtenerSenas()
@@ -53,7 +53,7 @@ class Expediente {
     	}
     
     def ArrayList<String> obtenerSenas(){
-        val reader = new BufferedReader(new FileReader("dataSenas.csv"))
+        val reader = new BufferedReader(new FileReader("src/main/resources/dataSenas.csv"))
 		val lines = new ArrayList()
 		var line = null as String
 		while ((line = reader.readLine()) !== null) {
@@ -63,7 +63,7 @@ class Expediente {
     }
     
     def ArrayList<String> obtenerHobbies(){
-        val reader = new BufferedReader(new FileReader("dataHobbies.csv"))
+        val reader = new BufferedReader(new FileReader("src/main/resources/dataHobbies.csv"))
 		val lines = new ArrayList()
 		var line = null as String
 		while ((line = reader.readLine()) !== null) {

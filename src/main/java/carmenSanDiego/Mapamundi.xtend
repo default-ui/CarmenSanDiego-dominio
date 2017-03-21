@@ -34,11 +34,11 @@ class Mapamundi {
 
 	def generarMapamundiAleatorio() {
 
-		val content = new Scanner(new File("datapaises.txt"))
+		val content = new Scanner(new File("src/main/resources/datapaises.txt"))
 		while (content.hasNext()) {
 			nuevoPais(content.next())
 		}
-		val reader = new BufferedReader(new FileReader("datacaracteristicas.csv"))
+		val reader = new BufferedReader(new FileReader("src/main/resources/datacaracteristicas.csv"))
 		val lines = new ArrayList()
 		var line = null as String
 		while ((line = reader.readLine()) !== null) {
