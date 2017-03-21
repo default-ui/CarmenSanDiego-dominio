@@ -38,12 +38,15 @@ class Juego {
 		plan.add(pais)
 		val pais2 = pais.obtenerConexionSinRepetidos(plan)
 		plan.add(pais2)
-		val pais3 = pais.obtenerConexionSinRepetidos(plan)
+		val pais3 = pais2.obtenerConexionSinRepetidos(plan)
 		plan.add(pais3)
-		val pais4 = pais.obtenerConexionSinRepetidos(plan)
+		val pais4 = pais3.obtenerConexionSinRepetidos(plan)
 		plan.add(pais4)
-		val pais5 = pais.obtenerConexionSinRepetidos(plan)
+		val pais5 = pais4.obtenerConexionSinRepetidos(plan)
 		plan.add(pais5)
+		val pais6 = pais5.obtenerConexionSinRepetidos(plan)
+		plan.add(pais6)
+		plan.remove(plan.indexOf(pais))
 		return plan
 	}
 }

@@ -4,11 +4,12 @@ package carmenSanDiego
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.Random
 import java.util.ArrayList
+import java.util.List
 
 class Pais {
 	@Accessors String nombre
-	@Accessors val caracteristicas = <String>newArrayList()
-	@Accessors val conexiones = <Pais>newArrayList()
+	@Accessors var List<String> caracteristicas = <String>newArrayList()
+	@Accessors var List<Pais> conexiones = <Pais>newArrayList()
 	@Accessors val lugares = <Lugar>newArrayList()
 	@Accessors var EstadoOcupante estadoOcupante
 	
@@ -83,6 +84,10 @@ class Pais {
 	
 	def objeto() {
 		"TODO: auto-generated method stub"
+	}
+	
+	def setCaracteristicas(ArrayList<String> c){
+		this.caracteristicas = c
 	}
 	
 }

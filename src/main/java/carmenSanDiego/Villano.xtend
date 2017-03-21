@@ -22,4 +22,31 @@ class Villano {
 		sexo.name()
 	}
 	
+	def agregarSena (String sena){
+		senasParticulares.add(sena)
+	}
+	
+	def void eliminarSena (String sena){
+		this.senasParticulares.remove(senasParticulares.indexOf(sena))
+	}
+	
+	def void editarSena (String antigua, String nueva){
+		this.eliminarSena(antigua)
+		this.agregarSena(nueva)
+	}
+	
+	def agregarHobbie(String hobbie){
+		hobbies.add(hobbie)
+	}
+	
+	def void eliminarHobbie (String hobbie){
+		this.hobbies.remove(hobbies.indexOf(hobbie))
+	}
+	
+	def void editarHobbie (String antiguo, String nuevo){
+		this.eliminarHobbie(antiguo)
+		this.agregarHobbie(nuevo)
+	}
+	
+		
 }
