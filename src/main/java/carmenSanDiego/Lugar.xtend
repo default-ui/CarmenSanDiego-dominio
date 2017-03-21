@@ -1,5 +1,6 @@
 package carmenSanDiego
 
+
 import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
 
@@ -43,3 +44,4 @@ abstract class Lugar {
 	}
 	
 	}
+

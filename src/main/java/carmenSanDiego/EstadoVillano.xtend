@@ -1,6 +1,7 @@
 package carmenSanDiego
 
 class EstadoVillano extends EstadoOcupante {
+
 	
 	override responder(Pais pais, Lugar lugar, Villano villano) {
 		if(lugar.villano == null)
@@ -8,6 +9,7 @@ class EstadoVillano extends EstadoOcupante {
 		else 
 			"ALTO!"
 			// y aca es donde no se de donde saco a orden de arresto
+
 	}
-	
+
 }

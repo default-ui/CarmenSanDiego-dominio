@@ -1,5 +1,6 @@
 package carmenSanDiego
 
+
 class EstadoInformante extends EstadoOcupante{
 	
 	/* Si hay un informante quiere decir que el villano paso por ese pais. 
@@ -7,7 +8,7 @@ class EstadoInformante extends EstadoOcupante{
 	 * */
 	override responder(Pais pais, Lugar lugar, Villano villano) {
 		lugar.obtenerPista(pais, villano)
+
 	}
-	
-	
+
 }

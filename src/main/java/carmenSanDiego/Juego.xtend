@@ -3,6 +3,7 @@ package carmenSanDiego
 import java.util.ArrayList
 
 class Juego {
+
 	Mapamundi mapa
 	Expediente expediente
 

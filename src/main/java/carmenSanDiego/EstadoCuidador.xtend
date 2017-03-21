@@ -1,5 +1,6 @@
 package carmenSanDiego
 
+
 class EstadoCuidador extends EstadoOcupante{
 	/**
 	 * El cuidador responde al jugador el villano no paso por ese pais y que debe salir a buscarlo
@@ -8,5 +9,5 @@ class EstadoCuidador extends EstadoOcupante{
 	override responder(Pais pais, Lugar lugar, Villano villano) {
 		return "No vimos a nadie asi por esta zona, creo que te equivocaste"
 	}
-	
+
 }

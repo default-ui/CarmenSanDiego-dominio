@@ -2,12 +2,10 @@ package carmenSanDiego
 
 import org.eclipse.xtend.lib.annotations.Accessors
 
+
 class Biblioteca extends Lugar{
 	@Accessors String nombre = "Library"
-	
-	override obtenerPistas() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
+
 	
 	override getVillano() {
 		villano
@@ -23,3 +21,4 @@ class Biblioteca extends Lugar{
 	
 	
 }
+
