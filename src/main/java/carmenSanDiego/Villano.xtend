@@ -1,13 +1,14 @@
 package carmenSanDiego
 
 import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
 
 class Villano {
 	
 	String nombre
 	Sexo sexo
-	List<String> senasParticulares
-	List<String> hobbies
+	@Accessors List<String> senasParticulares = <String>newArrayList()
+	@Accessors List<String> hobbies = <String>newArrayList()
 	
 	new(String nombre, Sexo sexo) {
 		this.nombre = nombre
