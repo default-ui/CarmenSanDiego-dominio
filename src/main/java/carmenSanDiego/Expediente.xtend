@@ -6,6 +6,7 @@ import java.io.FileReader
 import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.LinkedHashSet
+import static utils.FileParser.*
 
 class Expediente {
 
@@ -52,24 +53,12 @@ class Expediente {
     		}
     	}
     
-    def ArrayList<String> obtenerSenas(){
-        val reader = new BufferedReader(new FileReader("src/main/resources/dataSenas.csv"))
-		val lines = new ArrayList()
-		var line = null as String
-		while ((line = reader.readLine()) !== null) {
-    		lines.add(line);
-    		}
-    	return lines
+    def obtenerSenas(){
+    	getListFromFile("src/main/resources/dataSenas.csv")    	
     }
     
-    def ArrayList<String> obtenerHobbies(){
-        val reader = new BufferedReader(new FileReader("src/main/resources/dataHobbies.csv"))
-		val lines = new ArrayList()
-		var line = null as String
-		while ((line = reader.readLine()) !== null) {
-    		lines.add(line);
-    		}
-    	return lines
+    def obtenerHobbies(){
+    	getListFromFile("src/main/resources/dataHobbies.csv")    	
     }
 	
 }
