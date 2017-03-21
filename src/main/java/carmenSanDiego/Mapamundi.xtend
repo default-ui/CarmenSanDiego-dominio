@@ -5,10 +5,8 @@ import java.util.Random
 import java.util.Scanner
 import java.io.File
 import java.util.ArrayList
-import java.util.Arrays
 import java.io.BufferedReader
 import java.io.FileReader
-import java.util.List
 import java.util.LinkedHashSet
 
 class Mapamundi {
