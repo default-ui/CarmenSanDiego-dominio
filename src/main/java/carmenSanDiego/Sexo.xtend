@@ -1,9 +1,7 @@
 package carmenSanDiego
 
 enum Sexo {
-		Masculino,
-		Femenino
-		}
 
-
-
+	Masculino,
+	Femenino
+}

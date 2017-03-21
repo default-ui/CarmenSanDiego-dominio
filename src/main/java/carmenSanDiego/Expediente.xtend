@@ -8,6 +8,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.LinkedHashSet
 
 class Expediente {
+
 	@Accessors val villanos = <Villano>newArrayList()
 	
 	def void nuevoVillano(String nombre, Sexo sexo){
@@ -18,10 +19,12 @@ class Expediente {
 	def void eliminarVillano(Villano villano){
 		this.villanos.remove(villanos.indexOf(villano))
 	}
-	
+
+	// TODO aca hay que permitir cambiar el Random	
 	def Villano obtenerVillano() {
 		return villanos.get(new Random().nextInt(villanos.size()))
 	}
+
 	
 	def void generarExpedienteAleatorio(){
         val reader = new BufferedReader(new FileReader("dataVillanos.csv"))
