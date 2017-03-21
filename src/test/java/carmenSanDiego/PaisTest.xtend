@@ -1,74 +1,110 @@
 package carmenSanDiego
 
-import org.junit.Test
 import static org.junit.Assert.*
+import org.junit.Test
+import org.junit.Before
 
 class PaisTest {
 
+	Pais paisArgentina
+	Pais paisBrazil
+	Pais paisPeru
+	Pais paisRusia
+
+	Lugar lugarBiblioteca
+	Lugar lugarBanco
+	
+	Villano villanoMoriarty
+
+	@Before
+	def void init() {
+
+		paisArgentina = new Pais("Argentina")
+		paisBrazil = new Pais("Brazil")
+		paisPeru = new Pais("Peru")
+		paisRusia = new Pais("Rusia")
+
+		lugarBiblioteca = new Biblioteca()
+		lugarBanco = new Banco()
+		
+		villanoMoriarty = new Villano("Moriarty", Sexo.Masculino)
+
+	}
+
 	@Test def creacionDePais() {
-		val miPais = new Pais("Argentina")
-		assertEquals(miPais.nombre, "Argentina")
-		assertEquals(miPais.caracteristicas.size, 0)
-		assertEquals(miPais.lugares.size, 0)
-		assertEquals(miPais.conexiones.size, 0)
+		
+		assertEquals("Argentina", paisArgentina.nombre)
+		assertEquals(0, paisArgentina.caracteristicas.size)
+		assertEquals(0, paisArgentina.lugares.size)
+		assertEquals(0, paisArgentina.conexiones.size)
+		
 	}
 
 	@Test def agregarYModificarCaracteristica() {
-		val miPais = new Pais("Brazil")
-		miPais.agregarCaracteristica("c1")
-		miPais.editarCaracteristica("c1", "c2")
-		assertEquals(miPais.caracteristicas.size, 1)
-		assertEquals(miPais.caracteristicas.get(0), "c2")
+		
+		paisBrazil.agregarCaracteristica("c1")
+		paisBrazil.editarCaracteristica("c1", "c2")
+		
+		assertEquals(1, paisBrazil.caracteristicas.size)
+		assertEquals("c2", paisBrazil.caracteristicas.get(0))
+		
 	}
 
 	@Test def agregarYModificarConexion() {
-		val miPais = new Pais("Brazil")
-		val miPais2 = new Pais("Argentina")
-		miPais.agregarConexion(miPais2)
-		miPais.editarConexion(miPais2, miPais)
-		assertEquals(miPais.conexiones.size, 1)
-		assertEquals(miPais.conexiones.get(0).nombre, "Brazil")
+		
+		paisArgentina.agregarConexion(paisBrazil)
+		paisArgentina.editarConexion(paisBrazil, paisPeru)
+		
+		assertEquals(1, paisArgentina.conexiones.size)
+		assertEquals("Peru", paisArgentina.conexiones.get(0).nombre)
+		
 	}
 
 	@Test def agregarLugar() {
-		val miPais = new Pais("Peru")
-		val miLugar = new Biblioteca()
-		val miLugar2 = new Banco()
-		miPais.agregarLugar(miLugar)
-		miPais.editarLugar(miLugar, miLugar2)
-		assertEquals(miPais.lugares.size, 1)
-		assertEquals(miPais.lugares.get(0).nombre, "Bank")
+
+		paisArgentina.agregarLugar(lugarBiblioteca)
+		paisArgentina.editarLugar(lugarBiblioteca, lugarBanco)
+		assertEquals(1, paisArgentina.lugares.size)
+		assertEquals("Bank", paisArgentina.lugares.get(0).nombre)
+
 	}
 
 	@Test def comprobarEstadoCuidador() {
-		val miPais = new Pais("Rusia")
-		val miBanco = new Banco
-		val miVillano = new Villano("Moriarty", Sexo.Masculino)
-		miPais.agregarLugar(miBanco)
-		assertEquals(miPais.obtenerPistas(miBanco, miVillano), 
-					 "No vimos a nadie asi por esta zona, creo que te equivocaste")
+		
+		// TODO esto hay que pasarlo a mock
+		paisArgentina.agregarLugar(lugarBanco)
+		
+		assertEquals(
+			"No vimos a nadie asi por esta zona, creo que te equivocaste",
+			paisArgentina.obtenerPistas(lugarBanco, villanoMoriarty)
+		)
+
 	}
 
 	@Test def comprobarCambioAEstadoVillano() {
-		val miPais = new Pais("Rusia")
-		val miBanco = new Banco
-		val miVillano = new Villano("Moriarty", Sexo.Masculino)
-		miPais.agregarLugar(miBanco)
-		miBanco.villano = miVillano
-		miPais.setEstado(new EstadoVillano())
-		assertEquals(miPais.obtenerPistas(miBanco, miVillano),"ALTO!")
+		
+		paisArgentina.agregarLugar(lugarBanco)
+		lugarBanco.villano = villanoMoriarty
+		paisArgentina.setEstado(new EstadoVillano())
+		
+		assertEquals(
+			"ALTO!",
+			paisArgentina.obtenerPistas(lugarBanco, villanoMoriarty)
+		)
+		
 	}
 
 	@Test def obtienePistaDeBancoSiEstaEnEstadoInformante() {
-		val miPais = new Pais("Rusia")
-		val miPais2 = new Pais("Argentina")
-		val miBanco = new Banco
-		var miVillano = new Villano("Moriarty", Sexo.Masculino)
-		miPais.agregarLugar(miBanco)
-		miPais2.agregarCaracteristica("Va hacia el pais de los gauchos.")
-		miVillano.agregarSena("Este villano es el nemesis de Sherlock Holmes.")
-		miBanco.destino = miPais2
-		miPais.setEstado(new EstadoInformante())
-		assertEquals(miPais.obtenerPistas(miBanco, miVillano),"Va hacia el pais de los gauchos. Este villano es el nemesis de Sherlock Holmes.")
+		
+		paisRusia.agregarLugar(lugarBanco)
+		paisArgentina.agregarCaracteristica("Va hacia el pais de los gauchos.")
+		villanoMoriarty.agregarSena("Este villano es el nemesis de Sherlock Holmes.")
+		lugarBanco.destino = paisArgentina
+		paisRusia.setEstado(new EstadoInformante())
+		
+		assertEquals(
+			"Va hacia el pais de los gauchos. Este villano es el nemesis de Sherlock Holmes.",
+			paisRusia.obtenerPistas(lugarBanco, villanoMoriarty)
+		)
 	}
 }
