@@ -4,10 +4,11 @@ import carmenSanDiego.Lugar
 import org.eclipse.xtend.lib.annotations.Accessors
 
 class Banco implements Lugar {
-	@Accessors String nombre = "Bank"
 	
+	@Accessors String nombre = "Bank"
+
 	override obtenerPistas() {
 		return "PistaBanco"
 	}
-	
+
 }
