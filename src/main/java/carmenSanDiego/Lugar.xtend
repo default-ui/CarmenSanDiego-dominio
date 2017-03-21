@@ -5,23 +5,12 @@ import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
 
 abstract class Lugar {
-	@Accessors Pais destino = null
-	@Accessors Villano villano = null
 	
-	def String obtenerPistas(){
-		
-	}
+	@Accessors String nombre
+	@Accessors Pais destino
+	@Accessors Villano villano
 	
-	def Object getNombre(){
-	}
-	
-	def Villano getVillano(){
-		villano
-	}
-	
-	def  Pais getDestino(){
-		destino
-	}
+	def String obtenerPistas()
 	
 	def String obtenerPista(Pais pais, Villano villano)
 	
