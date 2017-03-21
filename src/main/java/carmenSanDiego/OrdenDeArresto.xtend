@@ -1,5 +1,4 @@
 package carmenSanDiego
 
 class OrdenDeArresto {
-	
 }

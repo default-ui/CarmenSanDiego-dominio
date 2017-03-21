@@ -10,7 +10,7 @@ import java.io.FileReader
 import java.util.LinkedHashSet
 
 class Mapamundi {
-	
+
 	@Accessors val paises = <Pais>newArrayList()
 
 	def nuevoPais(String nombre) {

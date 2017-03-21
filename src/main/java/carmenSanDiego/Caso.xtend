@@ -10,9 +10,8 @@ class Caso {
 	@Accessors ArrayList<Pais> planDeEscape
 	@Accessors String objeto
 	@Accessors Pais paisDelRobo
-	
-	
-	new(Villano responsable, String reporte, ArrayList<Pais> planDeEscape, String objeto, Pais paisDelRobo){
+
+	new(Villano responsable, String reporte, ArrayList<Pais> planDeEscape, String objeto, Pais paisDelRobo) {
 
 		this.responsable = responsable
 		this.reporte = reporte

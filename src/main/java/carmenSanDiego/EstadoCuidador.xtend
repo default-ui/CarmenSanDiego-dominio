@@ -1,7 +1,6 @@
 package carmenSanDiego
 
-
-class EstadoCuidador extends EstadoOcupante{
+class EstadoCuidador extends EstadoOcupante {
 	/**
 	 * El cuidador responde al jugador el villano no paso por ese pais y que debe salir a buscarlo
 	 * en otro lugar.

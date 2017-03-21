@@ -4,7 +4,6 @@ import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.ArrayList
 
-
 class Villano {
 
 	String nombre
@@ -12,7 +11,6 @@ class Villano {
 	@Accessors List<String> senasParticulares = <String>newArrayList()
 	@Accessors List<String> hobbies = <String>newArrayList()
 
-	
 	new(String nombre, Sexo sexo) {
 		this.nombre = nombre
 		this.sexo = sexo
