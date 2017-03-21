@@ -63,8 +63,8 @@ class Pais {
 		this.lugares.get(lugares.indexOf(lugar)).obtenerPistas()
 	}
 	
-	def String obtenerPistas(Lugar lugar){
-		this.estadoOcupante.responder(this, lugar)
+	def String obtenerPistas(Lugar lugar, Villano villano){
+		this.estadoOcupante.responder(this, lugar, villano)
 	}
 	
 	def void setEstado(EstadoOcupante estado){

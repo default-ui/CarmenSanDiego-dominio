@@ -1,17 +1,20 @@
 package carmenSanDiego
 
 import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
+import java.util.ArrayList
 
 class Villano {
 	
 	String nombre
 	Sexo sexo
-	List<String> senasParticulares
-	List<String> hobbies
+	@Accessors List<String> senasParticulares
+	@Accessors List<String> hobbies
 	
 	new(String nombre, Sexo sexo) {
 		this.nombre = nombre
 		this.sexo = sexo
+		this.senasParticulares = new ArrayList<String>()
 	}
 	
 	def getNombre() {

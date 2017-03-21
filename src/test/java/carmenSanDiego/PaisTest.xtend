@@ -43,23 +43,32 @@ class PaisTest {
 	@Test def comprobarEstadoCuidador(){
 		val miPais = new Pais("Rusia")
 		val miBanco = new Banco
+		val miVillano = new Villano("Moriarty", Sexo.Masculino)
 		miPais.agregarLugar(miBanco)
-		assertEquals(miPais.obtenerPistas(miBanco),"Keeper")
+		assertEquals(miPais.obtenerPistas(miBanco, miVillano), 
+					 "No vimos a nadie asi por esta zona, creo que te equivocaste")
 	}
 	
 	@Test def comprobarCambioAEstadoVillano(){
 		val miPais = new Pais("Rusia")
 		val miBanco = new Banco
+		val miVillano = new Villano("Moriarty", Sexo.Masculino)
 		miPais.agregarLugar(miBanco)
+		miBanco.villano = miVillano
 		miPais.setEstado(new EstadoVillano())
-		assertEquals(miPais.obtenerPistas(miBanco),"Villain")
+		assertEquals(miPais.obtenerPistas(miBanco, miVillano),"ALTO!")
 	}
 	
 	@Test def obtienePistaDeBancoSiEstaEnEstadoInformante(){
 		val miPais = new Pais("Rusia")
+		val miPais2 = new Pais("Argentina")
 		val miBanco = new Banco
+		var miVillano = new Villano("Moriarty", Sexo.Masculino)
 		miPais.agregarLugar(miBanco)
+		miPais2.agregarCaracteristica("Va hacia el pais de los gauchos.")
+		miVillano.agregarSena("Este villano es el nemesis de Sherlock Holmes.")
+		miBanco.destino = miPais2
 		miPais.setEstado(new EstadoInformante())
-		assertEquals(miPais.obtenerPistas(miBanco),"PistaBanco")
+		assertEquals(miPais.obtenerPistas(miBanco, miVillano),"Va hacia el pais de los gauchos. Este villano es el nemesis de Sherlock Holmes.")
 	}
 }
