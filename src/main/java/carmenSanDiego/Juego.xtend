@@ -2,6 +2,9 @@ package carmenSanDiego
 
 import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
+import static utils.FileParser.*
+import java.util.Random
+import java.util.Arrays
 
 class Juego {
 
@@ -15,16 +18,15 @@ class Juego {
 
 	def Caso crearCaso() {
 		val Pais paisDelRobo = obtenerPaisDelRobo()
-		val planDeEscape = obtenerPlanDeEscape(paisDelRobo)
-		val responsable = obtenerVillano()
-
-		new Caso(
-			responsable,
-			paisDelRobo.reporte,
-			planDeEscape,
-			paisDelRobo.objeto,
-			paisDelRobo
-		)
+		new Caso(obtenerVillano(),
+			obtenerObjeto(),
+			obtenerPlanDeEscape(paisDelRobo),
+			paisDelRobo)
+	}
+	
+	def obtenerObjeto() {
+		val objRepList = getListFromFile("src/main/resources/dataObjetos.csv")
+		return objRepList.get(new Random().nextInt(objRepList.size()))
 	}
 
 	def obtenerVillano() {
