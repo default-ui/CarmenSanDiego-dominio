@@ -4,12 +4,13 @@ import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import static utils.FileParser.*
 import java.util.Random
-import java.util.Arrays
+
 
 class Juego {
 
 	@Accessors Mapamundi mapa
 	@Accessors Expediente expediente
+	@Accessors Pais paisActual
 
 	new(Mapamundi mapa, Expediente expediente) {
 		this.mapa = mapa
@@ -49,5 +50,11 @@ class Juego {
 		plan.remove(plan.indexOf(pais))
 		plan.get(4).setEstado(estadoVil)
 		return plan
+	
+	}
+	
+	def pedirPista(Lugar lugar, Villano villano, Pais destino){
+		paisActual.pedirPista(lugar, villano, destino)
+		
 	}
 }

@@ -48,9 +48,12 @@ class Mapamundi {
 			val listaCar = lines.get(i).split("  ")
 			paises.get(i).caracteristicas = listaCar.toList
 			val nueva = new LinkedHashSet<Pais>()
-			for (c : 0 ..< 5) {
+			for (c : 0 ..< 3) {
 				val paisConect = paises.get(new Random().nextInt(paises.size()))
 				nueva.add(paisConect)
+				if (!paisConect.conexiones.contains(paises.get(i))){ 
+					paisConect.conexiones.add(paises.get(i))
+					}
 			}
 			nueva.remove(paises.get(i))
 			paises.get(i).conexiones = nueva.toList

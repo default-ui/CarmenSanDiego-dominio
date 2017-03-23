@@ -17,8 +17,6 @@ class JuegoTest {
 		expediente = new Expediente
 		juego = new Juego(mapa,expediente)
 	}
-
-
 	
 	@Test def obtenerPlanDeEscapeParaCaso(){
 		val pais = this.juego.mapa.paises.get(1)
@@ -28,4 +26,6 @@ class JuegoTest {
 			System.out.println(paises.get(i).nombre)
 			}
 		}
+		
+	
 	}

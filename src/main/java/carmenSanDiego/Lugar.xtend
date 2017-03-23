@@ -10,9 +10,9 @@ abstract class Lugar {
 
 	def String obtenerPistas()
 
-	def String obtenerPista(Pais pais, Villano villano)
+	def String obtenerPista(Pais pais, Villano villano, Pais destino)
 
-	def String obtenerPistaPais(Pais pais) {
+	def String obtenerPistaPais(Pais destino) {
 		// var int randomPais = new Random().nextInt(destino.caracteristicas.length) -1
 		var int randomPais = 0
 		destino.caracteristicas.get(randomPais)

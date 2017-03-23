@@ -33,6 +33,7 @@ class Pais {
 
 	def void agregarConexion(Pais pais) {
 		this.conexiones.add(pais)
+		pais.conexiones.add(this)
 	}
 
 	def void eliminarConexion(Pais conexion) {
@@ -57,14 +58,15 @@ class Pais {
 		this.agregarLugar(nuevo)
 	}
 
-	def obtenerPista(Lugar lugar) {
-		this.lugares.get(lugares.indexOf(lugar)).obtenerPistas()
+	def pedirPista(Lugar lugar, Villano villano, Pais destino) {
+		this.estadoOcupante.responder(this, lugar, villano, destino)
+		//this.lugares.get(lugares.indexOf(lugar)).obtenerPistas()
 	}
 
-	def String obtenerPistas(Lugar lugar, Villano villano) {
-		this.estadoOcupante.responder(this, lugar, villano)
+	//def String obtenerPistas(Lugar lugar, Villano villano, Pais destino) {
+		//this.estadoOcupante.responder(this, lugar, villano, destino)
 
-	}
+	//}
 
 	def void setEstado(EstadoOcupante estado) {
 		this.estadoOcupante = estado
@@ -75,14 +77,6 @@ class Pais {
 		for (Pais p : conexiones)
 			if(!paises.contains(p)) conexionesSinRepetidos.add(p)
 		return conexionesSinRepetidos.get(new Random().nextInt(conexionesSinRepetidos.size()))
-	}
-
-	def reporte() {
-		"TODO: auto-generated method stub"
-	}
-
-	def objeto() {
-		"TODO: auto-generated method stub"
 	}
 
 	def setCaracteristicas(ArrayList<String> c) {

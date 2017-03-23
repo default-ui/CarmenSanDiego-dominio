@@ -6,7 +6,7 @@ class Biblioteca extends Lugar {
 		nombre = "Library"
 	}
 
-	override obtenerPista(Pais pais, Villano villano) {
+	override obtenerPista(Pais pais, Villano villano, Pais destino) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 

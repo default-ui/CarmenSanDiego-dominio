@@ -28,17 +28,21 @@ class MapamundiTest {
 		val mapa = new Mapamundi
 		mapa.generarMapamundiAleatorio()
 		assertEquals(mapa.paises.size, 20)
-		System.out.println("Pais: " + mapa.paises.get(13).nombre)
-		System.out.println(" ")
-		System.out.println("Conexiones: ")
-		for (i : 0 ..< mapa.paises.get(13).conexiones.size) {
-			System.out.println(mapa.paises.get(13).conexiones.get(i).nombre)
-		}
-		System.out.println(" ")
-		System.out.println("Caracteristicas: ")
-		for (i : 0 ..< mapa.paises.get(13).caracteristicas.size) {
-			System.out.println(mapa.paises.get(13).caracteristicas.get(i))
+		for(p:0..<20){
+			System.out.println("Pais: " + mapa.paises.get(p).nombre)
+			System.out.println(" ")
+			System.out.println("Conexiones: ")
+			for (i : 0 ..< mapa.paises.get(p).conexiones.size) {
+				System.out.println(mapa.paises.get(p).conexiones.get(i).nombre)
+			}
+			System.out.println(" ")
+			System.out.println("Caracteristicas: ")
+			for (i : 0 ..< mapa.paises.get(p).caracteristicas.size) {
+				System.out.println(mapa.paises.get(p).caracteristicas.get(i))
+			}
+			System.out.println("")
+			System.out.println("=============================")
+			System.out.println("")
 		}
 	}
-
 }
