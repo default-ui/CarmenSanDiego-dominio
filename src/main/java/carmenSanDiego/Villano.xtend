@@ -6,8 +6,8 @@ import java.util.ArrayList
 
 class Villano {
 
-	String nombre
-	Sexo sexo
+	@Accessors String nombre
+	@Accessors Sexo sexo
 	@Accessors List<String> senasParticulares = <String>newArrayList()
 	@Accessors List<String> hobbies = <String>newArrayList()
 
@@ -15,14 +15,6 @@ class Villano {
 		this.nombre = nombre
 		this.sexo = sexo
 		this.senasParticulares = new ArrayList<String>()
-	}
-
-	def getNombre() {
-		nombre
-	}
-
-	def getSexo() {
-		sexo.name()
 	}
 
 	def agregarSena(String sena) {
