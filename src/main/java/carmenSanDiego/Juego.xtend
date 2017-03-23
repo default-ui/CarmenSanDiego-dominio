@@ -11,14 +11,18 @@ class Juego {
 	@Accessors Mapamundi mapa
 	@Accessors Expediente expediente
 	@Accessors Pais paisActual
+	@Accessors ArrayList<Pais> paisesVisitados
 
 	new(Mapamundi mapa, Expediente expediente) {
 		this.mapa = mapa
 		this.expediente = expediente
+		this.paisActual = null
+		this.paisesVisitados = newArrayList()
 	}
 
 	def Caso crearCaso() {
 		val Pais paisDelRobo = obtenerPaisDelRobo()
+		this.paisActual = paisDelRobo
 		new Caso(obtenerVillano(),
 			obtenerObjeto(),
 			obtenerPlanDeEscape(paisDelRobo),
@@ -55,6 +59,12 @@ class Juego {
 	
 	def pedirPista(Lugar lugar, Villano villano, Pais destino){
 		paisActual.pedirPista(lugar, villano, destino)
-		
 	}
+	
+	def viajar(Pais destino){
+		this.paisesVisitados.add(paisActual)
+		this.paisActual = destino
+	}
+	
+	
 }

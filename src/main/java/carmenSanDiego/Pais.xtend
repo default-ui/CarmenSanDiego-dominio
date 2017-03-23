@@ -60,13 +60,7 @@ class Pais {
 
 	def pedirPista(Lugar lugar, Villano villano, Pais destino) {
 		this.estadoOcupante.responder(this, lugar, villano, destino)
-		//this.lugares.get(lugares.indexOf(lugar)).obtenerPistas()
 	}
-
-	//def String obtenerPistas(Lugar lugar, Villano villano, Pais destino) {
-		//this.estadoOcupante.responder(this, lugar, villano, destino)
-
-	//}
 
 	def void setEstado(EstadoOcupante estado) {
 		this.estadoOcupante = estado
