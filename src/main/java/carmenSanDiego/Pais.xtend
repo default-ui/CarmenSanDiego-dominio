@@ -8,10 +8,10 @@ import java.util.List
 class Pais {
 
 	@Accessors String nombre
-	@Accessors var List<String> caracteristicas = <String>newArrayList()
-	@Accessors var List<Pais> conexiones = <Pais>newArrayList()
-	@Accessors val lugares = <Lugar>newArrayList()
-	@Accessors var EstadoOcupante estadoOcupante
+	@Accessors List<String> caracteristicas = <String>newArrayList()
+	@Accessors List<Pais> conexiones = <Pais>newArrayList()
+	@Accessors List<Lugar> lugares = <Lugar>newArrayList()
+	@Accessors EstadoOcupante estadoOcupante
 
 	new(String nombre) {
 		this.nombre = nombre
@@ -58,12 +58,8 @@ class Pais {
 		this.agregarLugar(nuevo)
 	}
 
-	def pedirPista(Lugar lugar, Villano villano, Pais destino) {
+	def pedirPistaOcupante(Lugar lugar, Villano villano, Pais destino) {
 		this.estadoOcupante.responder(this, lugar, villano, destino)
-	}
-
-	def void setEstado(EstadoOcupante estado) {
-		this.estadoOcupante = estado
 	}
 
 	def Pais obtenerConexionSinRepetidos(ArrayList<Pais> paises) {
