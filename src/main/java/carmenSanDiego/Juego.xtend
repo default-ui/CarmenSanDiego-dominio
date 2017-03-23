@@ -49,16 +49,16 @@ class Juego {
 		plan.add(pais)
 		for (i:0..<5){
 			plan.add(plan.get(i).obtenerConexionSinRepetidos(plan))
-			plan.get(i).setEstado(estadoInf)
+			plan.get(i).setEstadoOcupante(estadoInf)
 		}
 		plan.remove(plan.indexOf(pais))
-		plan.get(4).setEstado(estadoVil)
+		plan.get(4).setEstadoOcupante(estadoVil)
 		return plan
 	
 	}
 	
 	def pedirPista(Lugar lugar, Villano villano, Pais destino){
-		paisActual.pedirPista(lugar, villano, destino)
+		paisActual.pedirPistaOcupante(lugar, villano, destino)
 	}
 	
 	def viajar(Pais destino){

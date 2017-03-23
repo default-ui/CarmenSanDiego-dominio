@@ -32,6 +32,7 @@ class Mapamundi {
 		return paises.get(new Random().nextInt(paises.size()))
 	}
 
+	// TODO revisar, descomponer, simplificar, comentar. algo. jaja.
 	def generarMapamundiAleatorio() {
 
 		val content = new Scanner(new File("src/main/resources/datapaises.txt"))
