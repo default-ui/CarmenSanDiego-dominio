@@ -10,10 +10,10 @@ class Banco extends Lugar {
 		"PistaBanco"
 	}
 
-	override obtenerPista(Pais pais, Villano villano, Pais destino) {
+	override obtenerPista(Pais siguienteDestino, Villano villano) {
 		// obtengo un numero random para sacar una caracteristica de la lista de paises y
 		// de villanos respectivamente
-		this.obtenerPistaPais(destino) + " " + this.obtenerPistaVillanoSenaParticular(villano)
+		this.obtenerPistaPais(siguienteDestino) + " " + this.obtenerPistaVillanoSenaParticular(villano)
 
 	}
 

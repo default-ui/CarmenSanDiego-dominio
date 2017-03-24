@@ -13,6 +13,7 @@ class Juego {
 	@Accessors Pais paisActual
 	@Accessors ArrayList<Pais> paisesVisitados
 	@Accessors Caso caso
+	@Accessors Villano ordenDeArresto
 
 	new(Mapamundi mapa, Expediente expediente, Caso caso) {
 		this.mapa = mapa
@@ -20,8 +21,12 @@ class Juego {
 		this.paisActual = null
 		this.paisesVisitados = newArrayList()
 		this.caso = crearCaso()
+		this.ordenDeArresto = null
 	}
 
+	/*
+	 * Crea un caso a partir del juego recien iniciado.
+	 */
 	def Caso crearCaso() {
 		val Pais paisDelRobo = obtenerPaisDelRobo()
 		this.paisActual = paisDelRobo
@@ -52,7 +57,8 @@ class Juego {
 	}
 	
 	/*
-	 * Crea elplan de escape. Este consiste en 5 paises conectados 
+	 * Crea el plan de escape a partir de un pais (el del robo). 
+	 * Este consiste en 5 paises conectados elegidos al azar. 
 	 */
 	def ArrayList<Pais> obtenerPlanDeEscape(Pais pais) {
 		val plan = <Pais>newArrayList()
@@ -63,6 +69,7 @@ class Juego {
 			plan.add(plan.get(i).obtenerConexionSinRepetidos(plan))
 			plan.get(i).setEstadoOcupante(estadoInf)
 		}
+		// el ultimo pais de la lista es aquel en el cual va a encontrarse el villano
 		plan.remove(plan.indexOf(pais))
 		plan.get(4).setEstadoOcupante(estadoVil)
 		return plan

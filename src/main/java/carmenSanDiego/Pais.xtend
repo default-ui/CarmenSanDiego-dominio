@@ -59,7 +59,7 @@ class Pais {
 	}
 
 	def pedirPistaOcupante(Lugar lugar, Villano villano, Pais destino) {
-		this.estadoOcupante.responder(this, lugar, villano, destino)
+		this.estadoOcupante.responder(this, lugar, villano)
 	}
 
 	/*
@@ -69,12 +69,12 @@ class Pais {
 	def Pais obtenerConexionSinRepetidos(ArrayList<Pais> paises) {
 		val conexionesSinRepetidos = <Pais>newArrayList()
 		for (Pais p : conexiones)
-			// si el villano aun no paso por ese pais se agrega, caso contrario se descarta
+			// si el villano aun no paso por ese pais se agrega a la lista de candidatos, caso contrario se descarta.
 			if(!paises.contains(p)) conexionesSinRepetidos.add(p)
-		// si el villano ya paso por todas las conexiones entonces se agrega por defecto la primera	
+		// si el villano ya paso por todas las conexiones entonces no hay candidatos. Se agrega por defecto la primera.	
 		if(conexionesSinRepetidos.isEmpty) conexionesSinRepetidos.add(conexiones.get(0))
 		// Aca tambien tenemos problemas de random porque si el tamanho de la lista es 1 pedis un random 
-		//entre 0 y 1 y si te da 1 explota todo.
+		//entre 0 y 1, si te da 1 explota todo.
 		return conexionesSinRepetidos.get(new Random().nextInt(conexionesSinRepetidos.size()))
 	}
 
