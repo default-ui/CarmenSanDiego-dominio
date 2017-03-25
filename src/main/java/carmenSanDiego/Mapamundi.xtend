@@ -8,23 +8,24 @@ import java.util.ArrayList
 import java.io.BufferedReader
 import java.io.FileReader
 import java.util.LinkedHashSet
+import java.util.List
 
 class Mapamundi {
 
-	@Accessors val paises = <Pais>newArrayList()
+	@Accessors var List<Pais> paises = <Pais>newArrayList()
 
 	def nuevoPais(String nombre) {
 		val pais = new Pais(nombre)
 		this.paises.add(pais)
 	}
 
-	def eliminarPais(Pais pais) {
-		this.paises.remove(paises.indexOf(pais))
+	def eliminarPais(String nombre) {
+		this.paises = paises.filter([p | p.nombre != nombre]).toList
 	}
 
-	def editarPais(Pais pais) {
-		this.eliminarPais(pais)
-		this.nuevoPais(pais.nombre)
+	def editarPais(String nombre) {
+		this.eliminarPais(nombre)
+		this.nuevoPais(nombre)
 	}
 
 	// TODO revisar, con esta implementacion el pais del robo cambia cada vez que se lo pide	

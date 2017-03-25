@@ -35,9 +35,7 @@ class ExpedienteTest {
 	@Test 
 	def void eliminarVillano(){
 		expediente.nuevoVillano("El Gato", Sexo.Masculino)
-		expediente.nuevoVillano("El Gadsto", Sexo.Masculino)
-		//xpediente.eliminarVillano("El Gao")
-		//assertEquals(expediente.villanos, new ArrayList<Villano>())
+		expediente.eliminarVillano("El Gato")
 		assertTrue(expediente.villanos.isEmpty)
 	}
 }

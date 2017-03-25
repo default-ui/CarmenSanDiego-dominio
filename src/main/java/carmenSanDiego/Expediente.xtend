@@ -20,11 +20,7 @@ class Expediente {
 	}
 
 	def void eliminarVillano(String villano) {
-		//var villanosSin = villanos.filter([v | v != villano]).toList
-		//var nuevosVillanos = <Villano>newArrayList) 
-		//for (Villano v : this.villanos)
-		//	if (v.nombre != villano) nuevosVillanos.add(v)
-		this.villanos = villanos.filter([v | v == villano]).toList
+		this.villanos = villanos.filter([v | v.nombre != villano]).toList
 		
 	}
 

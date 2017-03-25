@@ -19,7 +19,7 @@ class MapamundiTest {
 		mapa.nuevoPais("Espanha")
 		mapa.nuevoPais("Grecia")
 		mapa.nuevoPais("Irak")
-		mapa.eliminarPais(mapa.paises.get(1))
+		mapa.eliminarPais("Grecia")
 		assertEquals(mapa.paises.size, 2)
 
 	}
