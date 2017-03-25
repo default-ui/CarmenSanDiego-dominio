@@ -15,7 +15,7 @@ class Juego {
 	@Accessors Caso caso
 	@Accessors Villano ordenDeArresto
 
-	new(Mapamundi mapa, Expediente expediente, Caso caso) {
+	new(Mapamundi mapa, Expediente expediente) {
 		this.mapa = mapa
 		this.expediente = expediente
 		this.paisActual = null

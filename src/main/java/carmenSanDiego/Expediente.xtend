@@ -7,18 +7,25 @@ import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.LinkedHashSet
 import static utils.FileParser.*
+import java.util.stream.Collectors
+import java.util.List
 
 class Expediente {
 
-	@Accessors val villanos = <Villano>newArrayList()
+	@Accessors var List<Villano >villanos = <Villano>newArrayList()
 
 	def void nuevoVillano(String nombre, Sexo sexo) {
 		val villano = new Villano(nombre, sexo)
 		this.villanos.add(villano)
 	}
 
-	def void eliminarVillano(Villano villano) {
-		this.villanos.remove(villanos.indexOf(villano))
+	def void eliminarVillano(String villano) {
+		//var villanosSin = villanos.filter([v | v != villano]).toList
+		//var nuevosVillanos = <Villano>newArrayList) 
+		//for (Villano v : this.villanos)
+		//	if (v.nombre != villano) nuevosVillanos.add(v)
+		this.villanos = villanos.filter([v | v == villano]).toList
+		
 	}
 
 	// TODO aca hay que permitir cambiar el Random	

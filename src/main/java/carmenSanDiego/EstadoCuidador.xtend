@@ -6,7 +6,7 @@ class EstadoCuidador extends EstadoOcupante {
 	 * en otro lugar.
 	 */
 	override responder(Pais pais, Lugar lugar, Villano villano) {
-		return "No vimos a nadie con tales caracteristicas por esta zona, creo que te equivocaste"
+		return "No vimos a nadie con tales caracteristicas por esta zona, creo que te equivocaste."
 	}
 
 }
