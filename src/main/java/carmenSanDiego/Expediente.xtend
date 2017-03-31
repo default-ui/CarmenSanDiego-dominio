@@ -1,14 +1,11 @@
 package carmenSanDiego
 
-import java.util.Random
-import java.io.BufferedReader
-import java.io.FileReader
-import java.util.ArrayList
-import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.LinkedHashSet
-import static utils.FileParser.*
-import java.util.stream.Collectors
 import java.util.List
+import java.util.Random
+import org.eclipse.xtend.lib.annotations.Accessors
+
+import static utils.FileParser.*
 
 class Expediente {
 
@@ -30,14 +27,11 @@ class Expediente {
 	}
 
 	def void generarExpedienteAleatorio() {
-		val reader = new BufferedReader(new FileReader("src/main/resources/dataVillanos.csv"))
-		val lines = new ArrayList()
-		var line = null as String
+		
+		val lines = obtenerVillanos()
 		val senas = obtenerSenas()
 		val hobbiesA = obtenerHobbies()
-		while ((line = reader.readLine()) !== null) {
-			lines.add(line);
-		}
+		
 		for (i : 0 ..< lines.size) {
 			val listaCar = lines.get(i).split("  ")
 			var villano = new Villano(listaCar.get(0), Sexo.valueOf(listaCar.get(1)))
@@ -61,6 +55,10 @@ class Expediente {
 
 	def obtenerHobbies() {
 		getListFromFile("src/main/resources/dataHobbies.csv")
+	}
+	
+	def obtenerVillanos() {
+		getListFromFile("src/main/resources/dataVillanos.csv")
 	}
 
 }
