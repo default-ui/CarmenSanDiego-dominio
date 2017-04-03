@@ -13,7 +13,7 @@ class Banco extends Lugar {
 	override obtenerPista(Pais siguienteDestino, Villano villano) {
 		
 		var pista = this.obtenerPistaPais(siguienteDestino) + " " +
-					this.obtenerPistaVillanoSenaParticular(villano) + " "
+					this.obtenerPistaVillanoSenaParticular(villano)
 					
 		pista
 	}
