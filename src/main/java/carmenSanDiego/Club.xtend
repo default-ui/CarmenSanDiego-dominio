@@ -14,11 +14,11 @@ class Club extends Lugar{
 		
 		// TODO devuelve 2 pistas sobre villano?
 		var pista = this.obtenerPistaVillanoSenaParticular(villano) + " " + 
-					this.obtenerPistaVillanoSenaParticular(villano) + " "
+					this.obtenerPistaVillanoSenaParticular(villano)
 		
 		// el 70% de las veces agrega una pista sobre los hobbies del villano
 		if( randomGen.nextInt(10) < 7) {
-			pista + this.obtenerPistaVillanoHobbies(villano)
+			pista = pista + ' ' + this.obtenerPistaVillanoHobbies(villano)
 		}
 		
 		pista

@@ -10,6 +10,8 @@ class LugaresTest {
 	
 	var Banco banco
 	var Biblioteca biblioteca
+	var Club club
+	var Embajada embajada
 	
 	var Pais paisMock
 	var Villano villanoMock
@@ -30,6 +32,7 @@ class LugaresTest {
 		when(villanoMock.hobbies).thenReturn(hobbiesVillano)
 		
 		randomMock = mock(Random)
+		when(randomMock.nextInt(anyInt())).thenReturn(0)		
 		
 	}
 	
@@ -42,9 +45,7 @@ class LugaresTest {
 		
 		// preparo el mock de Random
 		banco.randomGen = randomMock // hago que el banco use mi random mockeado
-		
-		when(randomMock.nextInt(anyInt())).thenReturn(0)		
-		
+				
 		assertEquals("C1 SP1", 
 			banco.obtenerPista(paisMock, villanoMock)
 		)
@@ -67,18 +68,57 @@ class LugaresTest {
 		
 		// preparo mock del random
 		biblioteca.randomGen = randomMock
-		when(randomMock.nextInt(anyInt())).thenReturn(0)		
-		when(randomMock.nextBoolean).thenReturn(false)		
+		when(randomMock.nextBoolean).thenReturn(false)
 		
 		assertEquals("C1 SP1", 
 			biblioteca.obtenerPista(paisMock, villanoMock)
 		)
 		
 		// si cambio el valor de random cambian los resultados
-		when(randomMock.nextBoolean).thenReturn(true)		
+		when(randomMock.nextBoolean).thenReturn(true)
 		
 		assertEquals("C1 SP1 H1", 
 			biblioteca.obtenerPista(paisMock, villanoMock)
+		)
+		
+	}
+	
+	@Test def void pistasClub(){
+		
+		club = new Club()
+		
+		assertEquals("Club", club.nombre)
+		assertEquals("PistaClub", club.obtenerPistas)
+		
+		// preparo mock del random
+		club.randomGen = randomMock
+		when(randomMock.nextInt(10)).thenReturn(10) // cuando pido porcentaje da 10	
+		
+		assertEquals("SP1 SP1", 
+			club.obtenerPista(paisMock, villanoMock)
+		)
+		
+		// si cambio el valor de random cambian los resultados
+		when(randomMock.nextInt(10)).thenReturn(0) // cuando pido porcentaje da 0 ahora	
+		
+		assertEquals("SP1 SP1 H1", 
+			club.obtenerPista(paisMock, villanoMock)
+		)
+		
+	}
+	
+	@Test def void pistasEmbajada(){
+		
+		embajada = new Embajada()
+		
+		assertEquals("Embasy", embajada.nombre)
+		assertEquals("PistaEmbajada", embajada.obtenerPistas)
+		
+		// preparo mock de random
+		embajada.randomGen = randomMock
+		
+		assertEquals("C1 C1", 
+			embajada.obtenerPista(paisMock, villanoMock)
 		)
 		
 	}
