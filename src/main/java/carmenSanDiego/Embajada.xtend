@@ -2,13 +2,20 @@ package carmenSanDiego
 
 class Embajada  extends Lugar{
 	
+	new() {
+		nombre = "Embasy"
+	}
+
 	override obtenerPistas() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		"PistaEmbajada"
 	}
 	
 	override obtenerPista(Pais siguienteDestino, Villano villano) {
-		// aca puede llegar a repetirse la pista. Hay que preocurar que no suceda (?)
-		this.obtenerPistaPais(siguienteDestino) + " " + this.obtenerPistaPais(siguienteDestino) 
+		// TODO: aca puede llegar a repetirse la pista. Hay que preocurar que no suceda (?)
+		var pista = this.obtenerPistaPais(siguienteDestino) + " " +
+					this.obtenerPistaPais(siguienteDestino) + " "
+					
+		pista
 	}
 	
 }
