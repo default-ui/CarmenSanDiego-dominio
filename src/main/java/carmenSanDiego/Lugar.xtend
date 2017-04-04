@@ -6,7 +6,6 @@ import org.eclipse.xtend.lib.annotations.Accessors
 abstract class Lugar {
 
 	@Accessors String nombre
-	@Accessors Pais destino
 	@Accessors Villano villano
 	
 	// inicializo el generador, genero setter para poder cambiarlo

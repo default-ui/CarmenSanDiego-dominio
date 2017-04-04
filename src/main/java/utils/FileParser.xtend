@@ -6,6 +6,9 @@ import java.util.ArrayList
 
 class FileParser {
 	
+	/**
+	 * Obtiene un listado de strings con el contenido del archivo
+	 */
 	def static getListFromFile(String filePath) {
 		
         val reader = new BufferedReader(new FileReader(filePath))
