@@ -64,6 +64,7 @@ class PaisTest {
 
 		paisArgentina.agregarLugar(lugarBiblioteca)
 		paisArgentina.editarLugar(lugarBiblioteca, lugarBanco)
+		
 		assertEquals(1, paisArgentina.lugares.size)
 		assertEquals("Bank", paisArgentina.lugares.get(0).nombre)
 
@@ -73,6 +74,7 @@ class PaisTest {
 		
 		// TODO esto hay que pasarlo a mock
 		paisArgentina.agregarLugar(lugarBanco)
+		
 		assertEquals(
 			"No vimos a nadie con tales caracteristicas por esta zona, creo que te equivocaste.",
 			paisArgentina.pedirPistaOcupante(lugarBanco, villanoMoriarty, paisBrazil)
@@ -94,11 +96,12 @@ class PaisTest {
 	}
 
 	@Test def obtienePistaDeBancoSiEstaEnEstadoInformante() {
+		
 		paisRusia.agregarLugar(lugarBanco)
 		paisBrazil.agregarCaracteristica("Fue al pais mais grande do mundo!")
 		villanoMoriarty.agregarSena("Este villano es el nemesis de Sherlock Holmes.")
 		paisRusia.setEstadoOcupante(new EstadoInformante())
-		//System.out.println(paisBrazil.caracteristicas.size)
+		
 		assertEquals(
 			"Fue al pais mais grande do mundo! Este villano es el nemesis de Sherlock Holmes.",
 			paisRusia.pedirPistaOcupante(lugarBanco, villanoMoriarty, paisBrazil)

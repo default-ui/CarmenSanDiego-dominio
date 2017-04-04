@@ -62,7 +62,7 @@ class Pais {
 		this.estadoOcupante.responder(destino, lugar, villano)
 	}
 
-	/*
+	/**
 	 * Metodo auxiliar utilizado a la hora de crear el plan de escape. Evita que haya 
 	 * dos paises iguales consecutivos en el plan.
 	 */
@@ -76,10 +76,6 @@ class Pais {
 		// Aca tambien tenemos problemas de random porque si el tamanho de la lista es 1 pedis un random 
 		//entre 0 y 1, si te da 1 explota todo.
 		return conexionesSinRepetidos.get(new Random().nextInt(conexionesSinRepetidos.size()))
-	}
-
-	def setCaracteristicas(ArrayList<String> c) {
-		this.caracteristicas = c
 	}
 
 }
