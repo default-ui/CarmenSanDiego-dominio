@@ -4,8 +4,9 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.Random
 import java.util.ArrayList
 import java.util.List
+import org.uqbar.commons.utils.Observable
 
-class Pais {
+@Observable class Pais {
 
 	@Accessors String nombre
 	@Accessors List<String> caracteristicas = <String>newArrayList()
