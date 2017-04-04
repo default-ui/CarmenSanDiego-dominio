@@ -1,14 +1,12 @@
 package carmenSanDiego
 
-import org.eclipse.xtend.lib.annotations.Accessors
-import java.util.Random
-import java.util.Scanner
-import java.io.File
 import java.util.ArrayList
-import java.io.BufferedReader
-import java.io.FileReader
-import java.util.LinkedHashSet
+import java.util.LinkedList
 import java.util.List
+import java.util.Random
+import org.eclipse.xtend.lib.annotations.Accessors
+
+import static utils.FileParser.*
 
 class Mapamundi {
 
@@ -32,33 +30,64 @@ class Mapamundi {
 	def Pais obtenerPaisDelRobo() {
 		return paises.get(new Random().nextInt(paises.size()))
 	}
+	
+	/**
+	 * Retorna una lista de paises, con sus caracteristicas
+	 * Los datos los obtiene de un archivo CSV
+	 */
+	def private cargarPaisesYCaracteristicas(){
+		
+		var listaPaises = new ArrayList()
+		
+		// armo una lista con todos los datos de los paises, un pais por linea
+		var listaPaisesDatos = getListFromFile('src/main/resources/datapaises.csv')
+		for (datosPais : listaPaisesDatos) {
+			
+			// separo la linea en una nueva lista
+			var listaDatosPais = new LinkedList(datosPais.split(','))
+			
+			// creo un pais, el nombre es el primer elemento de la lista			
+			var nuevoPais = new Pais(listaDatosPais.remove(0))
+			
+			for (caracteristica : listaDatosPais) {
+				nuevoPais.agregarCaracteristica(caracteristica)
+			}
+			
+			listaPaises.add(nuevoPais)
+		}
+		
+		listaPaises
+	}
 
 	// TODO revisar, descomponer, simplificar, comentar. algo. jaja.
+	/**
+	 * Genera un listado de paises con conexiones aleatorias entre ellos
+	 */
 	def generarMapamundiAleatorio() {
-
-		val content = new Scanner(new File("src/main/resources/datapaises.txt"))
-		while (content.hasNext()) {
-			nuevoPais(content.next())
-		}
-		val reader = new BufferedReader(new FileReader("src/main/resources/datacaracteristicas.csv"))
-		val lines = new ArrayList()
-		var line = null as String
-		while ((line = reader.readLine()) !== null) {
-			lines.add(line);
-		}
-		for (i : 0 ..< lines.size) {
-			val listaCar = lines.get(i).split("  ")
-			paises.get(i).caracteristicas = listaCar.toList
-			val nueva = new LinkedHashSet<Pais>()
-			for (c : 0 ..< 3) {
-				val paisConect = paises.get(new Random().nextInt(paises.size()))
-				nueva.add(paisConect)
-				if (!paisConect.conexiones.contains(paises.get(i))){ 
-					paisConect.conexiones.add(paises.get(i))
-					}
+		
+		var listadoPaises = cargarPaisesYCaracteristicas
+		
+		// agrego las conexiones a cada pais
+		for (paisActual : listadoPaises) {
+			
+			// genero una nueva lista de paises sin el pais actual
+			var paisesMenosPaisActual = new ArrayList<Pais>(listadoPaises)
+			paisesMenosPaisActual.remove(paisActual)
+			
+			// conecto el pais actual con otros 3
+			while(paisActual.conexiones.size < 3) {
+				
+				// elijo el pais con el que generar la conexion
+				// TODO: deberia ser un pais que tambien tenga menos de 3 conexiones
+				var paisAConectar = paisesMenosPaisActual.get(new Random().nextInt(paisesMenosPaisActual.size()))
+				 
+				// genero conexion en ambos sentidos
+				paisActual.agregarConexion(paisAConectar)
 			}
-			nueva.remove(paises.get(i))
-			paises.get(i).conexiones = nueva.toList
+			
+			paises.add(paisActual)
+			
 		}
+
 	}
 }

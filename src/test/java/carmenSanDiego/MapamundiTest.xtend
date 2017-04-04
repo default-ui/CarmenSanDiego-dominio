@@ -23,11 +23,14 @@ class MapamundiTest {
 		assertEquals(mapa.paises.size, 2)
 
 	}
-
+	
 	@Test def imprimirPaises() {
+		
 		val mapa = new Mapamundi
 		mapa.generarMapamundiAleatorio()
-		assertEquals(mapa.paises.size, 20)
+		
+		assertEquals(20, mapa.paises.size)
+		
 		for(p:0..<20){
 			System.out.println("Pais: " + mapa.paises.get(p).nombre)
 			System.out.println(" ")
