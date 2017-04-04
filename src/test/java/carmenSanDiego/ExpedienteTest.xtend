@@ -36,6 +36,7 @@ class ExpedienteTest {
 	@Test 
 	def void eliminarVillano(){
 		expediente.nuevoVillano("El Gato", Sexo.Masculino)
+		assertFalse(expediente.villanos.isEmpty)
 		expediente.eliminarVillano("El Gato")
 		assertTrue(expediente.villanos.isEmpty)
 	}

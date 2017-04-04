@@ -23,7 +23,7 @@ class VillanoTest {
 	def void testGetters() {
 
 		assertEquals('Carmen Sandiego', carmen.getNombre)
-		assertEquals('Femenino', carmen.getSexo)
+		assertEquals(Sexo.Femenino, carmen.getSexo)
 
 	}
 

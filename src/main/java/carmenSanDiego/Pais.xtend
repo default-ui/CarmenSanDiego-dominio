@@ -59,7 +59,7 @@ class Pais {
 	}
 
 	def pedirPistaOcupante(Lugar lugar, Villano villano, Pais destino) {
-		this.estadoOcupante.responder(this, lugar, villano)
+		this.estadoOcupante.responder(destino, lugar, villano)
 	}
 
 	/*
