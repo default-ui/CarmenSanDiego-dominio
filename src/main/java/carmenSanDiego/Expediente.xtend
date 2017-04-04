@@ -1,6 +1,5 @@
 package carmenSanDiego
 
-import java.util.LinkedHashSet
 import java.util.List
 import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
@@ -16,8 +15,8 @@ class Expediente {
 		this.villanos.add(villano)
 	}
 
-	def void eliminarVillano(String villano) {
-		this.villanos = villanos.filter([v | v.nombre != villano]).toList
+	def void eliminarVillano(String villanoNombre) {
+		this.villanos = villanos.filter([v | v.nombre != villanoNombre]).toList
 		
 	}
 
@@ -26,38 +25,43 @@ class Expediente {
 		return villanos.get(new Random().nextInt(villanos.size()))
 	}
 
+	/**
+	 * Genera un listado de villanos con caracteristicas aleatorias
+	 */
 	def void generarExpedienteAleatorio() {
 		
-		val lines = obtenerVillanos()
-		val senas = obtenerSenas()
-		val hobbiesA = obtenerHobbies()
+		val listaVillanos = obtenerVillanos()
+		val listaSenas = obtenerSenas()
+		val listaHobbies = obtenerHobbies()
 		
-		for (i : 0 ..< lines.size) {
-			val listaCar = lines.get(i).split("  ")
-			var villano = new Villano(listaCar.get(0), Sexo.valueOf(listaCar.get(1)))
-			val hobbs = new LinkedHashSet<String>()
-			val sens = new LinkedHashSet<String>()
-			for (h : 0 ..< 5) {
-				val sena = senas.get(new Random().nextInt(senas.size()))
-				val hobbie = hobbiesA.get(new Random().nextInt(hobbiesA.size()))
-				sens.add(sena)
-				hobbs.add(hobbie)
+		for (i : 0 ..< listaVillanos.size) {
+
+			// creo el nuevo villano usando datos de la lista de villanos			
+			val datosNuevoVillano = listaVillanos.get(i).split("  ")
+			var villano = new Villano(datosNuevoVillano.get(0), Sexo.valueOf(datosNuevoVillano.get(1)))
+			
+			// consigo 5 caracteristicas random de cada tipo para el villano nuevo
+			// TODO aca tambien se puede usar el random			
+			for (j : 0 ..< 5) {
+				val sena = listaSenas.get(new Random().nextInt(listaSenas.size()))
+				val hobbie = listaHobbies.get(new Random().nextInt(listaHobbies.size()))
+				villano.agregarSena(sena)
+				villano.agregarHobbie(hobbie)
 			}
-			villano.senasParticulares = sens.toList
-			villano.hobbies = hobbs.toList
+			
 			villanos.add(villano)
 		}
 	}
 
-	def obtenerSenas() {
+	def private obtenerSenas() {
 		getListFromFile("src/main/resources/dataSenas.csv")
 	}
 
-	def obtenerHobbies() {
+	def private obtenerHobbies() {
 		getListFromFile("src/main/resources/dataHobbies.csv")
 	}
 	
-	def obtenerVillanos() {
+	def private obtenerVillanos() {
 		getListFromFile("src/main/resources/dataVillanos.csv")
 	}
 
