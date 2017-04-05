@@ -62,16 +62,16 @@ class Juego {
 	 */
 	def ArrayList<Pais> obtenerPlanDeEscape(Pais pais) {
 		val plan = <Pais>newArrayList()
-		val estadoInf = new EstadoInformante
-		val estadoVil = new EstadoVillano
+		val estadoInformante = new EstadoInformante
+		val estadoVillano = new EstadoVillano
 		plan.add(pais)
 		for (i:0..<5){
 			plan.add(plan.get(i).obtenerConexionSinRepetidos(plan))
-			plan.get(i).setEstadoOcupante(estadoInf)
+			plan.get(i).setEstadoOcupante(estadoInformante)
 		}
 		// el ultimo pais de la lista es aquel en el cual va a encontrarse el villano
 		plan.remove(plan.indexOf(pais))
-		plan.get(4).setEstadoOcupante(estadoVil)
+		plan.get(4).setEstadoOcupante(estadoVillano)
 		return plan
 	
 	}

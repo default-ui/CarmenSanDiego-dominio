@@ -12,6 +12,7 @@ import java.util.LinkedHashSet
 class Mapamundi {
 
 	@Accessors val paises = <Pais>newArrayList()
+	private var Pais paisDelRobo
 
 	def nuevoPais(String nombre) {
 		val pais = new Pais(nombre)
@@ -27,37 +28,59 @@ class Mapamundi {
 		this.nuevoPais(pais.nombre)
 	}
 
-	// TODO revisar, con esta implementacion el pais del robo cambia cada vez que se lo pide	
 	def Pais obtenerPaisDelRobo() {
-		return paises.get(new Random().nextInt(paises.size()))
+        if (paisDelRobo == null) paisDelRobo = randomPais()
+        return paisDelRobo
 	}
 
-	// TODO revisar, descomponer, simplificar, comentar. algo. jaja.
+    def private Pais randomPais(){
+        paises.get(new Random().nextInt(paises.size()))
+    }
+
 	def generarMapamundiAleatorio() {
-
-		val content = new Scanner(new File("src/main/resources/datapaises.txt"))
-		while (content.hasNext()) {
-			nuevoPais(content.next())
-		}
-		val reader = new BufferedReader(new FileReader("src/main/resources/datacaracteristicas.csv"))
-		val lines = new ArrayList()
-		var line = null as String
-		while ((line = reader.readLine()) !== null) {
-			lines.add(line);
-		}
-		for (i : 0 ..< lines.size) {
-			val listaCar = lines.get(i).split("  ")
-			paises.get(i).caracteristicas = listaCar.toList
-			val nueva = new LinkedHashSet<Pais>()
-			for (c : 0 ..< 3) {
-				val paisConect = paises.get(new Random().nextInt(paises.size()))
-				nueva.add(paisConect)
-				if (!paisConect.conexiones.contains(paises.get(i))){ 
-					paisConect.conexiones.add(paises.get(i))
-					}
-			}
-			nueva.remove(paises.get(i))
-			paises.get(i).conexiones = nueva.toList
-		}
+        generarPaises()
+        generarCaracteristicasYConexiones()
 	}
+
+
+    // Private
+
+    def private generarCaracteristicasYConexiones() {
+        val reader = new BufferedReader(new FileReader("src/main/resources/datacaracteristicas.csv"))
+        val lineasDeCaracteristicas = new ArrayList()
+        var String line
+        while ((line = reader.readLine()) !== null) {
+            lineasDeCaracteristicas.add(line);
+        }
+        for (numeroDeLinea : 0 ..< lineasDeCaracteristicas.size) {
+            generarCaracteristicas(lineasDeCaracteristicas, numeroDeLinea)
+            generarConexiones(numeroDeLinea)
+        }
+    }
+
+
+    def private generarPaises() {
+        val nombresDePaises = new Scanner(new File("src/main/resources/datapaises.txt"))
+        while (nombresDePaises.hasNext()) {
+            nuevoPais(nombresDePaises.next())
+        }
+    }
+
+    def private generarConexiones(Integer numeroDeLinea) {
+        val nueva = new LinkedHashSet<Pais>()
+        for (c : 0 ..< 3) {
+            val paisConect = paises.get(new Random().nextInt(paises.size()))
+            nueva.add(paisConect)
+            if (!paisConect.conexiones.contains(paises.get(numeroDeLinea))){
+                paisConect.conexiones.add(paises.get(numeroDeLinea))
+            }
+        }
+        nueva.remove(paises.get(numeroDeLinea))
+        paises.get(numeroDeLinea).conexiones = nueva.toList
+    }
+
+    def private generarCaracteristicas(ArrayList<String> lineasDeCaracteristicas ,Integer numeroDeLinea) {
+        val listaCar = lineasDeCaracteristicas.get(numeroDeLinea).split("  ")
+        paises.get(numeroDeLinea).caracteristicas = listaCar.toList
+    }
 }
