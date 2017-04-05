@@ -6,10 +6,6 @@ class Biblioteca extends Lugar {
 		nombre = "Library"
 	}
 
-	override obtenerPistas() {
-		"PistaBiblioteca"
-	}
-
 	override obtenerPista(Pais siguienteDestino, Villano villano) {
 		
 		var pista = this.obtenerPistaPais(siguienteDestino) + " " +

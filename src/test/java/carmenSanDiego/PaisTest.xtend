@@ -77,7 +77,7 @@ class PaisTest {
 		
 		assertEquals(
 			"No vimos a nadie con tales caracteristicas por esta zona, creo que te equivocaste.",
-			paisArgentina.pedirPistaOcupante(lugarBanco, villanoMoriarty, paisBrazil)
+			paisArgentina.pedirPistaOcupante(lugarBanco, villanoMoriarty, paisBrazil, null)
 		)
 
 	}
@@ -85,12 +85,11 @@ class PaisTest {
 	@Test def comprobarCambioAEstadoVillano() {
 		
 		paisArgentina.agregarLugar(lugarBanco)
-		lugarBanco.villano = villanoMoriarty
 		paisBrazil.setEstadoOcupante(new EstadoVillano())
 		
 		assertEquals(
-			"ALTO!",
-			paisBrazil.pedirPistaOcupante(lugarBanco, villanoMoriarty, paisBrazil)
+			"Peligro, el villano está en el país. Tené cuidado",
+			paisBrazil.pedirPistaOcupante(lugarBanco, villanoMoriarty, paisBrazil, null)
 		)
 		
 	}
@@ -104,7 +103,7 @@ class PaisTest {
 		
 		assertEquals(
 			"Fue al pais mais grande do mundo! Este villano es el nemesis de Sherlock Holmes.",
-			paisRusia.pedirPistaOcupante(lugarBanco, villanoMoriarty, paisBrazil)
+			paisRusia.pedirPistaOcupante(lugarBanco, villanoMoriarty, paisBrazil, null)
 		)
 	}
 }

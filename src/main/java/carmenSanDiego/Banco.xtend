@@ -6,9 +6,6 @@ class Banco extends Lugar {
 		nombre = "Bank"
 	}
 
-	override obtenerPistas() {
-		"PistaBanco"
-	}
 
 	override obtenerPista(Pais siguienteDestino, Villano villano) {
 		

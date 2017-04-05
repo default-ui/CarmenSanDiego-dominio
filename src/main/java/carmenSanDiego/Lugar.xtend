@@ -6,12 +6,13 @@ import org.eclipse.xtend.lib.annotations.Accessors
 abstract class Lugar {
 
 	@Accessors String nombre
-	@Accessors Villano villano
+	@Accessors Boolean seEncuentraVillano = false
+	// TO DO: cuando se incialice el juego hay que asegurarse que el lugar en donde se encuentra el villano
+	//se encuentre en true
 	
 	// inicializo el generador, genero setter para poder cambiarlo
 	@Accessors Random randomGen = new Random() 
-	
-	def String obtenerPistas()
+
 
 	def String obtenerPista(Pais siguienteDestino, Villano villano)
 

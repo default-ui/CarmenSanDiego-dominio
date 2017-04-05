@@ -6,9 +6,6 @@ class Embajada  extends Lugar{
 		nombre = "Embasy"
 	}
 
-	override obtenerPistas() {
-		"PistaEmbajada"
-	}
 	
 	override obtenerPista(Pais siguienteDestino, Villano villano) {
 		// TODO: aca puede llegar a repetirse la pista. Hay que preocurar que no suceda (?)

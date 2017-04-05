@@ -5,10 +5,6 @@ class Club extends Lugar{
 	new() {
 		nombre = "Club"
 	}
-
-	override obtenerPistas() {
-		"PistaClub"
-	}
 	
 	override obtenerPista(Pais siguienteDestino, Villano villano) {
 		
