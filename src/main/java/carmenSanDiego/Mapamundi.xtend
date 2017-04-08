@@ -10,7 +10,8 @@ import static utils.FileParser.*
 
 class Mapamundi {
 
-	@Accessors var List<Pais> paises = <Pais>newArrayList()
+	@Accessors val paises = <Pais>newArrayList()
+	private var Pais paisDelRobo
 
 	def nuevoPais(String nombre) {
 		val pais = new Pais(nombre)
@@ -26,9 +27,9 @@ class Mapamundi {
 		this.nuevoPais(nombre)
 	}
 
-	// TODO revisar, con esta implementacion el pais del robo cambia cada vez que se lo pide	
 	def Pais obtenerPaisDelRobo() {
-		return paises.get(new Random().nextInt(paises.size()))
+        if (paisDelRobo == null) paisDelRobo = randomPais()
+        return paisDelRobo
 	}
 	
 	/**
@@ -59,7 +60,10 @@ class Mapamundi {
 		listaPaises
 	}
 
-	// TODO revisar, descomponer, simplificar, comentar. algo. jaja.
+    def private Pais randomPais(){
+        paises.get(new Random().nextInt(paises.size()))
+    }
+
 	/**
 	 * Genera un listado de paises con conexiones aleatorias entre ellos
 	 */
@@ -90,4 +94,5 @@ class Mapamundi {
 		}
 
 	}
+
 }
