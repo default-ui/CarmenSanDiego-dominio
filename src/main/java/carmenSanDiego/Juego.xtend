@@ -24,7 +24,7 @@ class Juego {
 		this.ordenDeArresto = null
 	}
 
-	/*
+	/**
 	 * Crea un caso a partir del juego recien iniciado.
 	 */
 	def Caso crearCaso() {
@@ -35,28 +35,28 @@ class Juego {
 			obtenerPlanDeEscape(paisDelRobo),
 			paisDelRobo)
 	}
-	/*
+	/**
 	 * Obtiene un objeto random de la lista de objetos predeterminados.
 	 */
 	def obtenerObjeto() {
 		val objRepList = getListFromFile("src/main/resources/dataObjetos.csv")
 		return objRepList.get(new Random().nextInt(objRepList.size()))
 	}
-	/*
+	/**
 	 * Obtiene un villano random de la lista de villanos
 	 */
 	def obtenerVillano() {
 		this.expediente.obtenerVillano()
 	}
 
-	/*
+	/**
 	 * Obtiene un pais random a partir del mapamundi generado aleatoriamente
 	 */
 	def obtenerPaisDelRobo() {
 		this.mapa.obtenerPaisDelRobo()
 	}
 	
-	/*
+	/**
 	 * Crea el plan de escape a partir de un pais (el del robo). 
 	 * Este consiste en 5 paises conectados elegidos al azar. 
 	 */

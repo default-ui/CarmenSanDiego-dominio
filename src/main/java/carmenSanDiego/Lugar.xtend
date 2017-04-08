@@ -7,12 +7,11 @@ abstract class Lugar {
 
 	@Accessors String nombre
 	@Accessors Boolean seEncuentraVillano = false
-	// TO DO: cuando se incialice el juego hay que asegurarse que el lugar en donde se encuentra el villano
+	// TODO: cuando se inicialice el juego hay que asegurarse que el lugar en donde se encuentra el villano
 	//se encuentre en true
 	
 	// inicializo el generador, genero setter para poder cambiarlo
 	@Accessors Random randomGen = new Random() 
-
 
 	def String obtenerPista(Pais siguienteDestino, Villano villano)
 

@@ -6,7 +6,6 @@ class Banco extends Lugar {
 		nombre = "Bank"
 	}
 
-
 	override obtenerPista(Pais siguienteDestino, Villano villano) {
 		
 		var pista = this.obtenerPistaPais(siguienteDestino) + " " +
