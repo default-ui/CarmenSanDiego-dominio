@@ -4,8 +4,9 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.Random
 import java.util.ArrayList
 import java.util.List
+import org.uqbar.commons.utils.Observable
 
-class Pais {
+@Observable class Pais {
 
 	@Accessors String nombre
 	@Accessors List<String> caracteristicas = <String>newArrayList()
@@ -58,11 +59,11 @@ class Pais {
 		this.agregarLugar(nuevo)
 	}
 
-	def pedirPistaOcupante(Lugar lugar, Villano villano, Pais destino) {
-		this.estadoOcupante.responder(this, lugar, villano)
+	def pedirPistaOcupante(Lugar lugar, Villano villano, Pais destino, Villano ordenDeArresto) {
+		this.estadoOcupante.responder(destino, lugar, villano, ordenDeArresto)
 	}
 
-	/*
+	/**
 	 * Metodo auxiliar utilizado a la hora de crear el plan de escape. Evita que haya 
 	 * dos paises iguales consecutivos en el plan.
 	 */
@@ -76,10 +77,6 @@ class Pais {
 		// Aca tambien tenemos problemas de random porque si el tamanho de la lista es 1 pedis un random 
 		//entre 0 y 1, si te da 1 explota todo.
 		return conexionesSinRepetidos.get(new Random().nextInt(conexionesSinRepetidos.size()))
-	}
-
-	def setCaracteristicas(ArrayList<String> c) {
-		this.caracteristicas = c
 	}
 
 }

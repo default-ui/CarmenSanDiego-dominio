@@ -15,7 +15,7 @@ class Juego {
 	@Accessors Caso caso
 	@Accessors Villano ordenDeArresto
 
-	new(Mapamundi mapa, Expediente expediente, Caso caso) {
+	new(Mapamundi mapa, Expediente expediente) {
 		this.mapa = mapa
 		this.expediente = expediente
 		this.paisActual = null
@@ -76,8 +76,8 @@ class Juego {
 	
 	}
 	
-	def pedirPista(Lugar lugar, Villano villano, Pais destino){
-		paisActual.pedirPistaOcupante(lugar, villano, destino)
+	def pedirPista(Lugar lugar, Villano villano, Pais destino, Villano ordenDeArresto){
+		paisActual.pedirPistaOcupante(lugar, villano, destino, ordenDeArresto)
 	}
 	
 	def viajar(Pais destino){

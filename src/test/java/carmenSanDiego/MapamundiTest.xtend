@@ -19,15 +19,18 @@ class MapamundiTest {
 		mapa.nuevoPais("Espanha")
 		mapa.nuevoPais("Grecia")
 		mapa.nuevoPais("Irak")
-		mapa.eliminarPais(mapa.paises.get(1))
+		mapa.eliminarPais("Grecia")
 		assertEquals(mapa.paises.size, 2)
 
 	}
-
+	
 	@Test def imprimirPaises() {
+		
 		val mapa = new Mapamundi
 		mapa.generarMapamundiAleatorio()
-		assertEquals(mapa.paises.size, 20)
+		
+		assertEquals(20, mapa.paises.size)
+		
 		for(p:0..<20){
 			System.out.println("Pais: " + mapa.paises.get(p).nombre)
 			System.out.println(" ")

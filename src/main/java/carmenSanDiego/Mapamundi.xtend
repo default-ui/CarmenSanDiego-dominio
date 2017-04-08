@@ -1,13 +1,12 @@
 package carmenSanDiego
 
-import org.eclipse.xtend.lib.annotations.Accessors
-import java.util.Random
-import java.util.Scanner
-import java.io.File
 import java.util.ArrayList
-import java.io.BufferedReader
-import java.io.FileReader
-import java.util.LinkedHashSet
+import java.util.LinkedList
+import java.util.List
+import java.util.Random
+import org.eclipse.xtend.lib.annotations.Accessors
+
+import static utils.FileParser.*
 
 class Mapamundi {
 
@@ -19,68 +18,81 @@ class Mapamundi {
 		this.paises.add(pais)
 	}
 
-	def eliminarPais(Pais pais) {
-		this.paises.remove(paises.indexOf(pais))
+	def eliminarPais(String nombre) {
+		this.paises = paises.filter([p | p.nombre != nombre]).toList
 	}
 
-	def editarPais(Pais pais) {
-		this.eliminarPais(pais)
-		this.nuevoPais(pais.nombre)
+	def editarPais(String nombre) {
+		this.eliminarPais(nombre)
+		this.nuevoPais(nombre)
 	}
 
 	def Pais obtenerPaisDelRobo() {
         if (paisDelRobo == null) paisDelRobo = randomPais()
         return paisDelRobo
 	}
+	
+	/**
+	 * Retorna una lista de paises, con sus caracteristicas
+	 * Los datos los obtiene de un archivo CSV
+	 */
+	def private cargarPaisesYCaracteristicas(){
+		
+		var listaPaises = new ArrayList()
+		
+		// armo una lista con todos los datos de los paises, un pais por linea
+		var listaPaisesDatos = getListFromFile('src/main/resources/datapaises.csv')
+		for (datosPais : listaPaisesDatos) {
+			
+			// separo la linea en una nueva lista
+			var listaDatosPais = new LinkedList(datosPais.split(','))
+			
+			// creo un pais, el nombre es el primer elemento de la lista			
+			var nuevoPais = new Pais(listaDatosPais.remove(0))
+			
+			for (caracteristica : listaDatosPais) {
+				nuevoPais.agregarCaracteristica(caracteristica)
+			}
+			
+			listaPaises.add(nuevoPais)
+		}
+		
+		listaPaises
+	}
 
     def private Pais randomPais(){
         paises.get(new Random().nextInt(paises.size()))
     }
 
+	/**
+	 * Genera un listado de paises con conexiones aleatorias entre ellos
+	 */
 	def generarMapamundiAleatorio() {
-        generarPaises()
-        generarCaracteristicasYConexiones()
+		
+		var listadoPaises = cargarPaisesYCaracteristicas
+		
+		// agrego las conexiones a cada pais
+		for (paisActual : listadoPaises) {
+			
+			// genero una nueva lista de paises sin el pais actual
+			var paisesMenosPaisActual = new ArrayList<Pais>(listadoPaises)
+			paisesMenosPaisActual.remove(paisActual)
+			
+			// conecto el pais actual con otros 3
+			while(paisActual.conexiones.size < 3) {
+				
+				// elijo el pais con el que generar la conexion
+				// TODO: deberia ser un pais que tambien tenga menos de 3 conexiones
+				var paisAConectar = paisesMenosPaisActual.get(new Random().nextInt(paisesMenosPaisActual.size()))
+				 
+				// genero conexion en ambos sentidos
+				paisActual.agregarConexion(paisAConectar)
+			}
+			
+			paises.add(paisActual)
+			
+		}
+
 	}
 
-
-    // Private
-
-    def private generarCaracteristicasYConexiones() {
-        val reader = new BufferedReader(new FileReader("src/main/resources/datacaracteristicas.csv"))
-        val lineasDeCaracteristicas = new ArrayList()
-        var String line
-        while ((line = reader.readLine()) !== null) {
-            lineasDeCaracteristicas.add(line);
-        }
-        for (numeroDeLinea : 0 ..< lineasDeCaracteristicas.size) {
-            generarCaracteristicas(lineasDeCaracteristicas, numeroDeLinea)
-            generarConexiones(numeroDeLinea)
-        }
-    }
-
-
-    def private generarPaises() {
-        val nombresDePaises = new Scanner(new File("src/main/resources/datapaises.txt"))
-        while (nombresDePaises.hasNext()) {
-            nuevoPais(nombresDePaises.next())
-        }
-    }
-
-    def private generarConexiones(Integer numeroDeLinea) {
-        val nueva = new LinkedHashSet<Pais>()
-        for (c : 0 ..< 3) {
-            val paisConect = paises.get(new Random().nextInt(paises.size()))
-            nueva.add(paisConect)
-            if (!paisConect.conexiones.contains(paises.get(numeroDeLinea))){
-                paisConect.conexiones.add(paises.get(numeroDeLinea))
-            }
-        }
-        nueva.remove(paises.get(numeroDeLinea))
-        paises.get(numeroDeLinea).conexiones = nueva.toList
-    }
-
-    def private generarCaracteristicas(ArrayList<String> lineasDeCaracteristicas ,Integer numeroDeLinea) {
-        val listaCar = lineasDeCaracteristicas.get(numeroDeLinea).split("  ")
-        paises.get(numeroDeLinea).caracteristicas = listaCar.toList
-    }
 }

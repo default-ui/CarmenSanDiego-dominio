@@ -1,33 +1,43 @@
 package carmenSanDiego
 
+import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
 
 abstract class Lugar {
 
 	@Accessors String nombre
-	@Accessors Pais destino
-	@Accessors Villano villano
+	@Accessors Boolean seEncuentraVillano = false
+	// TO DO: cuando se incialice el juego hay que asegurarse que el lugar en donde se encuentra el villano
+	//se encuentre en true
+	
+	// inicializo el generador, genero setter para poder cambiarlo
+	@Accessors Random randomGen = new Random() 
 
-	def String obtenerPistas()
 
 	def String obtenerPista(Pais siguienteDestino, Villano villano)
 
+	/**
+	 * Obtengo una caracteristica aleatoria del pais recibido por parametro
+	 */
 	def String obtenerPistaPais(Pais siguienteDestino) {
-		// var int randomPais = new Random().nextInt(destino.caracteristicas.length) -1
-		var int randomPais = 0
-		siguienteDestino.caracteristicas.get(randomPais)
+		var caracteristicas = siguienteDestino.caracteristicas
+		caracteristicas.get( randomGen.nextInt(caracteristicas.size) )
 	}
 
+	/**
+	 * Obtengo una Seña Particular aleatoria del villano recibido por parametro
+	 */
 	def String obtenerPistaVillanoSenaParticular(Villano villano) {
-		// var int randomVillano = new Random().nextInt(villano.senasParticulares.length) -1
-		var int randomVillano = 0
-		villano.senasParticulares.get(randomVillano)
+		var senas = villano.senasParticulares
+		senas.get( randomGen.nextInt(senas.size) )
 	}
 
+	/**
+	 * Obtengo un Hobbie aleatorio del villano recibido por parametro
+	 */
 	def String obtenerPistaVillanoHobbies(Villano villano) {
-		// var int randomVillano = new Random().nextInt(villano.hobbies.length) -1
-		var int randomVillano = 0
-		villano.hobbies.get(randomVillano)
+		var hobbies = villano.hobbies
+		hobbies.get( randomGen.nextInt(hobbies.size) )
 	}
 
 }

@@ -12,9 +12,13 @@ class JuegoTest {
 	
 	@Before
 	def void init() {
+		
 		mapa = new Mapamundi
-		mapa.generarMapamundiAleatorio()
+		mapa.generarMapamundiAleatorio
+		
 		expediente = new Expediente
+		expediente.generarExpedienteAleatorio
+		
 		juego = new Juego(mapa,expediente)
 	}
 	
