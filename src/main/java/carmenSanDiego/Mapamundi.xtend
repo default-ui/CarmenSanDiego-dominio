@@ -10,26 +10,29 @@ import static utils.FileParser.*
 
 class Mapamundi {
 
-	@Accessors val paises = <Pais>newArrayList()
+	@Accessors var List<Pais> paises = <Pais>newArrayList()
 	private var Pais paisDelRobo
 
 	def nuevoPais(String nombre) {
 		val pais = new Pais(nombre)
-		this.paises.add(pais)
+		paises.add(pais)
 	}
 
 	def eliminarPais(String nombre) {
-		this.paises = paises.filter([p | p.nombre != nombre]).toList
+		paises = paises.filter([p | p.nombre != nombre]).toList
 	}
 
 	def editarPais(String nombre) {
-		this.eliminarPais(nombre)
-		this.nuevoPais(nombre)
+		eliminarPais(nombre)
+		nuevoPais(nombre)
 	}
 
 	def Pais obtenerPaisDelRobo() {
-        if (paisDelRobo == null) paisDelRobo = randomPais()
-        return paisDelRobo
+        if (paisDelRobo == null) {
+        	paisDelRobo = randomPais()        	
+        }
+        
+        paisDelRobo
 	}
 	
 	/**
@@ -60,6 +63,9 @@ class Mapamundi {
 		listaPaises
 	}
 
+	/**
+	 * Retorna un pais aleatorio entre la lista de paises
+	 */
     def private Pais randomPais(){
         paises.get(new Random().nextInt(paises.size()))
     }
