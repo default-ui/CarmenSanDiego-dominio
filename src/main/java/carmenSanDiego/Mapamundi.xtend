@@ -53,6 +53,11 @@ class Mapamundi {
 			// creo un pais, el nombre es el primer elemento de la lista			
 			var nuevoPais = new Pais(listaDatosPais.remove(0))
 			
+			//agrego los lugares a los paises (son los primeros 3 entries desp. del nombre)
+			for(var i = 0; i < 3; i ++){
+				nuevoPais.lugares.add(crearLugar(listaDatosPais.remove(0)))	
+			}
+			
 			for (caracteristica : listaDatosPais) {
 				nuevoPais.agregarCaracteristica(caracteristica)
 			}
@@ -99,6 +104,15 @@ class Mapamundi {
 			
 		}
 
+	}
+	
+	/*
+	 * Crea un lugar a partir del nombre de su clase (el cual se encuentra en 
+	 * el archivo src/main/resources/datapaises.csv )
+	 */
+	def crearLugar(String nombreLugar){
+	  var lugar =  Class.forName(nombreLugar).getConstructor().newInstance() as Lugar
+	  lugar
 	}
 
 }

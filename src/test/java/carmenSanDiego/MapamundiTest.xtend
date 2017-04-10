@@ -3,6 +3,7 @@ package carmenSanDiego
 import org.junit.Test
 
 import static org.junit.Assert.*
+import net.sf.oval.constraint.AssertConstraintSet.List
 
 class MapamundiTest {
 
@@ -34,6 +35,10 @@ class MapamundiTest {
 		for(p:0..<20){
 			System.out.println("Pais: " + mapa.paises.get(p).nombre)
 			System.out.println(" ")
+			for (i : 0 ..< mapa.paises.get(p).lugares.size) {
+				System.out.println(mapa.paises.get(p).lugares.get(i).nombre)
+			}
+			System.out.println(" ")
 			System.out.println("Conexiones: ")
 			for (i : 0 ..< mapa.paises.get(p).conexiones.size) {
 				System.out.println(mapa.paises.get(p).conexiones.get(i).nombre)
@@ -48,4 +53,6 @@ class MapamundiTest {
 			System.out.println("")
 		}
 	}
+	
+	
 }
