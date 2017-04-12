@@ -51,7 +51,7 @@ class Mapamundi {
 		var listaPaises = new ArrayList()
 		
 		// armo una lista con todos los datos de los paises, un pais por linea
-		var listaPaisesDatos = getListFromFile('src/main/resources/datapaises.csv')
+		var listaPaisesDatos = getListFromFile('/datapaises.csv')
 		for (datosPais : listaPaisesDatos) {
 			
 			// separo la linea en una nueva lista
