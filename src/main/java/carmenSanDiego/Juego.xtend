@@ -13,7 +13,7 @@ class Juego {
 	@Accessors Pais paisActual
 	@Accessors ArrayList<Pais> paisesVisitados
 	@Accessors Caso caso
-	@Accessors Villano ordenDeArresto
+	@Accessors OrdenDeArresto ordenDeArresto
 	@Accessors Random randomGen = new Random()
 
 	new(Mapamundi mapa, Expediente expediente) {
@@ -86,7 +86,7 @@ class Juego {
 		paisDelArresto.lugares.get(random).seEncuentraVillano = true
 	}
 	
-	def pedirPista(Lugar lugar, Villano villano, Pais destino, Villano ordenDeArresto){
+	def pedirPista(Lugar lugar, Villano villano, Pais destino, OrdenDeArresto ordenDeArresto){
 		paisActual.pedirPistaOcupante(lugar, villano, destino, ordenDeArresto)
 	}
 	

@@ -6,7 +6,7 @@ class EstadoInformante extends EstadoOcupante {
 	 * Si hay un informante quiere decir que el villano paso por ese pais.
 	 * El informante del lugar responde con una pista sobre el villano.
 	 * */
-	override responder(Pais pais, Lugar lugar, Villano villano, Villano ordenDeArresto) {
+	override responder(Pais pais, Lugar lugar, Villano villano, OrdenDeArresto ordenDeArresto) {
 		lugar.obtenerPista(pais, villano)
 	}
 

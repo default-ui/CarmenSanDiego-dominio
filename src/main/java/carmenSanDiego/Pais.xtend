@@ -59,7 +59,7 @@ import org.uqbar.commons.utils.Observable
 		this.agregarLugar(nuevo)
 	}
 
-	def pedirPistaOcupante(Lugar lugar, Villano villano, Pais destino, Villano ordenDeArresto) {
+	def pedirPistaOcupante(Lugar lugar, Villano villano, Pais destino, OrdenDeArresto ordenDeArresto) {
 		this.estadoOcupante.responder(destino, lugar, villano, ordenDeArresto)
 	}
 
