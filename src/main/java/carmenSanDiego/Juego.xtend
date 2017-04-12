@@ -73,7 +73,7 @@ class Juego {
 		// el ultimo pais de la lista es aquel en el cual va a encontrarse el villano
 		plan.remove(plan.indexOf(pais))
 		plan.get(4).setEstadoOcupante(estadoVillano)
-		setearLugarDeLosHechos(plan.get(4), randomGen.nextInt(2))
+		setearLugarDeLosHechos(plan.get(4), randomGen.nextInt(3))
 		
 		return plan
 	
