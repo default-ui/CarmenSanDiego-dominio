@@ -15,20 +15,24 @@ class Mapamundi {
 	@Accessors Random randomGen = new Random() 
 	// TODO reimplementar con estoooooo
 
+	/** Crea un pais nuevo y lo agrega al mapamundi*/
 	def nuevoPais(String nombre) {
 		val pais = new Pais(nombre)
 		paises.add(pais)
 	}
-
+	
+	/**Elimina el pais del mapamundi */
 	def eliminarPais(String nombre) {
 		paises = paises.filter([p | p.nombre != nombre]).toList
 	}
-
+	
+	/** Reemplaza el pais por su modificacion */
 	def editarPais(String nombre) {
 		eliminarPais(nombre)
 		nuevoPais(nombre)
 	}
-
+	
+	/** Retorna el pais donde se efectuo el robo */
 	def Pais obtenerPaisDelRobo() {
         if (paisDelRobo == null) {
         	paisDelRobo = randomPais()        	
@@ -109,7 +113,7 @@ class Mapamundi {
 
 	}
 	
-	/*
+	/**
 	 * Crea un lugar a partir del nombre de su clase (el cual se encuentra en 
 	 * el archivo src/main/resources/datapaises.csv )
 	 */

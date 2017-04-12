@@ -78,7 +78,7 @@ class Juego {
 		return plan
 	
 	}
-	/*
+	/**
 	 * Se le setea a un lugar random del ultimo pais del plan de escape que efectivamente el criminal
 	 * responsable del hecho se encuentra en ese lugar
 	 */
@@ -86,10 +86,16 @@ class Juego {
 		paisDelArresto.lugares.get(random).seEncuentraVillano = true
 	}
 	
+	
 	def pedirPista(Lugar lugar, Villano villano, Pais destino, OrdenDeArresto ordenDeArresto){
 		paisActual.pedirPistaOcupante(lugar, villano, destino, ordenDeArresto)
 	}
 	
+	/**
+	 * Viaja a un pais que debera estar entre las conexiones del pais
+	 * actual, agrega el pais de despegue a los visitados, pone como
+	 * actual el pais de destino
+	 */
 	def viajar(Pais destino){
 		this.paisesVisitados.add(paisActual)
 		this.paisActual = destino
