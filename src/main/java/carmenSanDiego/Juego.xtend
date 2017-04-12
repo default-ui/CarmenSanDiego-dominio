@@ -80,7 +80,7 @@ class Juego {
 
 	}
 
-	/*
+	/**
 	 * Se le setea a un lugar random del ultimo pais del plan de escape que efectivamente el criminal
 	 * responsable del hecho se encuentra en ese lugar
 	 */
