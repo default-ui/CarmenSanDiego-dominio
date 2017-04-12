@@ -55,11 +55,11 @@ class Expediente {
 	}
 
 	def private obtenerHobbies() {
-		getListFromFile("src/main/resources/dataHobbies.csv")
+		getListFromFile("/dataHobbies.csv")
 	}
 	
 	def private obtenerVillanos() {
-		getListFromFile("src/main/resources/dataVillanos.csv")
+		getListFromFile("/dataVillanos.csv")
 	}
 
 }
