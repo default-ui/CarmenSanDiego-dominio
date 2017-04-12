@@ -3,28 +3,49 @@ package carmenSanDiego
 import org.junit.Test
 import org.junit.Ignore
 import static org.junit.Assert.*
+import org.junit.Before
 
 class EstadoVillanoTest {
+	EstadoVillano estadoVillano
+	Villano villanoElGato
+	Villano villanoScar
+	Banco banco
 	
-	@Test def void responderVillanoEnElPaisPeroNoEnLugar(){
-		var estadoVillano = new EstadoVillano
+	@Before
+	def void init(){
+		estadoVillano = new EstadoVillano
+		villanoElGato = new Villano("El gato", Sexo.Masculino)
+		villanoScar = new Villano("Scar", Sexo.Masculino)
+		banco = new Banco()
+		}
 		
-		assertEquals(estadoVillano.responder(new Pais("Argentina"), new Banco, new Villano("El gato", Sexo.Masculino), new Villano ("Moriarty", Sexo.Masculino)),  
+	@Test def void responderVillanoEnElPaisPeroNoEnLugar(){
+		assertEquals(estadoVillano.responder(new Pais("Argentina"), new Banco, villanoElGato, new OrdenDeArresto(villanoElGato)),  
 					 "Peligro, el villano está en el país. Tené cuidado")
 		
 	}
 	
-		// TODO: esto está faileando, devuelve null
-		@Test def void responderVillanoEnElPaisYEnLugar(){
-		var estadoVillano = new EstadoVillano
-		var banco = new Banco
+	@Test def void responderVillanoEnElPaisYEnLugarConOrdenDeArrestoCorrecta(){
 		banco.seEncuentraVillano =  true
-		
 		assertEquals(
-			"ALTO!!! Detengase: Moriarty",
-			estadoVillano.responder(new Pais("Argentina"), banco, new Villano("Moriarty", Sexo.Masculino), new Villano ("Moriarty", Sexo.Masculino))
-		);
-		
+			"Ha detenido a Scar con exito!!!",
+			estadoVillano.responder(new Pais("Argentina"), banco, villanoScar,new OrdenDeArresto(villanoScar)))
+		}
+	
+	@Test def void responderVillanoEnElPaisYEnLugarSinOrdenDeArresto(){
+		banco.seEncuentraVillano =  true
+		assertEquals(
+			"El villano ha sido liberado por el juez por no tener orden de arresto",
+			estadoVillano.responder(new Pais("Argentina"), banco, villanoScar, null)
+		)	
+	}
+	
+	@Test def void responderVillanoEnElPaisYEnLugarConOrdenDeArrestoIncorrecta(){
+		banco.seEncuentraVillano =  true
+		assertEquals(
+			"El villano ha sido liberado por el juez por tener orden de arresto incorrecta",
+			estadoVillano.responder(new Pais("Argentina"), banco, villanoScar, new OrdenDeArresto(villanoElGato))
+		)	
 	}
 	
 }
