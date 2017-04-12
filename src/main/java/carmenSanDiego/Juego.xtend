@@ -40,8 +40,8 @@ class Juego {
 	 * Obtiene un objeto random de la lista de objetos predeterminados.
 	 */
 	def obtenerObjeto() {
-		val objRepList = getListFromFile("src/main/resources/dataObjetos.csv")
-		return objRepList.get(new Random().nextInt(objRepList.size()))
+		val listadoObjetos = getListFromFile("src/main/resources/dataObjetos.csv")
+		return listadoObjetos.get(randomGen.nextInt(listadoObjetos.size()))
 	}
 	/**
 	 * Obtiene un villano random de la lista de villanos
