@@ -5,7 +5,6 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import static utils.FileParser.*
 import java.util.Random
 
-
 class Juego {
 
 	@Accessors Mapamundi mapa
@@ -36,6 +35,7 @@ class Juego {
 			obtenerPlanDeEscape(paisDelRobo),
 			paisDelRobo)
 	}
+
 	/**
 	 * Obtiene un objeto random de la lista de objetos predeterminados.
 	 */
@@ -43,6 +43,7 @@ class Juego {
 		val listadoObjetos = getListFromFile("/dataObjetos.csv")
 		return listadoObjetos.get(randomGen.nextInt(listadoObjetos.size()))
 	}
+
 	/**
 	 * Obtiene un villano random de la lista de villanos
 	 */
@@ -56,7 +57,7 @@ class Juego {
 	def obtenerPaisDelRobo() {
 		this.mapa.obtenerPaisDelRobo()
 	}
-	
+
 	/**
 	 * Crea el plan de escape a partir de un pais (el del robo). 
 	 * Este consiste en 5 paises conectados elegidos al azar. 
@@ -66,7 +67,7 @@ class Juego {
 		val estadoInformante = new EstadoInformante
 		val estadoVillano = new EstadoVillano
 		plan.add(pais)
-		for (i:0..<5){
+		for (i : 0 ..< 5) {
 			plan.add(plan.get(i).obtenerConexionSinRepetidos(plan))
 			plan.get(i).setEstadoOcupante(estadoInformante)
 		}
@@ -74,10 +75,11 @@ class Juego {
 		plan.remove(plan.indexOf(pais))
 		plan.get(4).setEstadoOcupante(estadoVillano)
 		setearLugarDeLosHechos(plan.get(4), randomGen.nextInt(3))
-		
+
 		return plan
-	
+
 	}
+
 	/*
 	 * Se le setea a un lugar random del ultimo pais del plan de escape que efectivamente el criminal
 	 * responsable del hecho se encuentra en ese lugar
@@ -85,15 +87,14 @@ class Juego {
 	def setearLugarDeLosHechos(Pais paisDelArresto, int random) {
 		paisDelArresto.lugares.get(random).seEncuentraVillano = true
 	}
-	
-	def pedirPista(Lugar lugar, Villano villano, Pais destino, OrdenDeArresto ordenDeArresto){
+
+	def pedirPista(Lugar lugar, Villano villano, Pais destino, OrdenDeArresto ordenDeArresto) {
 		paisActual.pedirPistaOcupante(lugar, villano, destino, ordenDeArresto)
 	}
-	
-	def viajar(Pais destino){
+
+	def viajar(Pais destino) {
 		this.paisesVisitados.add(paisActual)
 		this.paisActual = destino
 	}
-	
-	
+
 }
