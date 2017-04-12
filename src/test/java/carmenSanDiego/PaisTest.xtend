@@ -66,7 +66,7 @@ class PaisTest {
 		paisArgentina.editarLugar(lugarBiblioteca, lugarBanco)
 		
 		assertEquals(1, paisArgentina.lugares.size)
-		assertEquals("Bank", paisArgentina.lugares.get(0).nombre)
+		assertEquals("Banco", paisArgentina.lugares.get(0).nombre)
 
 	}
 

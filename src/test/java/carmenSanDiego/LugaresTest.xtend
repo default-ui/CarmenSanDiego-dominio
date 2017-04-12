@@ -40,7 +40,7 @@ class LugaresTest {
 		
 		banco = new Banco()
 		
-		assertEquals("Bank", banco.nombre)
+		assertEquals("Banco", banco.nombre)
 		
 		// preparo el mock de Random
 		banco.randomGen = randomMock // hago que el banco use mi random mockeado
@@ -62,7 +62,7 @@ class LugaresTest {
 		
 		biblioteca = new Biblioteca()
 		
-		assertEquals("Library", biblioteca.nombre)
+		assertEquals("Biblioteca", biblioteca.nombre)
 		
 		// preparo mock del random
 		biblioteca.randomGen = randomMock
@@ -108,7 +108,7 @@ class LugaresTest {
 		
 		embajada = new Embajada()
 		
-		assertEquals("Embasy", embajada.nombre)
+		assertEquals("Embajada", embajada.nombre)
 		
 		// preparo mock de random
 		embajada.randomGen = randomMock
