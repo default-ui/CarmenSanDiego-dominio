@@ -2,7 +2,7 @@ package carmenSanDiego
 
 class EstadoVillano extends EstadoOcupante {
 
-	override responder(Pais pais, Lugar lugar, Villano villano, Villano ordenDeArresto) {
+	override responder(Pais pais, Lugar lugar, Villano villano, OrdenDeArresto ordenDeArresto) {
 		//TODO: escribir los resultados como enunciado.
 		if (!lugar.seEncuentraVillano) 
 			"Peligro, el villano está en el país. Tené cuidado"
@@ -13,11 +13,11 @@ class EstadoVillano extends EstadoOcupante {
 		}
 	
 
-	def detenerVillano(Villano villano, Villano ordenDeArresto){
+	def detenerVillano(Villano villano, OrdenDeArresto ordenDeArresto){
 		if(ordenDeArresto == null)
 			//TODO: exception?
 			
-		if (villano.nombre == ordenDeArresto.nombre) 
+		if (villano.nombre == ordenDeArresto.villano.nombre) 
 				"ALTO!!! Detengase: " + villano.nombre				
 			
 		else
