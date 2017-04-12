@@ -40,8 +40,8 @@ class Juego {
 	 * Obtiene un objeto random de la lista de objetos predeterminados.
 	 */
 	def obtenerObjeto() {
-		val objRepList = getListFromFile("src/main/resources/dataObjetos.csv")
-		return objRepList.get(new Random().nextInt(objRepList.size()))
+		val listadoObjetos = getListFromFile("src/main/resources/dataObjetos.csv")
+		return listadoObjetos.get(randomGen.nextInt(listadoObjetos.size()))
 	}
 	/**
 	 * Obtiene un villano random de la lista de villanos
@@ -73,7 +73,7 @@ class Juego {
 		// el ultimo pais de la lista es aquel en el cual va a encontrarse el villano
 		plan.remove(plan.indexOf(pais))
 		plan.get(4).setEstadoOcupante(estadoVillano)
-		setearLugarDeLosHechos(plan.get(4), randomGen.nextInt(2))
+		setearLugarDeLosHechos(plan.get(4), randomGen.nextInt(3))
 		
 		return plan
 	

@@ -9,6 +9,7 @@ import static utils.FileParser.*
 class Expediente {
 
 	@Accessors var List<Villano> villanos = <Villano>newArrayList()
+	@Accessors Random randomGen = new Random()
 
 	def void nuevoVillano(String nombre, Sexo sexo) {
 		val villano = new Villano(nombre, sexo)
@@ -39,13 +40,13 @@ class Expediente {
 			// creo el nuevo villano usando datos de la lista de villanos			
 			val List<String> datosNuevoVillano = listaVillanos.get(i).split("  ")
 			var villano = new Villano(datosNuevoVillano.get(0), Sexo.valueOf(datosNuevoVillano.get(1)))
+			// agrego senas particulares segun orden de archivos csv
 			for(var k = 2; datosNuevoVillano.size > k; k++){
 				villano.agregarSena(datosNuevoVillano.get(k))}
-			// consigo 5 caracteristicas random de cada tipo para el villano nuevo
-			// TODO aca tambien se puede usar el random	
+			// consigo 5 caracteristicas random de cada tipo para el villano nuevo	
 			//TODO refactorizar todo esto	
 			for (j : 0 ..< 5) {
-				val hobbie = listaHobbies.get(new Random().nextInt(listaHobbies.size()))
+				val hobbie = listaHobbies.get(randomGen.nextInt(listaHobbies.size()))
 				villano.agregarHobbie(hobbie)
 			}
 			
