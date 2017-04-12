@@ -12,6 +12,8 @@ class Mapamundi {
 
 	@Accessors var List<Pais> paises = <Pais>newArrayList()
 	private var Pais paisDelRobo
+	@Accessors Random randomGen = new Random() 
+	// TODO reimplementar con estoooooo
 
 	def nuevoPais(String nombre) {
 		val pais = new Pais(nombre)
@@ -33,6 +35,7 @@ class Mapamundi {
         }
         
         paisDelRobo
+        
 	}
 	
 	/**

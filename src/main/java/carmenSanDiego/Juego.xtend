@@ -14,6 +14,7 @@ class Juego {
 	@Accessors ArrayList<Pais> paisesVisitados
 	@Accessors Caso caso
 	@Accessors Villano ordenDeArresto
+	@Accessors Random randomGen = new Random()
 
 	new(Mapamundi mapa, Expediente expediente) {
 		this.mapa = mapa
@@ -72,8 +73,17 @@ class Juego {
 		// el ultimo pais de la lista es aquel en el cual va a encontrarse el villano
 		plan.remove(plan.indexOf(pais))
 		plan.get(4).setEstadoOcupante(estadoVillano)
+		setearLugarDeLosHechos(plan.get(4), randomGen.nextInt(2))
+		
 		return plan
 	
+	}
+	/*
+	 * Se le setea a un lugar random del ultimo pais del plan de escape que efectivamente el criminal
+	 * responsable del hecho se encuentra en ese lugar
+	 */
+	def setearLugarDeLosHechos(Pais paisDelArresto, int random) {
+		paisDelArresto.lugares.get(random).seEncuentraVillano = true
 	}
 	
 	def pedirPista(Lugar lugar, Villano villano, Pais destino, Villano ordenDeArresto){

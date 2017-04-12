@@ -53,10 +53,6 @@ class Expediente {
 		}
 	}
 
-	def private obtenerSenas() {
-		getListFromFile("src/main/resources/dataSenas.csv")
-	}
-
 	def private obtenerHobbies() {
 		getListFromFile("src/main/resources/dataHobbies.csv")
 	}
