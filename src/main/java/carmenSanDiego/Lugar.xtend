@@ -2,6 +2,7 @@ package carmenSanDiego
 
 import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
+import java.util.LinkedList
 
 abstract class Lugar {
 
@@ -23,7 +24,7 @@ abstract class Lugar {
 	 * Obtengo una caracteristica aleatoria del pais recibido por parametro
 	 */
 	def String obtenerPistaPais(Pais siguienteDestino) {
-		var caracteristicas = siguienteDestino.caracteristicas
+		var LinkedList<String> caracteristicas = new LinkedList<String> (siguienteDestino.caracteristicas)
 		caracteristicas.remove( randomGen.nextInt(caracteristicas.size) )
 	}
 
@@ -31,7 +32,7 @@ abstract class Lugar {
 	 * Obtengo una Seña Particular aleatoria del villano recibido por parametro
 	 */
 	def String obtenerPistaVillanoSenaParticular(Villano villano) {
-		var senas = villano.senasParticulares
+		var LinkedList<String> senas = new LinkedList<String> (villano.senasParticulares)
 		senas.remove( randomGen.nextInt(senas.size) )
 	}
 
@@ -39,7 +40,7 @@ abstract class Lugar {
 	 * Obtengo un Hobbie aleatorio del villano recibido por parametro
 	 */
 	def String obtenerPistaVillanoHobbies(Villano villano) {
-		var hobbies = villano.hobbies
+		var LinkedList<String> hobbies = new LinkedList<String> (villano.hobbies)
 		hobbies.remove( randomGen.nextInt(hobbies.size) )
 	}
 
