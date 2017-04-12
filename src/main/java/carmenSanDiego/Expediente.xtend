@@ -31,22 +31,21 @@ class Expediente {
 	def void generarExpedienteAleatorio() {
 		
 		val listaVillanos = obtenerVillanos()
-		val listaSenas = obtenerSenas()
+		System.out.println(listaVillanos.size)
 		val listaHobbies = obtenerHobbies()
 		
 		for (i : 0 ..< listaVillanos.size) {
 
 			// creo el nuevo villano usando datos de la lista de villanos			
-			val datosNuevoVillano = listaVillanos.get(i).split("  ")
+			val List<String> datosNuevoVillano = listaVillanos.get(i).split("  ")
 			var villano = new Villano(datosNuevoVillano.get(0), Sexo.valueOf(datosNuevoVillano.get(1)))
-			
+			for(var k = 2; datosNuevoVillano.size > k; k++){
+				villano.agregarSena(datosNuevoVillano.get(k))}
 			// consigo 5 caracteristicas random de cada tipo para el villano nuevo
-			// TODO aca tambien se puede usar el random		
-				
+			// TODO aca tambien se puede usar el random	
+			//TODO refactorizar todo esto	
 			for (j : 0 ..< 5) {
-				val sena = listaSenas.get(new Random().nextInt(listaSenas.size()))
 				val hobbie = listaHobbies.get(new Random().nextInt(listaHobbies.size()))
-				villano.agregarSena(sena)
 				villano.agregarHobbie(hobbie)
 			}
 			

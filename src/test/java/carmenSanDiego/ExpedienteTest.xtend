@@ -40,4 +40,16 @@ class ExpedienteTest {
 		expediente.eliminarVillano("El Gato")
 		assertTrue(expediente.villanos.isEmpty)
 	}
+
+	@Test
+	def void crearExpedienteAleatorio(){
+		expediente.generarExpedienteAleatorio
+		assertEquals(expediente.villanos.size, 6)
+		assertEquals(expediente.villanos.get(0).nombre, "James Moriarty")
+		assertEquals(expediente.villanos.get(0).sexo, Sexo.Masculino)
+		assertEquals(expediente.villanos.get(0).senasParticulares.get(0), "Nemesis de Sherlock Holmes")
+		assertEquals(expediente.villanos.get(0).senasParticulares.get(1), "De pelo negro")
+		assertEquals(expediente.villanos.get(0).senasParticulares.get(2), "Su ringtone es Stayin' alive")
+		assertEquals(expediente.villanos.get(0).senasParticulares.get(3), "Irlandes")
+	}
 }
