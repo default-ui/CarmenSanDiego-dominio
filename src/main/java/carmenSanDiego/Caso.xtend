@@ -18,6 +18,6 @@ class Caso {
 	}
 
 	def reporte() {
-		"Ha desaparecido " + objeto + "!!!. Se encontraba en exposición en el Museo Nacional de " + paisDelRobo.nombre + ". El criminal fue muy prolijo y la escena del crimen no contaba con pista alguna, su misión como detective es descifrar el responsable de tal crímen y apresarlo."
+		"¡¡¡Ha desaparecido " + objeto + "!!! Se encontraba en exposición en el Museo Nacional de " + paisDelRobo.nombre + ". El criminal fue muy prolijo y la escena del crimen no contaba con pista alguna, su misión como detective es descifrar el responsable de tal crimen y apresarlo."
 	}
 }

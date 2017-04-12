@@ -3,7 +3,7 @@ package carmenSanDiego
 class Biblioteca extends Lugar {
 
 	new() {
-		nombre = "Library"
+		nombre = "Biblioteca"
 	}
 
 	override obtenerPista(Pais siguienteDestino, Villano villano) {

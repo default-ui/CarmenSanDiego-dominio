@@ -8,7 +8,7 @@ import static utils.FileParser.*
 
 class Expediente {
 
-	@Accessors var List<Villano >villanos = <Villano>newArrayList()
+	@Accessors var List<Villano> villanos = <Villano>newArrayList()
 
 	def void nuevoVillano(String nombre, Sexo sexo) {
 		val villano = new Villano(nombre, sexo)
@@ -41,7 +41,8 @@ class Expediente {
 			var villano = new Villano(datosNuevoVillano.get(0), Sexo.valueOf(datosNuevoVillano.get(1)))
 			
 			// consigo 5 caracteristicas random de cada tipo para el villano nuevo
-			// TODO aca tambien se puede usar el random			
+			// TODO aca tambien se puede usar el random		
+				
 			for (j : 0 ..< 5) {
 				val sena = listaSenas.get(new Random().nextInt(listaSenas.size()))
 				val hobbie = listaHobbies.get(new Random().nextInt(listaHobbies.size()))

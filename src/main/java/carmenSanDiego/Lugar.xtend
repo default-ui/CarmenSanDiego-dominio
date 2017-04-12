@@ -13,6 +13,10 @@ abstract class Lugar {
 	// inicializo el generador, genero setter para poder cambiarlo
 	@Accessors Random randomGen = new Random() 
 
+	/*
+	 * se obtiene una o varias pistas relacionadas con el villano. Cada lugar aporta un tipo de informacion
+	 * distinta.
+	 */
 	def String obtenerPista(Pais siguienteDestino, Villano villano)
 
 	/**
@@ -20,7 +24,7 @@ abstract class Lugar {
 	 */
 	def String obtenerPistaPais(Pais siguienteDestino) {
 		var caracteristicas = siguienteDestino.caracteristicas
-		caracteristicas.get( randomGen.nextInt(caracteristicas.size) )
+		caracteristicas.remove( randomGen.nextInt(caracteristicas.size) )
 	}
 
 	/**
@@ -28,7 +32,7 @@ abstract class Lugar {
 	 */
 	def String obtenerPistaVillanoSenaParticular(Villano villano) {
 		var senas = villano.senasParticulares
-		senas.get( randomGen.nextInt(senas.size) )
+		senas.remove( randomGen.nextInt(senas.size) )
 	}
 
 	/**
@@ -36,7 +40,7 @@ abstract class Lugar {
 	 */
 	def String obtenerPistaVillanoHobbies(Villano villano) {
 		var hobbies = villano.hobbies
-		hobbies.get( randomGen.nextInt(hobbies.size) )
+		hobbies.remove( randomGen.nextInt(hobbies.size) )
 	}
 
 }

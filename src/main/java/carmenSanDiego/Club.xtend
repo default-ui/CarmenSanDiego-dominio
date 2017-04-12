@@ -8,7 +8,6 @@ class Club extends Lugar{
 	
 	override obtenerPista(Pais siguienteDestino, Villano villano) {
 		
-		// TODO devuelve 2 pistas sobre villano?
 		var pista = this.obtenerPistaVillanoSenaParticular(villano) + " " + 
 					this.obtenerPistaVillanoSenaParticular(villano)
 		

@@ -3,7 +3,7 @@ package carmenSanDiego
 class Banco extends Lugar {
 
 	new() {
-		nombre = "Bank"
+		nombre = "Banco"
 	}
 
 	override obtenerPista(Pais siguienteDestino, Villano villano) {
