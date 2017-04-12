@@ -75,7 +75,7 @@ class Mapamundi {
 	 * Retorna un pais aleatorio entre la lista de paises
 	 */
     def private Pais randomPais(){
-        paises.get(new Random().nextInt(paises.size()))
+        paises.get(randomGen.nextInt(paises.size()))
     }
 
 	/**
@@ -97,7 +97,7 @@ class Mapamundi {
 				
 				// elijo el pais con el que generar la conexion
 				// TODO: deberia ser un pais que tambien tenga menos de 3 conexiones
-				var paisAConectar = paisesMenosPaisActual.get(new Random().nextInt(paisesMenosPaisActual.size()))
+				var paisAConectar = paisesMenosPaisActual.get(randomGen.nextInt(paisesMenosPaisActual.size()))
 				 
 				// genero conexion en ambos sentidos
 				paisActual.agregarConexion(paisAConectar)
