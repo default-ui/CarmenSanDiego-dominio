@@ -13,6 +13,7 @@ import org.uqbar.commons.utils.Observable
 	@Accessors List<Pais> conexiones = <Pais>newArrayList()
 	@Accessors List<Lugar> lugares = <Lugar>newArrayList()
 	@Accessors EstadoOcupante estadoOcupante
+	@Accessors Random randomGen = new Random() 
 
 	new(String nombre) {
 		this.nombre = nombre
@@ -74,9 +75,17 @@ import org.uqbar.commons.utils.Observable
 			if(!paises.contains(p)) conexionesSinRepetidos.add(p)
 		// si el villano ya paso por todas las conexiones entonces no hay candidatos. Se agrega por defecto la primera.	
 		if(conexionesSinRepetidos.isEmpty) conexionesSinRepetidos.add(conexiones.get(0))
-		// Aca tambien tenemos problemas de random porque si el tamanho de la lista es 1 pedis un random 
-		//entre 0 y 1, si te da 1 explota todo.
-		return conexionesSinRepetidos.get(new Random().nextInt(conexionesSinRepetidos.size()))
+		
+		return obtenerPaisAConectar(conexionesSinRepetidos)
+	}
+	
+	def obtenerPaisAConectar(ArrayList<Pais> conexionesSinRepetidos) {
+		// Si hay mas de una conexion posible se determina con random. Caso contrario se usa la determinda
+		// por defecto.
+		if(conexionesSinRepetidos.size > 1)
+			conexionesSinRepetidos.get(randomGen.nextInt(conexionesSinRepetidos.size()))
+		else
+			conexionesSinRepetidos.get(0)
 	}
 
 }
