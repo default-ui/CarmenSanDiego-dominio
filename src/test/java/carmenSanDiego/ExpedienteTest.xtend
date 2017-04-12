@@ -17,7 +17,7 @@ class ExpedienteTest {
 	def void crearExpedienteBase(){
 		//var expediente = new Expediente
 		expediente.generarExpedienteAleatorio()
-		assertEquals(expediente.villanos.size,20)
+		assertEquals(expediente.villanos.size,6)
 		System.out.println(expediente.villanos.get(0).nombre)
 		System.out.println("")
 		System.out.println("Hobbies: ")

@@ -15,7 +15,7 @@ class EstadoVillano extends EstadoOcupante {
 
 	def detenerVillano(Villano villano, Villano ordenDeArresto){
 		if(ordenDeArresto == null)
-			//TODO: exception?
+			return "El villano ha sido liberado por el juez por no tener oren de arresto"
 			
 		if (villano.nombre == ordenDeArresto.nombre) 
 				"ALTO!!! Detengase: " + villano.nombre				

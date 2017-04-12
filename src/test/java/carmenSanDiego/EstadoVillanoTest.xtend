@@ -15,7 +15,7 @@ class EstadoVillanoTest {
 	}
 	
 		// TODO: esto está faileando, devuelve null
-		@Ignore @Test def void responderVillanoEnElPaisYEnLugar(){
+		@Test def void responderVillanoEnElPaisYEnLugar(){
 		var estadoVillano = new EstadoVillano
 		var banco = new Banco
 		banco.seEncuentraVillano =  true
