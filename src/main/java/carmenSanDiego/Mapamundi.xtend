@@ -13,7 +13,6 @@ class Mapamundi {
 	@Accessors var List<Pais> paises = <Pais>newArrayList()
 	private var Pais paisDelRobo
 	@Accessors Random randomGen = new Random() 
-	// TODO reimplementar con estoooooo
 
 	def nuevoPais(String nombre) {
 		val pais = new Pais(nombre)
@@ -109,11 +108,11 @@ class Mapamundi {
 
 	}
 	
-	/*
+	/**
 	 * Crea un lugar a partir del nombre de su clase (el cual se encuentra en 
 	 * el archivo src/main/resources/datapaises.csv )
 	 */
-	def crearLugar(String nombreLugar){
+	def private crearLugar(String nombreLugar){
 	  var lugar =  Class.forName(nombreLugar).getConstructor().newInstance() as Lugar
 	  lugar
 	}
