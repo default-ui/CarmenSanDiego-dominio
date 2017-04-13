@@ -94,6 +94,16 @@ import org.uqbar.commons.utils.Observable
 		sb.append(nombre).append(System.getProperty("line.separator"));
 		sb.append(estadoOcupante).append(System.getProperty("line.separator"));
 		
+		sb.append("- Caracteristicas:").append(System.getProperty("line.separator"));
+		for (c : caracteristicas) {
+			sb.append(c).append(System.getProperty("line.separator"));
+		}
+		
+		sb.append("- Lugares:").append(System.getProperty("line.separator"));
+		for (l : lugares) {
+			sb.append(l.nombre).append(System.getProperty("line.separator"));
+		}
+		
 		sb.append("- Conexiones:").append(System.getProperty("line.separator"));
 		for (c : conexiones) {
 			sb.append(c.nombre).append(System.getProperty("line.separator"));

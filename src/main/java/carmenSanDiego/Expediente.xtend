@@ -62,4 +62,23 @@ class Expediente {
 		getListFromFile("/dataVillanos.csv")
 	}
 
+	override toString() {
+		
+		var sb = new StringBuilder();
+		
+		sb.append("-- Expediente --").append(System.getProperty("line.separator"));
+		
+		sb.append("- Villanos de Expediente:").append(System.getProperty("line.separator"));
+		for (v : villanos) {
+			sb.append(v).append(System.getProperty("line.separator"));
+		}
+		
+		sb.append("-- Fin Expediente --").append(System.getProperty("line.separator"));
+		
+		sb.toString
+				
+	}
+
+
+
 }
