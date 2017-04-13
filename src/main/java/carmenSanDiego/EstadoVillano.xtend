@@ -9,9 +9,8 @@ class EstadoVillano extends EstadoOcupante {
 	 * Si el villano se encuentra en el lugar intenta arrestarlo.
 	 * Si no se encuentra en el lugar avisa que se encuentra en el país
 	 */
-	override responder(Pais pais, Lugar lugar, Villano villano, OrdenDeArresto ordenDeArresto) {
+	override responder(Pais siguienteDestino, Lugar lugar, Villano villano, OrdenDeArresto ordenDeArresto) {
 	
-		//TODO: escribir los resultados como enunciado.
 		if (!lugar.seEncuentraVillano) 
 			"Peligro, el villano está en el país. Tené cuidado"
 		else 
@@ -19,6 +18,12 @@ class EstadoVillano extends EstadoOcupante {
 			
 	}
 
+	/**
+	 * Devuelve un mensaje distinto dependiendo de:
+	 * - no existe la orden de arresto
+	 * - la orden de arresto corresponde al villano
+	 * - la orden de arresto no corresponde al villano
+	 */
 	def private detenerVillano(Villano villano, OrdenDeArresto ordenDeArresto){
 		
 		var String resultado

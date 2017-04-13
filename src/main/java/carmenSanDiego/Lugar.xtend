@@ -39,7 +39,7 @@ abstract class Lugar {
 	/**
 	 * Obtengo un Hobbie aleatorio del villano recibido por parametro
 	 */
-	def String obtenerPistaVillanoHobbies(Villano villano) {
+	def String obtenerPistaVillanoHobbie(Villano villano) {
 		var LinkedList<String> hobbies = new LinkedList<String> (villano.hobbies)
 		hobbies.remove( randomGen.nextInt(hobbies.size) )
 	}

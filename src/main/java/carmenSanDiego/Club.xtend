@@ -13,7 +13,7 @@ class Club extends Lugar{
 		
 		// el 70% de las veces agrega una pista sobre los hobbies del villano
 		if( randomGen.nextInt(10) < 7) {
-			pista = pista + ' ' + this.obtenerPistaVillanoHobbies(villano)
+			pista = pista + ' ' + this.obtenerPistaVillanoHobbie(villano)
 		}
 		
 		pista

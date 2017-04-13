@@ -13,7 +13,7 @@ class Biblioteca extends Lugar {
 						   
 		// hay 50% de probabilidad de sacar una pista sobre los hobbies del villano
 		if(randomGen.nextBoolean) {
-			pista = pista + ' ' + this.obtenerPistaVillanoHobbies(villano)
+			pista = pista + ' ' + this.obtenerPistaVillanoHobbie(villano)
 		}
 		
 		pista
