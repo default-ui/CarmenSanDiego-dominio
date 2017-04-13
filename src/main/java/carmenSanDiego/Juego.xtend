@@ -28,12 +28,15 @@ class Juego {
 	 * Crea un caso a partir del juego recien iniciado.
 	 */
 	def Caso crearCaso() {
-		val Pais paisDelRobo = obtenerPaisDelRobo()
-		this.paisActual = paisDelRobo
-		new Caso(obtenerVillano(),
-			obtenerObjeto(),
-			obtenerPlanDeEscape(paisDelRobo),
-			paisDelRobo)
+		
+		val villano = obtenerVillano()
+		val objeto = obtenerObjeto()
+		val pais = obtenerPaisDelRobo()
+		val plan = obtenerPlanDeEscape(pais)
+		
+		this.paisActual = pais
+		
+		new Caso(villano, objeto, plan, pais)
 	}
 
 	/**
@@ -60,23 +63,34 @@ class Juego {
 
 	/**
 	 * Crea el plan de escape a partir de un pais (el del robo). 
-	 * Este consiste en 5 paises conectados elegidos al azar. 
+	 * Este consiste en 5 paises conectados elegidos al azar.
+	 * NO incluye al pais del robo 
 	 */
-	def ArrayList<Pais> obtenerPlanDeEscape(Pais pais) {
-		val plan = <Pais>newArrayList()
+	def obtenerPlanDeEscape(Pais paisDelRobo) {
+		
+		val planDeEscape = <Pais>newArrayList()
 		val estadoInformante = new EstadoInformante
 		val estadoVillano = new EstadoVillano
-		plan.add(pais)
-		for (i : 0 ..< 5) {
-			plan.add(plan.get(i).obtenerConexionSinRepetidos(plan))
-			plan.get(i).setEstadoOcupante(estadoInformante)
+		
+		// agrego un pais siguiente (entre las conexiones del actual)
+		// despues paso al siguiente como actual
+		var paisActual = paisDelRobo
+		var Pais paisSiguiente
+		for(i : 0 ..< 5) {
+			paisActual.estadoOcupante = estadoInformante
+			
+			paisSiguiente = paisActual.obtenerConexionSinRepetidos(planDeEscape)
+			planDeEscape.add(paisSiguiente)
+			
+			paisActual = paisSiguiente
 		}
+		
+		
 		// el ultimo pais de la lista es aquel en el cual va a encontrarse el villano
-		plan.remove(plan.indexOf(pais))
-		plan.get(4).setEstadoOcupante(estadoVillano)
-		setearLugarDeLosHechos(plan.get(4), randomGen.nextInt(3))
+		paisActual.setEstadoOcupante(estadoVillano)
+		setearLugarDeLosHechos(paisActual)
 
-		return plan
+		planDeEscape
 
 	}
 
@@ -84,8 +98,11 @@ class Juego {
 	 * Se le setea a un lugar random del ultimo pais del plan de escape que efectivamente el criminal
 	 * responsable del hecho se encuentra en ese lugar
 	 */
-	def setearLugarDeLosHechos(Pais paisDelArresto, int random) {
-		paisDelArresto.lugares.get(random).seEncuentraVillano = true
+	def setearLugarDeLosHechos(Pais paisDelArresto) {
+		
+		val lugarDelArresto = paisDelArresto.lugares.get(randomGen.nextInt(paisDelArresto.lugares.size)) 
+		lugarDelArresto.seEncuentraVillano = true
+		
 	}
 
 	def pedirPista(Lugar lugar, Villano villano, Pais destino, OrdenDeArresto ordenDeArresto) {
