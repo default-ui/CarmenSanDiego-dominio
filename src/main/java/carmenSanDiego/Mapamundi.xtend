@@ -23,12 +23,13 @@ class Mapamundi {
 		paises = paises.filter([p | p.nombre != nombre]).toList
 	}
 
-	def editarPais(String nombre) {
+	def editarPais(String nombre, String nuevoNombre) {
 		eliminarPais(nombre)
-		nuevoPais(nombre)
+		nuevoPais(nuevoNombre)
 	}
 
 	def Pais obtenerPaisDelRobo() {
+		
         if (paisDelRobo == null) {
         	paisDelRobo = randomPais()        	
         }
