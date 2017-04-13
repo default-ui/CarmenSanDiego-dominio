@@ -29,11 +29,12 @@ class JuegoTest {
 
 		assertEquals(planDeEscape.size,5)
 
-		System.out.println("Pais Del Robo: " + paisDelRobo)				
-		System.out.println("Plan de Escape:")
-		for(p : planDeEscape){
-			System.out.println(p)
-		}
+//		System.out.println("Pais Del Robo: " + paisDelRobo)				
+//		System.out.println("Plan de Escape:")
+//		for(p : planDeEscape){
+//			System.out.println(p)
+//		}
+//		System.out.println("-- Fin Plan de Escape --")
 
 	}
 

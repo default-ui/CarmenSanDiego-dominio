@@ -32,7 +32,6 @@ class Expediente {
 	def void generarExpedienteAleatorio() {
 		
 		val listaVillanos = obtenerVillanos()
-		System.out.println(listaVillanos.size)
 		val listaHobbies = obtenerHobbies()
 		
 		for (i : 0 ..< listaVillanos.size) {

@@ -83,32 +83,18 @@ class MapamundiTest {
 		
 	}
 		
-	@Test def imprimirPaises() {
+	@Test def generarMapamundiAleatorio() {
 		
 		mapa.generarMapamundiAleatorio()
 		
 		assertEquals(20, mapa.paises.size)
 		
-		for(p:0..<20){
-			System.out.println("Pais: " + mapa.paises.get(p).nombre)
-			System.out.println(" ")
-			for (i : 0 ..< mapa.paises.get(p).lugares.size) {
-				System.out.println(mapa.paises.get(p).lugares.get(i).nombre)
-			}
-			System.out.println(" ")
-			System.out.println("Conexiones: ")
-			for (i : 0 ..< mapa.paises.get(p).conexiones.size) {
-				System.out.println(mapa.paises.get(p).conexiones.get(i).nombre)
-			}
-			System.out.println(" ")
-			System.out.println("Caracteristicas: ")
-			for (i : 0 ..< mapa.paises.get(p).caracteristicas.size) {
-				System.out.println(mapa.paises.get(p).caracteristicas.get(i))
-			}
-			System.out.println("")
-			System.out.println("=============================")
-			System.out.println("")
-		}
+//		System.out.println("-- Paises del Mapamundi:")
+//		for (pais : mapa.paises) {	
+//			System.out.println(pais)
+//		}
+//		System.out.println("-- Fin Mapamundi --")
+
 	}
 	
 	
