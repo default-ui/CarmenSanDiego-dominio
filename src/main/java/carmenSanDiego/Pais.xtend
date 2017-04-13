@@ -69,23 +69,38 @@ import org.uqbar.commons.utils.Observable
 	 * dos paises iguales consecutivos en el plan.
 	 */
 	def Pais obtenerConexionSinRepetidos(ArrayList<Pais> paises) {
+		
 		val conexionesSinRepetidos = <Pais>newArrayList()
-		for (Pais p : conexiones)
-			// si el villano aun no paso por ese pais se agrega a la lista de candidatos, caso contrario se descarta.
-			if(!paises.contains(p)) conexionesSinRepetidos.add(p)
+		
+		for (Pais paisCandidato : conexiones) {
+			// si el villano aun no paso antes por ese pais se agrega a la lista de candidatos, caso contrario se descarta.
+			if(!paises.contains(paisCandidato)) conexionesSinRepetidos.add(paisCandidato)
+		}
+			
 		// si el villano ya paso por todas las conexiones entonces no hay candidatos. Se agrega por defecto la primera.	
 		if(conexionesSinRepetidos.isEmpty) conexionesSinRepetidos.add(conexiones.get(0))
 		
-		return obtenerPaisAConectar(conexionesSinRepetidos)
+		// selecciono un pais random de la lista resultante
+		conexionesSinRepetidos.get(randomGen.nextInt(conexionesSinRepetidos.size))
 	}
 	
-	def obtenerPaisAConectar(ArrayList<Pais> conexionesSinRepetidos) {
-		// Si hay mas de una conexion posible se determina con random. Caso contrario se usa la determinda
-		// por defecto.
-		if(conexionesSinRepetidos.size > 1)
-			conexionesSinRepetidos.get(randomGen.nextInt(conexionesSinRepetidos.size()))
-		else
-			conexionesSinRepetidos.get(0)
+	/**
+	 * Imprimo de una manera mas linda los datos del pais
+	 */
+	override toString() {
+		
+		var sb = new StringBuilder();
+		
+		sb.append(nombre).append(System.getProperty("line.separator"));
+		sb.append(estadoOcupante).append(System.getProperty("line.separator"));
+		
+		sb.append("- Conexiones:").append(System.getProperty("line.separator"));
+		for (c : conexiones) {
+			sb.append(c.nombre).append(System.getProperty("line.separator"));
+		}
+		
+		sb.toString
+		
 	}
 
 }
