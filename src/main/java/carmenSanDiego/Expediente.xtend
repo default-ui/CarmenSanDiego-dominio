@@ -20,10 +20,9 @@ class Expediente {
 		this.villanos = villanos.filter([v | v.nombre != villanoNombre]).toList
 		
 	}
-
-	// TODO aca hay que permitir cambiar el Random	
+	
 	def Villano obtenerVillano() {
-		return villanos.get(new Random().nextInt(villanos.size()))
+		return villanos.get(randomGen.nextInt(villanos.size()))
 	}
 
 	/**

@@ -97,12 +97,12 @@ class PaisTest {
 	@Test def obtienePistaDeBancoSiEstaEnEstadoInformante() {
 		
 		paisRusia.agregarLugar(lugarBanco)
-		paisBrazil.agregarCaracteristica("Fue al pais mais grande do mundo!")
-		villanoMoriarty.agregarSena("Este villano es el nemesis de Sherlock Holmes.")
+		paisBrazil.agregarCaracteristica("Fue al pais mais grande do mundo")
+		villanoMoriarty.agregarSena("Diabolico")
 		paisRusia.setEstadoOcupante(new EstadoInformante())
 		
 		assertEquals(
-			"Fue al pais mais grande do mundo! Este villano es el nemesis de Sherlock Holmes.",
+			"Fue al pais mais grande do mundo. Es diabolico. ",
 			paisRusia.pedirPistaOcupante(lugarBanco, villanoMoriarty, paisBrazil, null)
 		)
 	}

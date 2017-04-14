@@ -25,7 +25,8 @@ abstract class Lugar {
 	 */
 	def String obtenerPistaPais(Pais siguienteDestino) {
 		var LinkedList<String> caracteristicas = new LinkedList<String> (siguienteDestino.caracteristicas)
-		caracteristicas.remove( randomGen.nextInt(caracteristicas.size) )
+		var caracteristica = caracteristicas.remove( randomGen.nextInt(caracteristicas.size) ) + ". "
+		caracteristica
 	}
 
 	/**
@@ -33,7 +34,9 @@ abstract class Lugar {
 	 */
 	def String obtenerPistaVillanoSenaParticular(Villano villano) {
 		var LinkedList<String> senas = new LinkedList<String> (villano.senasParticulares)
-		senas.remove( randomGen.nextInt(senas.size) )
+		// se le da formato. Ejemplo: "Es de pelo negro."
+		var sena = "Es " + senas.remove( randomGen.nextInt(senas.size) ).toLowerCase + ". "
+		sena
 	}
 
 	/**
@@ -41,7 +44,10 @@ abstract class Lugar {
 	 */
 	def String obtenerPistaVillanoHobbie(Villano villano) {
 		var LinkedList<String> hobbies = new LinkedList<String> (villano.hobbies)
-		hobbies.remove( randomGen.nextInt(hobbies.size) )
+		// se le da formato de la forma: "Se rumorea que disfruta de coleccionar joyas."
+		// TO DO: esta bien que el formateo de las frases vaya aca? (me parece que no)
+		var hobby = "Se rumorea que disfruta de " + hobbies.remove( randomGen.nextInt(hobbies.size) ).toLowerCase + ". "
+		hobby
 	}
 
 }

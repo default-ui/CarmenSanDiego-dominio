@@ -9,7 +9,7 @@ class Embajada  extends Lugar{
 	
 	override obtenerPista(Pais siguienteDestino, Villano villano) {
 		
-		var pista = this.obtenerPistaPais(siguienteDestino) + " " +
+		var pista = this.obtenerPistaPais(siguienteDestino) +
 					this.obtenerPistaPais(siguienteDestino)
 					
 		pista

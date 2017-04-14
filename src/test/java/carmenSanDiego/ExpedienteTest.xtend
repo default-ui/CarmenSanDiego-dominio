@@ -2,31 +2,35 @@ package carmenSanDiego
 
 import org.junit.Before
 import org.junit.Test
+import static org.mockito.Mockito.*
 
 import static org.junit.Assert.*
+import java.util.Random
 
 class ExpedienteTest {
 	
+	Expediente expedienteAleatorio
 	Expediente expediente
+	Random randomMock
+	
 	
 	@Before def void setUp(){
-		expediente = new Expediente
+		expedienteAleatorio = new Expediente
+		expediente =  new Expediente
+		expediente.nuevoVillano("El Gato", Sexo.Masculino)
+		randomMock = mock(Random)
 	}
 	
 	@Test 
 	def void generarExpedienteAleatorio(){
 		
-		expediente.generarExpedienteAleatorio()
+		expedienteAleatorio.generarExpedienteAleatorio()
 		
-		assertEquals(expediente.villanos.size,6)
-		
-		//System.out.println(expediente)
+		assertEquals(expedienteAleatorio.villanos.size,6)
 	}
 
 	@Test 
 	def void crearVillano(){
-		
-		expediente.nuevoVillano("El Gato", Sexo.Masculino)
 		
 		assertFalse(expediente.villanos.isEmpty)
 		assertEquals("El Gato", expediente.villanos.get(0).nombre)
@@ -36,11 +40,16 @@ class ExpedienteTest {
 	@Test 
 	def void eliminarVillano(){
 		
-		expediente.nuevoVillano("El Gato", Sexo.Masculino)
 		assertFalse(expediente.villanos.isEmpty)
 		
 		expediente.eliminarVillano("El Gato")
 		assertTrue(expediente.villanos.isEmpty)
 	}
 
+	@Test
+	def void obtenerVillano(){
+		when(randomMock.nextInt).thenReturn(0)
+		
+		assertEquals(expediente.obtenerVillano.nombre, "El Gato")
+	}
 }
