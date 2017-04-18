@@ -20,14 +20,6 @@ class VillanoTest {
 	}
 
 	@Test
-	def void testGetters() {
-
-		assertEquals('Carmen Sandiego', carmen.getNombre)
-		assertEquals(Sexo.Femenino, carmen.getSexo)
-
-	}
-
-	@Test
 	def void testSenasParticulares() {
 
 		assertEquals(0, carmen.senasParticulares.size)

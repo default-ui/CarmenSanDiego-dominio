@@ -8,12 +8,12 @@ class Club extends Lugar{
 	
 	override obtenerPista(Pais siguienteDestino, Villano villano) {
 		
-		var pista = this.obtenerPistaVillanoSenaParticular(villano) + " " + 
+		var pista = this.obtenerPistaVillanoSenaParticular(villano) + 
 					this.obtenerPistaVillanoSenaParticular(villano)
 		
 		// el 70% de las veces agrega una pista sobre los hobbies del villano
 		if( randomGen.nextInt(10) < 7) {
-			pista = pista + ' ' + this.obtenerPistaVillanoHobbies(villano)
+			pista = pista + this.obtenerPistaVillanoHobbie(villano)
 		}
 		
 		pista

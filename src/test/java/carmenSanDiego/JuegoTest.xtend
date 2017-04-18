@@ -23,13 +23,19 @@ class JuegoTest {
 	}
 	
 	@Test def obtenerPlanDeEscapeParaCaso(){
-		val pais = this.juego.mapa.paises.get(1)
-		val paises = juego.obtenerPlanDeEscape(pais)
-		assertEquals(paises.size,5)
-		for(i:0..<5){
-			System.out.println(paises.get(i).nombre)
-			}
-		}
 		
-	
+		val paisDelRobo = juego.obtenerPaisDelRobo
+		val planDeEscape = juego.obtenerPlanDeEscape(paisDelRobo)
+
+		assertEquals(planDeEscape.size,5)
+
+//		System.out.println("Pais Del Robo: " + paisDelRobo)				
+//		System.out.println("Plan de Escape:")
+//		for(p : planDeEscape){
+//			System.out.println(p)
+//		}
+//		System.out.println("-- Fin Plan de Escape --")
+
 	}
+
+}

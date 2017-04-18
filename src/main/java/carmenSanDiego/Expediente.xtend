@@ -20,10 +20,9 @@ class Expediente {
 		this.villanos = villanos.filter([v | v.nombre != villanoNombre]).toList
 		
 	}
-
-	// TODO aca hay que permitir cambiar el Random	
+	
 	def Villano obtenerVillano() {
-		return villanos.get(new Random().nextInt(villanos.size()))
+		return villanos.get(randomGen.nextInt(villanos.size()))
 	}
 
 	/**
@@ -32,7 +31,6 @@ class Expediente {
 	def void generarExpedienteAleatorio() {
 		
 		val listaVillanos = obtenerVillanos()
-		System.out.println(listaVillanos.size)
 		val listaHobbies = obtenerHobbies()
 		
 		for (i : 0 ..< listaVillanos.size) {
@@ -61,5 +59,24 @@ class Expediente {
 	def private obtenerVillanos() {
 		getListFromFile("/dataVillanos.csv")
 	}
+
+	override toString() {
+		
+		var sb = new StringBuilder();
+		
+		sb.append("-- Expediente --").append(System.getProperty("line.separator"));
+		
+		sb.append("- Villanos de Expediente:").append(System.getProperty("line.separator"));
+		for (v : villanos) {
+			sb.append(v).append(System.getProperty("line.separator"));
+		}
+		
+		sb.append("-- Fin Expediente --").append(System.getProperty("line.separator"));
+		
+		sb.toString
+				
+	}
+
+
 
 }

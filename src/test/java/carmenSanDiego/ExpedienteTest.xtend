@@ -2,32 +2,36 @@ package carmenSanDiego
 
 import org.junit.Before
 import org.junit.Test
+import static org.mockito.Mockito.*
 
 import static org.junit.Assert.*
+import java.util.Random
 
 class ExpedienteTest {
 	
+	Expediente expedienteAleatorio
 	Expediente expediente
+	Random randomMock
+	
 	
 	@Before def void setUp(){
-		expediente = new Expediente
+		expedienteAleatorio = new Expediente
+		expediente =  new Expediente
+		expediente.nuevoVillano("El Gato", Sexo.Masculino)
+		randomMock = mock(Random)
 	}
 	
 	@Test 
-	def void crearExpedienteBase(){
-		//var expediente = new Expediente
-		expediente.generarExpedienteAleatorio()
-		assertEquals(expediente.villanos.size,6)
-		System.out.println(expediente.villanos.get(0).nombre)
-		System.out.println("")
-		System.out.println("Hobbies: ")
-		for (i:0..<expediente.villanos.get(0).hobbies.size)
-			System.out.println(expediente.villanos.get(0).hobbies.get(i))
+	def void generarExpedienteAleatorio(){
+		
+		expedienteAleatorio.generarExpedienteAleatorio()
+		
+		assertEquals(expedienteAleatorio.villanos.size,6)
 	}
 
 	@Test 
 	def void crearVillano(){
-		expediente.nuevoVillano("El Gato", Sexo.Masculino)
+		
 		assertFalse(expediente.villanos.isEmpty)
 		assertEquals("El Gato", expediente.villanos.get(0).nombre)
 		assertEquals(Sexo.Masculino, expediente.villanos.get(0).sexo)
@@ -35,21 +39,17 @@ class ExpedienteTest {
 	
 	@Test 
 	def void eliminarVillano(){
-		expediente.nuevoVillano("El Gato", Sexo.Masculino)
+		
 		assertFalse(expediente.villanos.isEmpty)
+		
 		expediente.eliminarVillano("El Gato")
 		assertTrue(expediente.villanos.isEmpty)
 	}
 
 	@Test
-	def void crearExpedienteAleatorio(){
-		expediente.generarExpedienteAleatorio
-		assertEquals(expediente.villanos.size, 6)
-		assertEquals(expediente.villanos.get(0).nombre, "James Moriarty")
-		assertEquals(expediente.villanos.get(0).sexo, Sexo.Masculino)
-		assertEquals(expediente.villanos.get(0).senasParticulares.get(0), "Nemesis de Sherlock Holmes")
-		assertEquals(expediente.villanos.get(0).senasParticulares.get(1), "De pelo negro")
-		assertEquals(expediente.villanos.get(0).senasParticulares.get(2), "Su ringtone es Stayin' alive")
-		assertEquals(expediente.villanos.get(0).senasParticulares.get(3), "Irlandes")
+	def void obtenerVillano(){
+		when(randomMock.nextInt).thenReturn(0)
+		
+		assertEquals(expediente.obtenerVillano.nombre, "El Gato")
 	}
 }

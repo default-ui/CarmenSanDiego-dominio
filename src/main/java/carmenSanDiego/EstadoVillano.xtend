@@ -1,28 +1,43 @@
 package carmenSanDiego
 
+/**
+ * El villano está en el país
+ */
 class EstadoVillano extends EstadoOcupante {
 
-	override responder(Pais pais, Lugar lugar, Villano villano, OrdenDeArresto ordenDeArresto) {
-		//TODO: escribir los resultados como enunciado.
+	/**
+	 * Si el villano se encuentra en el lugar intenta arrestarlo.
+	 * Si no se encuentra en el lugar avisa que se encuentra en el país
+	 */
+	override responder(Pais siguienteDestino, Lugar lugar, Villano villano, OrdenDeArresto ordenDeArresto) {
+	
 		if (!lugar.seEncuentraVillano) 
 			"Peligro, el villano está en el país. Tené cuidado"
-			
 		else 
-			detenerVillano(villano, ordenDeArresto)		
+			detenerVillano(villano, ordenDeArresto)
 			
-		}
-	
+	}
 
-	def detenerVillano(Villano villano, OrdenDeArresto ordenDeArresto){
-		if(ordenDeArresto == null)
-			return "El villano ha sido liberado por el juez por no tener orden de arresto"
-			
-		if (villano.nombre == ordenDeArresto.villano.nombre) 
-				"Ha detenido a " + villano.nombre+" con exito!!!"				
-			
-		else
-				"El villano ha sido liberado por el juez por tener orden de arresto incorrecta"
+	/**
+	 * Devuelve un mensaje distinto dependiendo de:
+	 * - no existe la orden de arresto
+	 * - la orden de arresto corresponde al villano
+	 * - la orden de arresto no corresponde al villano
+	 */
+	def private detenerVillano(Villano villano, OrdenDeArresto ordenDeArresto){
 		
+		var String resultado
+		
+		if(ordenDeArresto == null)
+			resultado = "El villano ha sido liberado por el juez por no tener orden de arresto"
+		else {
+			if (villano.nombre == ordenDeArresto.villano.nombre)
+				resultado = "Ha detenido a " + villano.nombre+" con exito!!!"					
+			else
+				resultado = "El villano ha sido liberado por el juez por tener orden de arresto incorrecta"				
+		}
+		
+		resultado
 				
 	}
 

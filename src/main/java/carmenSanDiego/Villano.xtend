@@ -42,5 +42,28 @@ class Villano {
 		this.eliminarHobbie(antiguo)
 		this.agregarHobbie(nuevo)
 	}
+	
+	override toString() {
+		
+		var sb = new StringBuilder();
+		
+		sb.append("-- Villano --").append(System.getProperty("line.separator"));
+		
+		sb.append("Nombre: " + nombre).append(System.getProperty("line.separator"));
+		sb.append("Sexo: " + sexo).append(System.getProperty("line.separator"));
+		
+		sb.append("- Señas Particulares:").append(System.getProperty("line.separator"));
+		for (s : senasParticulares) {
+			sb.append(s).append(System.getProperty("line.separator"));
+		}
+		
+		sb.append("- Hobbies:").append(System.getProperty("line.separator"));
+		for (h : hobbies) {
+			sb.append(h).append(System.getProperty("line.separator"));
+		}
+		
+		sb.toString
+				
+	}
 
 }

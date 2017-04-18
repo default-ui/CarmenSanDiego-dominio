@@ -13,7 +13,6 @@ class Mapamundi {
 	@Accessors var List<Pais> paises = <Pais>newArrayList()
 	private var Pais paisDelRobo
 	@Accessors Random randomGen = new Random() 
-	// TODO reimplementar con estoooooo
 
 	/** Crea un pais nuevo y lo agrega al mapamundi*/
 	def nuevoPais(String nombre) {
@@ -25,15 +24,21 @@ class Mapamundi {
 	def eliminarPais(String nombre) {
 		paises = paises.filter([p | p.nombre != nombre]).toList
 	}
+<<<<<<< HEAD
 	
 	/** Reemplaza el pais por su modificacion */
 	def editarPais(String nombre) {
+=======
+
+	def editarPais(String nombre, String nuevoNombre) {
+>>>>>>> 3f7b2effc7dbcd9304db8723a453a71ee4bfd420
 		eliminarPais(nombre)
-		nuevoPais(nombre)
+		nuevoPais(nuevoNombre)
 	}
 	
 	/** Retorna el pais donde se efectuo el robo */
 	def Pais obtenerPaisDelRobo() {
+		
         if (paisDelRobo == null) {
         	paisDelRobo = randomPais()        	
         }
@@ -117,7 +122,7 @@ class Mapamundi {
 	 * Crea un lugar a partir del nombre de su clase (el cual se encuentra en 
 	 * el archivo src/main/resources/datapaises.csv )
 	 */
-	def crearLugar(String nombreLugar){
+	def private crearLugar(String nombreLugar){
 	  var lugar =  Class.forName(nombreLugar).getConstructor().newInstance() as Lugar
 	  lugar
 	}
