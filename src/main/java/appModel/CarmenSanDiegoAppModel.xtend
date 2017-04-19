@@ -11,7 +11,7 @@ import org.uqbar.commons.utils.Observable
 class CarmenSanDiegoAppModel {
 
 	def getPathImagenIntro() {
-		"intro.png"
+		"intro.jpg"
 	}	
 	
 }

@@ -11,6 +11,10 @@ class MapamundiAppModel {
 	Mapamundi mapa
 	Pais paisSeleccionado
 	
+	def getPathImagenMapamundi() {
+		"mapamundi.png"
+	}
+	
 	def getUbicacionesPosibles(){
 	//	Arrays.asList(Ubicacion.values)
 	//}
