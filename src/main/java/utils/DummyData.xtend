@@ -13,25 +13,11 @@ import carmenSanDiego.Mapamundi
  * 
  */
 class DummyData {
-	def crearMapamundiDummy() {
+	
+	def static crearMapamundiDummy() {
 		new Mapamundi => [
 			generarMapamundiAleatorio
 		]
 	}
-	
-	/**def Materia crearMateria(String nombreDeLaMateria){
-		new Materia => [
-			nombreMateria = nombreDeLaMateria
-			anioCursada = 2014
-			profesor = '''Jose «nombreDeLaMateria»'''
-			ubicacion = Ubicacion.PrimerCuatrimestre
-			agregarNota(new Nota => [
-				descripcion = "parcial"
-			])
-			agregarNota(new Nota => [
-				descripcion = "tp"
-			])
-		]
-	}**/
 	
 }
