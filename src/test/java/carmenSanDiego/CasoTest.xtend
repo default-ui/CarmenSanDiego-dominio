@@ -16,7 +16,7 @@ class CasoTest {
 		
 		assertEquals(
 			"¡¡¡Ha desaparecido zircon!!! Se encontraba en exposición en el Museo Nacional de Springfield. El criminal fue muy prolijo y la escena del crimen no contaba con pista alguna, su misión como detective es descifrar el responsable de tal crimen y apresarlo.", 
-			caso.reporte
+			caso.reporte()
 		)
 		
 	}

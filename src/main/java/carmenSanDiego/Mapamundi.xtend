@@ -7,7 +7,9 @@ import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
 
 import static utils.FileParser.*
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class Mapamundi {
 
 	@Accessors var List<Pais> paises = <Pais>newArrayList()
@@ -24,14 +26,9 @@ class Mapamundi {
 	def eliminarPais(String nombre) {
 		paises = paises.filter([p | p.nombre != nombre]).toList
 	}
-<<<<<<< HEAD
 	
 	/** Reemplaza el pais por su modificacion */
-	def editarPais(String nombre) {
-=======
-
 	def editarPais(String nombre, String nuevoNombre) {
->>>>>>> 3f7b2effc7dbcd9304db8723a453a71ee4bfd420
 		eliminarPais(nombre)
 		nuevoPais(nuevoNombre)
 	}

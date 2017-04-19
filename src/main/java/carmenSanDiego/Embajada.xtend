@@ -1,5 +1,8 @@
 package carmenSanDiego
 
+import org.uqbar.commons.utils.Observable
+
+@Observable
 class Embajada  extends Lugar{
 	
 	new() {

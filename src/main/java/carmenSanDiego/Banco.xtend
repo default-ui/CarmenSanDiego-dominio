@@ -1,5 +1,8 @@
 package carmenSanDiego
 
+import org.uqbar.commons.utils.Observable
+
+@Observable
 class Banco extends Lugar {
 
 	new() {

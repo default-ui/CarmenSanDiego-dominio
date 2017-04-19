@@ -93,10 +93,7 @@ class Juego {
 		planDeEscape
 
 	}
-<<<<<<< HEAD
-=======
 
->>>>>>> 3f7b2effc7dbcd9304db8723a453a71ee4bfd420
 	/**
 	 * Se le setea a un lugar random del ultimo pais del plan de escape que efectivamente el criminal
 	 * responsable del hecho se encuentra en ese lugar
@@ -107,8 +104,6 @@ class Juego {
 		lugarDelArresto.seEncuentraVillano = true
 		
 	}
-<<<<<<< HEAD
-	
 	
 	def pedirPista(Lugar lugar, Villano villano, Pais destino, OrdenDeArresto ordenDeArresto){
 		paisActual.pedirPistaOcupante(lugar, villano, destino, ordenDeArresto)
@@ -120,14 +115,6 @@ class Juego {
 	 * actual el pais de destino
 	 */
 	def viajar(Pais destino){
-=======
-
-	def pedirPista(Lugar lugar, Villano villano, Pais destino, OrdenDeArresto ordenDeArresto) {
-		paisActual.pedirPistaOcupante(lugar, villano, destino, ordenDeArresto)
-	}
-
-	def viajar(Pais destino) {
->>>>>>> 3f7b2effc7dbcd9304db8723a453a71ee4bfd420
 		this.paisesVisitados.add(paisActual)
 		this.paisActual = destino
 	}
