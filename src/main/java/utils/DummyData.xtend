@@ -1,5 +1,6 @@
 package utils
 
+import carmenSanDiego.Expediente
 import carmenSanDiego.Mapamundi
 
 /**
@@ -17,6 +18,12 @@ class DummyData {
 	def static crearMapamundiDummy() {
 		new Mapamundi => [
 			generarMapamundiAleatorio
+		]
+	}
+	
+	def static crearExpedienteDummy() {
+		new Expediente => [
+			generarExpedienteAleatorio
 		]
 	}
 	
