@@ -37,7 +37,7 @@ class Mapamundi {
 	/** Retorna el pais donde se efectuo el robo */
 	def Pais obtenerPaisDelRobo() {
 		
-        if (paisDelRobo == null) {
+        if (paisDelRobo === null) {
         	paisDelRobo = randomPais()        	
         }
         

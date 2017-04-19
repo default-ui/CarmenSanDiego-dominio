@@ -28,7 +28,7 @@ class EstadoVillano extends EstadoOcupante {
 		
 		var String resultado
 		
-		if(ordenDeArresto == null)
+		if(ordenDeArresto === null)
 			resultado = "El villano ha sido liberado por el juez por no tener orden de arresto"
 		else {
 			if (villano.nombre == ordenDeArresto.villano.nombre)
