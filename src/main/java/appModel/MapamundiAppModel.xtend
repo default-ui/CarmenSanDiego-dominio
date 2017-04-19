@@ -10,9 +10,9 @@ import carmenSanDiego.Pais
 @Accessors
 class MapamundiAppModel {
 	Mapamundi mapa
-	Pais PaisSeleccionado
+	Pais paisSeleccionado
 	
-	//def getUbicacionesPosibles(){
+	def getUbicacionesPosibles(){
 	//	Arrays.asList(Ubicacion.values)
 	//}
 	
@@ -26,4 +26,5 @@ class MapamundiAppModel {
 	//	materiaSeleccionada.eliminarNota(notaSeleccionada)
 	//}
 	
+	}
 }

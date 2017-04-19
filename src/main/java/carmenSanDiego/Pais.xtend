@@ -4,6 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.Random
 import java.util.ArrayList
 import java.util.List
+import org.uqbar.commons.model.ObservableUtils
 import org.uqbar.commons.utils.Observable
 
 @Observable class Pais {
