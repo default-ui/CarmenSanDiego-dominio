@@ -25,16 +25,16 @@ class DummyData {
 			generarMapamundiAleatorio
 		]
 	}
-	
 
 	def static crearArrayDeLugaresPosibles(){
-		val lugares = new ArrayList()
-		lugares.add(new Banco())
-		lugares.add(new Biblioteca())
-		lugares.add(new Embajada())
-		lugares.add(new Club())
-		return lugares
+		new ArrayList() => [
+			add(new Banco)
+			add(new Biblioteca)
+			add(new Embajada)
+			add(new Club)
+		]
 	}
+
 	def static crearExpedienteDummy() {
 		new Expediente => [
 			generarExpedienteAleatorio
