@@ -5,11 +5,14 @@ import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
 
 import static utils.FileParser.*
+import org.uqbar.commons.utils.Observable
 
+@Observable
+@Accessors
 class Expediente {
 
-	@Accessors var List<Villano> villanos = <Villano>newArrayList()
-	@Accessors Random randomGen = new Random()
+	var List<Villano> villanos = <Villano>newArrayList()
+	Random randomGen = new Random()
 
 	def void nuevoVillano(String nombre, Sexo sexo) {
 		val villano = new Villano(nombre, sexo)
