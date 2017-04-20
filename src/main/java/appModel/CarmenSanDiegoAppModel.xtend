@@ -7,6 +7,8 @@ import carmenSanDiego.Pais
 import utils.DummyData
 import carmenSanDiego.Lugar
 import java.util.List
+import carmenSanDiego.Juego
+import carmenSanDiego.Expediente
 
 /**
  * AppModel del juego
@@ -15,6 +17,9 @@ import java.util.List
 @Accessors
 class CarmenSanDiegoAppModel {
 	Mapamundi mapa = DummyData.crearMapamundiDummy()
+	Expediente expediente = DummyData.crearExpedienteDummy
+	// TODO GIGANTE, muuchisimo, sino todos los campos de juego deberian mudarse a esta clase
+	Juego juego = new Juego(mapa, expediente)
 	Pais pais
 	Pais temp
 	Pais conexionAEliminar

@@ -118,5 +118,15 @@ class Juego {
 		this.paisesVisitados.add(paisActual)
 		this.paisActual = destino
 	}
+	
+	def getOrdenDeArrestoString() {
+
+		var res = '<Nadie>'
+		if (ordenDeArresto !== null) {
+			res = ordenDeArresto.villano.nombre
+		}
+		res
+		
+	}
 
 }

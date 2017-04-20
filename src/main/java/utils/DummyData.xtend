@@ -1,5 +1,6 @@
 package utils
 
+import carmenSanDiego.Expediente
 import carmenSanDiego.Mapamundi
 import java.util.ArrayList
 import carmenSanDiego.Banco
@@ -25,6 +26,7 @@ class DummyData {
 		]
 	}
 	
+
 	def static crearArrayDeLugaresPosibles(){
 		val lugares = new ArrayList()
 		lugares.add(new Banco())
@@ -33,5 +35,13 @@ class DummyData {
 		lugares.add(new Club())
 		return lugares
 	}
+	def static crearExpedienteDummy() {
+		new Expediente => [
+			generarExpedienteAleatorio
+		]
+
+	}
 	
 }
+
+
