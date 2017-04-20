@@ -3,13 +3,16 @@ package carmenSanDiego
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.ArrayList
+import org.uqbar.commons.utils.Observable
 
+@Observable
+@Accessors
 class Villano {
 
-	@Accessors String nombre
-	@Accessors Sexo sexo
-	@Accessors List<String> senasParticulares = <String>newArrayList()
-	@Accessors List<String> hobbies = <String>newArrayList()
+	String nombre
+	Sexo sexo
+	List<String> senasParticulares = <String>newArrayList()
+	List<String> hobbies = <String>newArrayList()
 
 	new(String nombre, Sexo sexo) {
 		this.nombre = nombre
