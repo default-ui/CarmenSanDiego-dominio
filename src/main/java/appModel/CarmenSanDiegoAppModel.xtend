@@ -1,14 +1,15 @@
 package appModel
 
-import org.eclipse.xtend.lib.annotations.Accessors
-import org.uqbar.commons.utils.Observable
+import carmenSanDiego.Expediente
+import carmenSanDiego.Juego
+import carmenSanDiego.Lugar
 import carmenSanDiego.Mapamundi
 import carmenSanDiego.Pais
-import utils.DummyData
-import carmenSanDiego.Lugar
+import carmenSanDiego.Villano
 import java.util.List
-import carmenSanDiego.Juego
-import carmenSanDiego.Expediente
+import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
+import utils.DummyData
 
 /**
  * AppModel del juego
@@ -32,6 +33,8 @@ class CarmenSanDiegoAppModel {
 	String caracteristicaAEliminar
 	String nuevoPaisNombre	
 	Pais paisSeleccionado = mapa.paises.get(0)
+	
+	Villano villanoDeNuevaOrdenDeArresto
 	
 	def agregarPais(){
 		temp.nombre = nuevoPaisNombre
