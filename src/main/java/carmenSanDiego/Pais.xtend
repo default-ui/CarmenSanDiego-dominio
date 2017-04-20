@@ -55,6 +55,16 @@ import org.uqbar.commons.utils.Observable
 	def void eliminarLugar(Lugar lugar) {
 		this.lugares.remove(lugares.indexOf(lugar))
 	}
+	
+	def Boolean lugarExiste(String lugar){
+		var Boolean existe = false
+		for (Lugar l: this.lugares){
+			if (l.nombre == lugar){
+				existe = existe || true
+			}
+		}
+		existe
+	}
 
 	def void editarLugar(Lugar antiguo, Lugar nuevo) {
 		this.eliminarLugar(antiguo)
