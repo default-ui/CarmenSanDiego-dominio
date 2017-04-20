@@ -18,11 +18,13 @@ class Expediente {
 
 	def void eliminarVillano(String villanoNombre) {
 		this.villanos = villanos.filter([v | v.nombre != villanoNombre]).toList
-		
 	}
 	
+	/**
+	 * Obtiene un villano aleatorio del expediente
+	 */
 	def Villano obtenerVillano() {
-		return villanos.get(randomGen.nextInt(villanos.size()))
+		villanos.get(randomGen.nextInt(villanos.size()))
 	}
 
 	/**
@@ -76,7 +78,5 @@ class Expediente {
 		sb.toString
 				
 	}
-
-
-
+	
 }

@@ -16,22 +16,22 @@ import carmenSanDiego.Expediente
 @Observable
 @Accessors
 class CarmenSanDiegoAppModel {
-	Mapamundi mapa = DummyData.crearMapamundiDummy()
+	
+	Mapamundi mapa = DummyData.crearMapamundiDummy
 	Expediente expediente = DummyData.crearExpedienteDummy
-	// TODO GIGANTE, muuchisimo, sino todos los campos de juego deberian mudarse a esta clase
 	Juego juego = new Juego(mapa, expediente)
+	
 	Pais pais
 	Pais temp
 	Pais conexionAEliminar
 	Pais conexion
 	Lugar lugarAEliminar
 	Lugar lugar
-	List<Lugar> lugares = DummyData.crearArrayDeLugaresPosibles()
+	List<Lugar> lugares = DummyData.crearArrayDeLugaresPosibles
 	String caracteristica
 	String caracteristicaAEliminar
 	String nuevoPaisNombre	
 	Pais paisSeleccionado = mapa.paises.get(0)
-	
 	
 	def agregarPais(){
 		temp.nombre = nuevoPaisNombre
@@ -85,7 +85,5 @@ class CarmenSanDiegoAppModel {
 	def getPathImagenLugares(){
 		"lugares.png"
 	}
-	
-	
-	
+
 }
