@@ -24,9 +24,9 @@ class Mapamundi {
 	}
 	
 	/**Elimina el pais del mapamundi */
-	def eliminarPais(String nombre) {
-		paises = paises.filter([p | p.nombre != nombre]).toList
-	}
+	def eliminarPais(String name) {
+		paises.remove(getPaisFromName(name))
+	}	
 	
 	/** Reemplaza el pais por su modificacion */
 	def editarPais(String nombre, String nuevoNombre) {
@@ -123,6 +123,14 @@ class Mapamundi {
 	def private crearLugar(String nombreLugar){
 	  var lugar =  Class.forName(nombreLugar).getConstructor().newInstance() as Lugar
 	  lugar
+	}
+	
+	def getPaisFromName(String nombre){
+		for(Pais p : this.paises) {
+        	if(p.nombre.equals(nombre)) {
+            	return p
+			}
+		}
 	}
 
 }

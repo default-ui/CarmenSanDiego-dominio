@@ -8,7 +8,15 @@ import carmenSanDiego.Mapamundi
 @Observable
 @Accessors
 class CrearPaisAppModel {
-	String pais
-
+	Pais pais
+	Mapamundi mapa
 	
+	new(Mapamundi mapa, String nombre){
+		this.mapa = mapa
+		pais = new Pais(nombre)
+	}
+	
+	def agregarPais(String nombre){
+		mapa.nuevoPais(nombre)
+	}
 }
