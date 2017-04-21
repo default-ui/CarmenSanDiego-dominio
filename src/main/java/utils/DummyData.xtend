@@ -1,6 +1,10 @@
 package utils
 
 import carmenSanDiego.Mapamundi
+import carmenSanDiego.Caso
+import carmenSanDiego.Villano
+import carmenSanDiego.Expediente
+import carmenSanDiego.Juego
 
 /**
  * Esta clase es simplemente un utils para crear objetos tontos
@@ -18,6 +22,13 @@ class DummyData {
 		new Mapamundi => [
 			generarMapamundiAleatorio
 		]
+	}
+	
+	def static crearCasoDummy() {
+		val expediente = new Expediente()
+		expediente.generarExpedienteAleatorio()
+		val juego = new Juego(crearMapamundiDummy(), expediente)
+		juego.caso
 	}
 	
 }

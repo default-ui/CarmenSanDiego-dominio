@@ -14,7 +14,7 @@ import org.uqbar.commons.utils.Observable
 	@Accessors List<Pais> conexiones = <Pais>newArrayList()
 	@Accessors List<Lugar> lugares = <Lugar>newArrayList()
 	@Accessors EstadoOcupante estadoOcupante
-	@Accessors Random randomGen = new Random() 
+	@Accessors Random randomGen = new Random()
 
 	new(String nombre) {
 		this.nombre = nombre
