@@ -84,6 +84,14 @@ class CarmenSanDiegoAppModel {
 	def agregarSena(){
 		villanoTemp.agregarSena(inputValue)
 	}
+	
+	def eliminarHobbie(){
+		villanoTemp.eliminarHobbie(villanoCaracSeleccionada)
+	}
+	
+	def agregarHobbie(){
+		villanoTemp.agregarHobbie(inputValue)
+	}
 	/************
 	 * Imagenes *
 	 ************/
