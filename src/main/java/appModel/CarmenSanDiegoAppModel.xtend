@@ -35,6 +35,14 @@ class CarmenSanDiegoAppModel {
 	Pais paisSeleccionado = mapa.paises.get(0)
 	
 	Villano villanoDeNuevaOrdenDeArresto
+	///
+	String inputValue		//for textboxs
+	Villano villanoTemp
+	String villanoCaracSeleccionada
+	
+	/************
+	 * Mapamundi *
+	 ************/
 	
 	def agregarPais(){
 		temp.nombre = nuevoPaisNombre
@@ -64,6 +72,21 @@ class CarmenSanDiegoAppModel {
 	def eliminarLugar() {
 		temp.eliminarLugar(lugarAEliminar)
 	}
+	
+	/************
+	 * Villanos *
+	 ************/
+	 
+	 def eliminarSena(){
+	 	villanoTemp.eliminarSena(villanoCaracSeleccionada)
+	 }
+	
+	def agregarSena(){
+		villanoTemp.agregarSena(inputValue)
+	}
+	/************
+	 * Imagenes *
+	 ************/
 	
 	def getPathImagenMapamundi() {
 		"mapamundi.png"

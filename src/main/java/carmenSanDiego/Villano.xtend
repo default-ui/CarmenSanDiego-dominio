@@ -5,8 +5,9 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.ArrayList
 import org.uqbar.commons.utils.Observable
 
-@Observable
+
 @Accessors
+@Observable
 class Villano {
 
 	String nombre
