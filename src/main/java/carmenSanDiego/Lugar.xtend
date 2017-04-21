@@ -3,8 +3,9 @@ package carmenSanDiego
 import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.LinkedList
+import org.uqbar.commons.utils.Observable
 
-abstract class Lugar {
+@Observable abstract class Lugar {
 
 	@Accessors String nombre
 	@Accessors Boolean seEncuentraVillano = false
