@@ -1,10 +1,16 @@
 package utils
 
+import carmenSanDiego.Expediente
 import carmenSanDiego.Mapamundi
 import carmenSanDiego.Caso
 import carmenSanDiego.Villano
-import carmenSanDiego.Expediente
 import carmenSanDiego.Juego
+import java.util.ArrayList
+import carmenSanDiego.Banco
+import carmenSanDiego.Biblioteca
+import carmenSanDiego.Embajada
+import carmenSanDiego.Club
+
 
 /**
  * Esta clase es simplemente un utils para crear objetos tontos
@@ -22,6 +28,22 @@ class DummyData {
 		new Mapamundi => [
 			generarMapamundiAleatorio
 		]
+	}
+
+	def static crearArrayDeLugaresPosibles(){
+		new ArrayList() => [
+			add(new Banco)
+			add(new Biblioteca)
+			add(new Embajada)
+			add(new Club)
+		]
+	}
+
+	def static crearExpedienteDummy() {
+		new Expediente => [
+			generarExpedienteAleatorio
+		]
+
 	}
 	
 	def static crearCasoDummy() {

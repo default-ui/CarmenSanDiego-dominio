@@ -5,11 +5,14 @@ import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
 
 import static utils.FileParser.*
+import org.uqbar.commons.utils.Observable
 
+@Observable
+@Accessors
 class Expediente {
 
-	@Accessors var List<Villano> villanos = <Villano>newArrayList()
-	@Accessors Random randomGen = new Random()
+	var List<Villano> villanos = <Villano>newArrayList()
+	Random randomGen = new Random()
 
 	def void nuevoVillano(String nombre, Sexo sexo) {
 		val villano = new Villano(nombre, sexo)
@@ -18,11 +21,13 @@ class Expediente {
 
 	def void eliminarVillano(String villanoNombre) {
 		this.villanos = villanos.filter([v | v.nombre != villanoNombre]).toList
-		
 	}
 	
+	/**
+	 * Obtiene un villano aleatorio del expediente
+	 */
 	def Villano obtenerVillano() {
-		return villanos.get(randomGen.nextInt(villanos.size()))
+		villanos.get(randomGen.nextInt(villanos.size()))
 	}
 
 	/**
@@ -76,7 +81,5 @@ class Expediente {
 		sb.toString
 				
 	}
-
-
-
+	
 }

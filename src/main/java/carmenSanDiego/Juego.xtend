@@ -1,19 +1,23 @@
 package carmenSanDiego
 
-import java.util.ArrayList
-import org.eclipse.xtend.lib.annotations.Accessors
-import static utils.FileParser.*
+import java.util.List
 import java.util.Random
+import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
 
+import static utils.FileParser.*
+
+@Observable
+@Accessors
 class Juego {
 
-	@Accessors Mapamundi mapa
-	@Accessors Expediente expediente
-	@Accessors Pais paisActual
-	@Accessors ArrayList<Pais> paisesVisitados
-	@Accessors Caso caso
-	@Accessors OrdenDeArresto ordenDeArresto
-	@Accessors Random randomGen = new Random()
+	Mapamundi mapa
+	Expediente expediente
+	Pais paisActual
+	List<Pais> paisesVisitados
+	Caso caso
+	OrdenDeArresto ordenDeArresto
+	Random randomGen = new Random()
 
 	new(Mapamundi mapa, Expediente expediente) {
 		this.mapa = mapa
@@ -117,6 +121,16 @@ class Juego {
 	def viajar(Pais destino){
 		this.paisesVisitados.add(paisActual)
 		this.paisActual = destino
+	}
+	
+	def getOrdenDeArrestoString() {
+
+		var res = '<Nadie>'
+		if (ordenDeArresto !== null) {
+			res = ordenDeArresto.villano.nombre
+		}
+		res
+		
 	}
 
 }
