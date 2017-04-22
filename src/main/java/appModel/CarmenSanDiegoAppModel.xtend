@@ -11,6 +11,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import utils.DummyData
 import carmenSanDiego.Sexo
+import org.uqbar.commons.model.UserException
 
 /**
  * AppModel del juego
@@ -48,6 +49,7 @@ class CarmenSanDiegoAppModel {
 	 ************/
 	
 	def agregarPais(){
+		validarCantidadLugares(temp.lugares.size)
 		temp.nombre = nuevoPaisNombre
 		mapa.paises.add(temp)
 	}
@@ -74,6 +76,20 @@ class CarmenSanDiegoAppModel {
 	
 	def eliminarLugar() {
 		temp.eliminarLugar(lugarAEliminar)
+	}
+	
+	def validarCantidadLugares(Integer cantidadLugares) {
+		val minimaCantidadDeLugares = 3
+		if (cantidadLugares > minimaCantidadDeLugares) {
+			this.excepcionLugares("mas", minimaCantidadDeLugares)
+		}		
+		if (cantidadLugares < minimaCantidadDeLugares) {
+			this.excepcionLugares("menos", minimaCantidadDeLugares)
+		}
+	}
+	
+	private def excepcionLugares(String diferencia, Integer minimaCantidadDeLugares) {
+		throw new UserException('''No puede ingresar «diferencia» de «minimaCantidadDeLugares» lugares''')
 	}
 	
 	/************
