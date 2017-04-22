@@ -36,7 +36,7 @@ class CarmenSanDiegoAppModel {
 	
 	Villano villanoDeNuevaOrdenDeArresto
 	///
-	String inputValue		//for textboxs
+	String inputValue = null	//for textboxs
 	Villano villanoTemp
 	String villanoCaracSeleccionada
 	
@@ -79,10 +79,12 @@ class CarmenSanDiegoAppModel {
 	 
 	 def eliminarSena(){
 	 	villanoTemp.eliminarSena(villanoCaracSeleccionada)
+	 	villanoCaracSeleccionada = null
 	 }
 	
 	def agregarSena(){
-		villanoTemp.agregarSena(inputValue)
+		if(inputValue !=null)
+			villanoTemp.agregarSena(inputValue)
 	}
 	
 	def eliminarHobbie(){
@@ -90,6 +92,7 @@ class CarmenSanDiegoAppModel {
 	}
 	
 	def agregarHobbie(){
+		if(inputValue !=null)
 		villanoTemp.agregarHobbie(inputValue)
 	}
 	/************
