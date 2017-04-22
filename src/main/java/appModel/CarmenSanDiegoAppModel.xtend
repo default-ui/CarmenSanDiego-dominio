@@ -10,6 +10,7 @@ import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import utils.DummyData
+import carmenSanDiego.Sexo
 
 /**
  * AppModel del juego
@@ -37,7 +38,10 @@ class CarmenSanDiegoAppModel {
 	///
 	String inputValue	//for textboxs
 	Villano villanoTemp
+	String villanoNombre
 	String villanoCaracSeleccionada
+	List<Sexo> gender = Sexo.values.toList
+	String selectedGender
 	
 	/************
 	 * Mapamundi *
@@ -83,6 +87,7 @@ class CarmenSanDiegoAppModel {
 	
 	def agregarSena(){
 			villanoTemp.agregarSena(inputValue)
+			inputValue = null
 	}
 	
 	def eliminarHobbie(){
@@ -91,6 +96,7 @@ class CarmenSanDiegoAppModel {
 	
 	def agregarHobbie(){
 		villanoTemp.agregarHobbie(inputValue)
+		inputValue = null
 	}
 	/************
 	 * Imagenes *
