@@ -19,6 +19,10 @@ class Expediente {
 		this.villanos.add(villano)
 	}
 
+	def agregarVillano(Villano vil){
+		villanos.add(vil)
+	}
+
 	def void eliminarVillano(String villanoNombre) {
 		this.villanos = villanos.filter([v | v.nombre != villanoNombre]).toList
 	}

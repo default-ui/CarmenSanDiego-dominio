@@ -37,7 +37,7 @@ class CarmenSanDiegoAppModel {
 	Villano villanoDeNuevaOrdenDeArresto
 	///
 	String inputValue	//for textboxs
-	Villano villanoTemp
+	Villano villanoTemp = null
 	String villanoNombre
 	String villanoCaracSeleccionada
 	List<Sexo> gender = Sexo.values.toList
@@ -98,6 +98,21 @@ class CarmenSanDiegoAppModel {
 		villanoTemp.agregarHobbie(inputValue)
 		inputValue = null
 	}
+	
+	def agregarVillano() {
+		juego.expediente.agregarVillano(villanoTemp)
+			}
+			
+	def esNuevoVillano() {
+		var res = true
+		for(Villano v : juego.expediente.villanos){
+			if(v.nombre == villanoTemp.nombre)
+				res = false
+			}
+		res
+	}
+	
+	
 	/************
 	 * Imagenes *
 	 ************/
@@ -133,5 +148,8 @@ class CarmenSanDiegoAppModel {
 	def getPathImagenHobbies(){
 		"hobbies.png"
 	}
+	
+
+
 
 }
