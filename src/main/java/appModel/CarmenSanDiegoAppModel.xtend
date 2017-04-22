@@ -33,10 +33,9 @@ class CarmenSanDiegoAppModel {
 	String caracteristicaAEliminar
 	String nuevoPaisNombre	
 	Pais paisSeleccionado = mapa.paises.get(0)
-	
 	Villano villanoDeNuevaOrdenDeArresto
 	///
-	String inputValue = null	//for textboxs
+	String inputValue	//for textboxs
 	Villano villanoTemp
 	String villanoCaracSeleccionada
 	
@@ -83,7 +82,6 @@ class CarmenSanDiegoAppModel {
 	 }
 	
 	def agregarSena(){
-		if(inputValue !=null)
 			villanoTemp.agregarSena(inputValue)
 	}
 	
@@ -92,7 +90,6 @@ class CarmenSanDiegoAppModel {
 	}
 	
 	def agregarHobbie(){
-		if(inputValue !=null)
 		villanoTemp.agregarHobbie(inputValue)
 	}
 	/************
