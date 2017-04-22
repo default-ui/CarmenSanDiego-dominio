@@ -119,5 +119,13 @@ class CarmenSanDiegoAppModel {
 	def getPathImagenLugares(){
 		"lugares.png"
 	}
+	
+	def getPathImagenSenas(){
+		"senas.png"
+	}
+	
+	def getPathImagenHobbies(){
+		"hobbies.png"
+	}
 
 }
