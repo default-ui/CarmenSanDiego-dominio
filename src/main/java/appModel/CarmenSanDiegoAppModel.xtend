@@ -5,14 +5,13 @@ import carmenSanDiego.Juego
 import carmenSanDiego.Lugar
 import carmenSanDiego.Mapamundi
 import carmenSanDiego.Pais
+import carmenSanDiego.Sexo
 import carmenSanDiego.Villano
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
 import utils.DummyData
-import carmenSanDiego.Sexo
-import org.uqbar.commons.model.UserException
-import carmenSanDiego.Caso
 
 /**
  * AppModel del juego
@@ -43,6 +42,7 @@ class CarmenSanDiegoAppModel {
 	String villanoCaracSeleccionada
 	List<Sexo> gender = Sexo.values.toList
 	String selectedGender
+	Lugar lugarAbierto
 	
 	
 	/************

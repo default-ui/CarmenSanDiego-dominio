@@ -159,5 +159,11 @@ class Juego {
 		}
 		this.fallidos=fallidos
 	}
+	
+	def proximoPais(){
+		val ultimoPaisCorrectoVisitado = getRecorrido.last
+		val indexDelUltimo = caso.planDeEscape.indexOf(ultimoPaisCorrectoVisitado)
+		caso.planDeEscape.get(indexDelUltimo + 1)
+	}
 
 }
