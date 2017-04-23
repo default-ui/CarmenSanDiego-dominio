@@ -79,7 +79,7 @@ class MapamundiTest {
 		when(randomMock.nextInt(anyInt())).thenReturn(0)		
 		paisDelRobo = mapa.obtenerPaisDelRobo
 		
-		assertEquals("Grecia", paisDelRobo.nombre)
+		assertEquals("España", paisDelRobo.nombre)
 		
 	}
 		
