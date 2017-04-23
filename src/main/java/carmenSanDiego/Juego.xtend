@@ -14,18 +14,19 @@ class Juego {
 
 	Mapamundi mapa
 	Expediente expediente
-	Pais paisActual
-	List<Pais> paisesVisitados
+	Pais paisActual = null
+	Pais paisDestino = null
+	List<Pais> paisesVisitados = null
 	List<Pais> recorrido = new ArrayList()
 	List<Pais> fallidos = new ArrayList() 
 	Caso caso
 	OrdenDeArresto ordenDeArresto
 	Random randomGen = new Random()
+	Pais paisAnterior = null
 
 	new(Mapamundi mapa, Expediente expediente) {
 		this.mapa = mapa
 		this.expediente = expediente
-		this.paisActual = null
 		this.paisesVisitados = newArrayList()
 		this.ordenDeArresto = null
 	}
@@ -122,6 +123,9 @@ class Juego {
 	 */
 	def viajar(Pais destino){
 		this.paisesVisitados.add(paisActual)
+		this.paisAnterior=paisActual
+		getRecorrido()
+		getFallidos()
 		this.paisActual = destino
 	}
 	
