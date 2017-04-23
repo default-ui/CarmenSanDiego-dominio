@@ -36,11 +36,8 @@ class Mapamundi {
 	
 	/** Retorna el pais donde se efectuo el robo */
 	def Pais obtenerPaisDelRobo() {
-		
-        if (paisDelRobo === null) {
         	paisDelRobo = randomPais()        	
-        }
-        
+       
         paisDelRobo
         
 	}
@@ -105,6 +102,7 @@ class Mapamundi {
 				// elijo el pais con el que generar la conexion
 				// TODO: deberia ser un pais que tambien tenga menos de 3 conexiones
 				var paisAConectar = paisesMenosPaisActual.get(randomGen.nextInt(paisesMenosPaisActual.size()))
+				paisesMenosPaisActual.remove(paisAConectar)
 				 
 				// genero conexion en ambos sentidos
 				paisActual.agregarConexion(paisAConectar)

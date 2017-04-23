@@ -6,6 +6,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 
 import static utils.FileParser.*
+import java.util.ArrayList
 
 @Observable
 @Accessors
@@ -15,6 +16,8 @@ class Juego {
 	Expediente expediente
 	Pais paisActual
 	List<Pais> paisesVisitados
+	List<Pais> recorrido = new ArrayList()
+	List<Pais> fallidos = new ArrayList() 
 	Caso caso
 	OrdenDeArresto ordenDeArresto
 	Random randomGen = new Random()
@@ -24,7 +27,6 @@ class Juego {
 		this.expediente = expediente
 		this.paisActual = null
 		this.paisesVisitados = newArrayList()
-		this.caso = crearCaso()
 		this.ordenDeArresto = null
 	}
 
@@ -37,10 +39,8 @@ class Juego {
 		val objeto = obtenerObjeto()
 		val pais = obtenerPaisDelRobo()
 		val plan = obtenerPlanDeEscape(pais)
-		
 		this.paisActual = pais
-		
-		new Caso(villano, objeto, plan, pais)
+		this.caso = new Caso(villano, objeto, plan, pais)
 	}
 
 	/**
@@ -79,6 +79,7 @@ class Juego {
 		// agrego un pais siguiente (entre las conexiones del actual)
 		// despues paso al siguiente como actual
 		var paisActual = paisDelRobo
+		planDeEscape.add(paisDelRobo)
 		var Pais paisSiguiente
 		for(i : 0 ..< 5) {
 			paisActual.estadoOcupante = estadoInformante
@@ -88,6 +89,7 @@ class Juego {
 			
 			paisActual = paisSiguiente
 		}
+		planDeEscape.remove(paisDelRobo)
 		
 		
 		// el ultimo pais de la lista es aquel en el cual va a encontrarse el villano
@@ -131,6 +133,27 @@ class Juego {
 		}
 		res
 		
+	}
+	
+	def getRecorrido(){
+		var recorrido = new ArrayList()
+		recorrido.add(caso.paisDelRobo)
+		for (Pais p: paisesVisitados){
+			if (caso.planDeEscape.contains(p)){
+				recorrido.add(p)
+			}
+		}
+		this.recorrido=recorrido
+	}
+	
+	def getFallidos(){
+		var fallidos = new ArrayList()
+		for (Pais p: paisesVisitados){
+			if (!caso.planDeEscape.contains(p) && p!=caso.paisDelRobo){
+				fallidos.add(p)
+			}
+		}
+		this.fallidos=fallidos
 	}
 
 }

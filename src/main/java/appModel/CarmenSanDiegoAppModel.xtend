@@ -12,6 +12,7 @@ import org.uqbar.commons.utils.Observable
 import utils.DummyData
 import carmenSanDiego.Sexo
 import org.uqbar.commons.model.UserException
+import carmenSanDiego.Caso
 
 /**
  * AppModel del juego
@@ -23,7 +24,6 @@ class CarmenSanDiegoAppModel {
 	Mapamundi mapa = DummyData.crearMapamundiDummy
 	Expediente expediente = DummyData.crearExpedienteDummy
 	Juego juego = new Juego(mapa, expediente)
-	
 	Pais pais
 	Pais temp
 	Pais conexionAEliminar
@@ -43,6 +43,7 @@ class CarmenSanDiegoAppModel {
 	String villanoCaracSeleccionada
 	List<Sexo> gender = Sexo.values.toList
 	String selectedGender
+	
 	
 	/************
 	 * Mapamundi *
@@ -89,7 +90,7 @@ class CarmenSanDiegoAppModel {
 	}
 	
 	private def excepcionLugares(String diferencia, Integer minimaCantidadDeLugares) {
-		throw new UserException('''No puede ingresar «diferencia» de «minimaCantidadDeLugares» lugares''')
+		throw new UserException('''No puede ingresar '+diferencia+' de '+minimaCantidadDeLugares+' lugares''')
 	}
 	
 	/************
@@ -135,6 +136,10 @@ class CarmenSanDiegoAppModel {
 	
 	def getPathImagenMapamundi() {
 		"mapamundi.png"
+	}
+	
+	def getPathImagenExpediente() {
+		"expediente.png"
 	}
 	
 	def getPathImagenIntro() {
