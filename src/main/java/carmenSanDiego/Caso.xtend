@@ -19,9 +19,10 @@ class Caso {
 		this.objeto = objeto
 		this.planDeEscape = planDeEscape
 		this.paisDelRobo = paisDelRobo
+		generarReporte
 	}
 
-	def generarReporte() {
+	def void generarReporte() {
 		reporte = "¡¡¡Ha desaparecido " + objeto + "!!! Se encontraba 
 en exposición en el Museo Nacional de " + paisDelRobo.nombre + ".
  El criminal fue muy prolijo y la escena del crimen no contaba
