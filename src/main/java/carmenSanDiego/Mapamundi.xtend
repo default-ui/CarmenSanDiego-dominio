@@ -50,7 +50,7 @@ class Mapamundi {
 		var listaPaises = new ArrayList()
 		
 		// armo una lista con todos los datos de los paises, un pais por linea
-		var listaPaisesDatos = getListFromFile('/datapaises.csv')
+		var listaPaisesDatos = getListFromFile('/dataPaises.csv')
 		for (datosPais : listaPaisesDatos) {
 			
 			// separo la linea en una nueva lista
@@ -114,8 +114,8 @@ class Mapamundi {
 	}
 	
 	/**
-	 * Crea un lugar a partir del nombre de su clase (el cual se encuentra en 
-	 * el archivo src/main/resources/datapaises.csv )
+	 * Crea un lugar a partir del nombre de su clase
+	 * (el cual se encuentra en el archivo src/main/resources/dataPaises.csv )
 	 */
 	def private crearLugar(String nombreLugar){
 	  var lugar =  Class.forName(nombreLugar).getConstructor().newInstance() as Lugar
