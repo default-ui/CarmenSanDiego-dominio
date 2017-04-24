@@ -94,7 +94,8 @@ class Juego {
 		
 		
 		// el ultimo pais de la lista es aquel en el cual va a encontrarse el villano
-		paisActual.setEstadoOcupante(estadoVillano)
+		//paisActual.setEstadoOcupante(estadoVillano)
+		planDeEscape.get(4).setEstadoOcupante(estadoVillano)
 		setearLugarDeLosHechos(paisActual)
 
 		planDeEscape
@@ -143,7 +144,7 @@ class Juego {
 		var recorrido = new ArrayList()
 		recorrido.add(caso.paisDelRobo)
 		for (Pais p: paisesVisitados){
-			if (caso.planDeEscape.contains(p)){
+			if (caso.planDeEscape.contains(p) && !recorrido.contains(p)){
 				recorrido.add(p)
 			}
 		}
@@ -153,17 +154,26 @@ class Juego {
 	def getFallidos(){
 		var fallidos = new ArrayList()
 		for (Pais p: paisesVisitados){
-			if (!caso.planDeEscape.contains(p) && p!=caso.paisDelRobo){
+			if (!caso.planDeEscape.contains(p) && p!=caso.paisDelRobo && !fallidos.contains(p)){
 				fallidos.add(p)
 			}
 		}
 		this.fallidos=fallidos
 	}
 	
-	def proximoPais(){
-		val ultimoPaisCorrectoVisitado = getRecorrido.last
-		val indexDelUltimo = caso.planDeEscape.indexOf(ultimoPaisCorrectoVisitado)
-		caso.planDeEscape.get(indexDelUltimo + 1)
+	//def proximoPais(){
+	//	val ultimoPaisCorrectoVisitado = getRecorrido.last
+	//	val indexDelUltimo = caso.planDeEscape.indexOf(ultimoPaisCorrectoVisitado)
+	//	caso.planDeEscape.get(indexDelUltimo + 1)
+	//}
+	
+	def Pais getProximoPais(){
+		var Pais proximo = null
+		if (paisActual.nombre == caso.paisDelRobo.nombre){
+			proximo = caso.planDeEscape.get(0)
+		} else {
+			proximo = caso.planDeEscape.get(caso.planDeEscape.indexOf(paisActual)+1)
+		}
+		proximo
 	}
-
 }
