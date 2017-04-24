@@ -5,10 +5,9 @@ import java.util.LinkedList
 import java.util.List
 import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
 
 import static utils.FileParser.*
-import org.uqbar.commons.model.ObservableUtils
-import org.uqbar.commons.utils.Observable
 
 @Observable
 class Mapamundi {

@@ -1,20 +1,21 @@
 package carmenSanDiego
 
-import org.eclipse.xtend.lib.annotations.Accessors
-import java.util.Random
 import java.util.ArrayList
 import java.util.List
-import org.uqbar.commons.model.ObservableUtils
+import java.util.Random
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 
-@Observable class Pais {
+@Observable
+@Accessors
+class Pais {
 
-	@Accessors String nombre
-	@Accessors List<String> caracteristicas = <String>newArrayList()
-	@Accessors List<Pais> conexiones = <Pais>newArrayList()
-	@Accessors List<Lugar> lugares = <Lugar>newArrayList()
-	@Accessors EstadoOcupante estadoOcupante
-	@Accessors Random randomGen = new Random()
+	String nombre
+	List<String> caracteristicas = <String>newArrayList()
+	List<Pais> conexiones = <Pais>newArrayList()
+	List<Lugar> lugares = <Lugar>newArrayList()
+	EstadoOcupante estadoOcupante
+	Random randomGen = new Random()
 
 	new(String nombre) {
 		this.nombre = nombre
