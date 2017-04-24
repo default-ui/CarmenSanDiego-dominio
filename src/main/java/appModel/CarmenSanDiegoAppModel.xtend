@@ -94,10 +94,25 @@ class CarmenSanDiegoAppModel {
 	}
 	
 	/************
+	 * Lugares *
+	 ************/
+	 
+	def pedirPista(){
+		
+		juego.pedirPista(
+			lugarAbierto, 
+			juego.caso.responsable,
+			juego.proximoPais,
+			juego.ordenDeArresto
+		)
+	 	
+	 }
+	
+	/************
 	 * Villanos *
 	 ************/
 	 
-	 def eliminarSena(){
+	def eliminarSena(){
 	 	villanoTemp.eliminarSena(villanoCaracSeleccionada)
 	 	villanoCaracSeleccionada = null
 	 }
