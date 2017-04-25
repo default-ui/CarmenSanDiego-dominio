@@ -13,9 +13,15 @@ class Embajada  extends Lugar{
 
 	
 	override obtenerPista(Pais siguienteDestino, Villano villano) {
-		var pistas = obtenerPistaPais(siguienteDestino) + obtenerPistaPais(siguienteDestino)
+		var pista1 = obtenerPistaPais(siguienteDestino)
+		var pista2 = obtenerPistaPais(siguienteDestino)
+		while (pista2==pista1){
+			pista2 = obtenerPistaVillanoSenaParticular(villano)
+		}
+		var pista = pista1 + pista2
 		
-		pistas
+		
+		pista
 	}
 	
 }
