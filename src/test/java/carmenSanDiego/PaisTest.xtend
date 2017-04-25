@@ -13,8 +13,11 @@ class PaisTest {
 
 	Lugar lugarBiblioteca
 	Lugar lugarBanco
+	Lugar lugarClub
 	
 	Villano villanoMoriarty
+	
+	
 
 	@Before
 	def void init() {
@@ -26,6 +29,7 @@ class PaisTest {
 
 		lugarBiblioteca = new Biblioteca()
 		lugarBanco = new Banco()
+		lugarClub = new Club()
 		
 		villanoMoriarty = new Villano("Moriarty", Sexo.Masculino)
 
@@ -105,5 +109,13 @@ class PaisTest {
 			"Fue al pais mais grande do mundo. Es diabolico. ",
 			paisRusia.pedirPistaOcupante(lugarBanco, villanoMoriarty, paisBrazil, null)
 		)
+	}
+	
+	@Test def setearVillano(){
+		paisArgentina.agregarLugar(lugarBanco)
+		paisArgentina.agregarLugar(lugarBiblioteca)
+		paisArgentina.agregarLugar(lugarClub)
+		paisArgentina.setearEscondite
+		assertTrue(lugarBanco.seEncuentraVillano || lugarBiblioteca.seEncuentraVillano || lugarClub.seEncuentraVillano)
 	}
 }

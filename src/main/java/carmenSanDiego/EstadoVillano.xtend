@@ -11,10 +11,10 @@ class EstadoVillano extends EstadoOcupante {
 	 */
 	override responder(Pais siguienteDestino, Lugar lugar, Villano villano, OrdenDeArresto ordenDeArresto) {
 	
-		if (!lugar.seEncuentraVillano) 
-			"Peligro, el villano está en el país. Tené cuidado"
-		else 
+		if (lugar.seEncuentraVillano==true) 
 			detenerVillano(villano, ordenDeArresto)
+		else 
+			"Peligro, el villano está en el país. Tené cuidado"
 			
 	}
 

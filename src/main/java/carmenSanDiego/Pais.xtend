@@ -125,6 +125,7 @@ class Pais {
 		
 	}
 	
-	
-
+	def void setearEscondite(){
+		lugares.get(randomGen.nextInt(lugares.size)).seEncuentraVillano = true
+	}
 }

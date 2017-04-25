@@ -12,6 +12,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
 import utils.DummyData
+import java.util.ArrayList
 
 /**
  * AppModel del juego
@@ -30,6 +31,7 @@ class CarmenSanDiegoAppModel {
 	Lugar lugarAEliminar
 	Lugar lugar
 	List<Lugar> lugares = DummyData.crearArrayDeLugaresPosibles
+	List<Lugar> lugaresPistas = new ArrayList<Lugar>
 	String caracteristica
 	String caracteristicaAEliminar
 	String nuevoPaisNombre	

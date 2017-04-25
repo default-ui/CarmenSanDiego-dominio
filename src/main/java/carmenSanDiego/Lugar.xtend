@@ -8,7 +8,7 @@ import org.uqbar.commons.utils.Observable
 @Observable abstract class Lugar {
 
 	@Accessors String nombre
-	@Accessors Boolean seEncuentraVillano = false
+	@Accessors Boolean seEncuentraVillano
 	// TODO: cuando se inicialice el juego hay que asegurarse que el lugar en donde se encuentra el villano
 	//se encuentre en true
 	
@@ -50,5 +50,7 @@ import org.uqbar.commons.utils.Observable
 		var hobby = "Se rumorea que disfruta de " + hobbies.remove( randomGen.nextInt(hobbies.size) ).toLowerCase + ". "
 		hobby
 	}
+	
+	
 
 }

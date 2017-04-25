@@ -3,6 +3,7 @@ package carmenSanDiego
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
+import java.util.Random
 
 @Observable
 class Caso {
@@ -12,6 +13,7 @@ class Caso {
 	@Accessors String objeto
 	@Accessors Pais paisDelRobo
 	@Accessors List<String> reporte
+	Random randomGen = new Random()
 
 	new(Villano responsable, String objeto, List<Pais> planDeEscape, Pais paisDelRobo) {
 		
@@ -22,6 +24,15 @@ class Caso {
 		
 		generarReporte
 	}
+	
+	/**
+	 * Se le setea a un lugar random del ultimo pais del plan de escape que efectivamente el criminal
+	 * responsable del hecho se encuentra en ese lugar
+	 */
+	//def setearEsconditeDelVillano() {
+	//	planDeEscape.get(4).setearEscondite() 
+	//}
+	
 
 	def private void generarReporte() {
 		reporte = newArrayList

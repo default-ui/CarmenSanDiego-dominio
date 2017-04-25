@@ -1,10 +1,9 @@
 package carmenSanDiego
 
 import java.util.List
-import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
-
+import java.util.Random
 import static utils.FileParser.*
 import java.util.ArrayList
 
@@ -19,7 +18,7 @@ class Juego {
 	List<Pais> paisesVisitados = null
 	List<Pais> recorrido = new ArrayList()
 	List<Pais> fallidos = new ArrayList() 
-	Caso caso
+	Caso caso = null
 	OrdenDeArresto ordenDeArresto
 	Random randomGen = new Random()
 	Pais paisAnterior = null
@@ -39,10 +38,16 @@ class Juego {
 		val villano = obtenerVillano()
 		val objeto = obtenerObjeto()
 		val pais = obtenerPaisDelRobo()
-		val plan = obtenerPlanDeEscape(pais)
-		this.paisActual = pais
-		this.caso = new Caso(villano, objeto, plan, pais)
+		val planDeEscape = obtenerPlanDeEscape(pais)
+		paisActual = pais
+		val caso = new Caso(villano, objeto, planDeEscape, pais)
+		for (i:0..<5){
+		System.out.println(planDeEscape.get(i).nombre+">>> ")
+		}
+		this.caso = caso
 	}
+	
+	
 
 	/**
 	 * Obtiene un objeto random de la lista de objetos predeterminados.
@@ -91,27 +96,20 @@ class Juego {
 			paisActual = paisSiguiente
 		}
 		planDeEscape.remove(paisDelRobo)
+		planDeEscape.get(4).setearEscondite()
+		
 		
 		
 		// el ultimo pais de la lista es aquel en el cual va a encontrarse el villano
 		//paisActual.setEstadoOcupante(estadoVillano)
 		planDeEscape.get(4).setEstadoOcupante(estadoVillano)
-		setearLugarDeLosHechos(paisActual)
+		
 
 		planDeEscape
 
 	}
 
-	/**
-	 * Se le setea a un lugar random del ultimo pais del plan de escape que efectivamente el criminal
-	 * responsable del hecho se encuentra en ese lugar
-	 */
-	def setearLugarDeLosHechos(Pais paisDelArresto) {
-		
-		val lugarDelArresto = paisDelArresto.lugares.get(randomGen.nextInt(paisDelArresto.lugares.size)) 
-		lugarDelArresto.seEncuentraVillano = true
-		
-	}
+	
 	
 	def pedirPista(Lugar lugar, Villano villano, Pais destino, OrdenDeArresto ordenDeArresto){
 		paisActual.pedirPistaOcupante(lugar, villano, destino, ordenDeArresto)
@@ -161,17 +159,14 @@ class Juego {
 		this.fallidos=fallidos
 	}
 	
-	//def proximoPais(){
-	//	val ultimoPaisCorrectoVisitado = getRecorrido.last
-	//	val indexDelUltimo = caso.planDeEscape.indexOf(ultimoPaisCorrectoVisitado)
-	//	caso.planDeEscape.get(indexDelUltimo + 1)
-	//}
-	
 	def Pais getProximoPais(){
 		var Pais proximo = null
 		if (paisActual.nombre == caso.paisDelRobo.nombre){
 			proximo = caso.planDeEscape.get(0)
-		} else {
+		} else if (paisActual.nombre == caso.planDeEscape.get(4).nombre){
+			proximo = null
+		}
+		else{
 			proximo = caso.planDeEscape.get(caso.planDeEscape.indexOf(paisActual)+1)
 		}
 		proximo
