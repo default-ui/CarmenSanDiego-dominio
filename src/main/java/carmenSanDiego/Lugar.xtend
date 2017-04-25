@@ -32,38 +32,16 @@ import java.util.List
 		caracteristica
 	}
 	
-	def List<String> obtenerPistasPais(Pais siguienteDestino) {
-		var List<String> res = new ArrayList<String>
-		var List<String> carac = siguienteDestino.caracteristicas
-		for (i:0..<2){
-			var car = carac.get(randomGen.nextInt(carac.size))
-			res.add(car)
-			carac.remove(car)
-		}
-		res
-	}
-
 	/**
 	 * Obtengo una Seña Particular aleatoria del villano recibido por parametro
 	 */
-	//def String obtenerPistaVillanoSenaParticular(Villano villano) {
-	//	var LinkedList<String> senas = new LinkedList<String> (villano.senasParticulares)
+	def String obtenerPistaVillanoSenaParticular(Villano villano) {
+		var LinkedList<String> senas = new LinkedList<String> (villano.senasParticulares)
 		// se le da formato. Ejemplo: "Es de pelo negro."
-	//	var sena = "Es " + senas.remove( randomGen.nextInt(senas.size) ).toLowerCase + ". "
-	//	sena
-	//}
-	
-	def List<String> obtenerPistasVillanoSenaParticular(Villano villano) {
-		var List<String> res = new ArrayList<String>
-		var List<String> senas = villano.senasParticulares
-		for (i:0..<2){
-			var sena = senas.get(randomGen.nextInt(senas.size))
-			res.add(sena)
-			senas.remove(sena)
-		}
-		res
+		var sena = "Es " + senas.remove( randomGen.nextInt(senas.size) ).toLowerCase + ". "
+		sena
 	}
-
+	
 	/**
 	 * Obtengo un Hobbie aleatorio del villano recibido por parametro
 	 */

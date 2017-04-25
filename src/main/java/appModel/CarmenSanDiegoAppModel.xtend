@@ -41,7 +41,10 @@ class CarmenSanDiegoAppModel {
 	String nuevoPaisNombre	
 	Pais paisSeleccionado = mapa.paises.get(0)
 	Villano villanoDeNuevaOrdenDeArresto
-	///
+	String pistasBanco
+	String pistasBiblioteca
+	String pistasClub
+	String pistasEmbajada
 	Lugar lugarAbierto
 	/// Otro appModels
 	ExpedienteAppModel expedienteAppModel = new ExpedienteAppModel
@@ -103,16 +106,33 @@ class CarmenSanDiegoAppModel {
 	 * Lugares *
 	 ************/
 	 
+	//def pedirPista(){
+	//	
+	//	juego.pedirPista(
+	//		lugarAbierto, 
+	//		juego.caso.responsable,
+	//		juego.proximoPais,
+	//		juego.ordenDeArresto
+	//	)
+	// 	
+	//}
+	
 	def pedirPista(){
-		
-		juego.pedirPista(
-			lugarAbierto, 
-			juego.caso.responsable,
-			juego.proximoPais,
-			juego.ordenDeArresto
-		)
-	 	
-	 }
+		var res = ""
+		if (lugarAbierto.nombre=="Banco"){
+			res = pistasBanco
+		}
+		if (lugarAbierto.nombre=="Biblioteca"){
+			res = pistasBiblioteca
+		}
+		if (lugarAbierto.nombre=="Club"){
+			res = pistasClub
+		}
+		if (lugarAbierto.nombre=="Embajada"){
+			res = pistasEmbajada
+		}
+		res
+	}
 	
 	
 	/************
@@ -144,8 +164,53 @@ class CarmenSanDiegoAppModel {
 		"lugares.png"
 	}
 	
+	def traerPistasDeBanco(Pais pais, Villano villano){
+		var res = "" 
+		for (Lugar l: pais.lugares){
+			if (l.nombre == "Banco"){
+				res = l.obtenerPista(pais, villano) 
+			}
+		}
+		pistasBanco=res
+	}
 	
-
+	def traerPistasDeBiblioteca(Pais pais, Villano villano){
+		var res = "" 
+		for (Lugar l: pais.lugares){
+			if (l.nombre == "Biblioteca"){
+				res = l.obtenerPista(pais, villano) 
+			}
+		}
+		pistasBiblioteca=res
+	}
+	
+	def traerPistasDeClub(Pais pais, Villano villano){
+		var res = "" 
+		for (Lugar l: pais.lugares){
+			if (l.nombre == "Club"){
+				res = l.obtenerPista(pais, villano) 
+			}
+		}
+		pistasClub=res
+	}
+	
+	def traerPistasDeEmbajada(Pais pais, Villano villano){
+		var res = "" 
+		for (Lugar l: pais.lugares){
+			if (l.nombre == "Embajada"){
+				res = l.obtenerPista(pais, villano) 
+			}
+		}
+		pistasEmbajada=res
+		
+	}
+	
+	def traerPistas(Pais pais, Villano villano){
+		traerPistasDeBanco(pais, villano)
+		traerPistasDeBiblioteca(pais, villano)
+		traerPistasDeClub(pais, villano)
+		traerPistasDeEmbajada(pais, villano)
+	}
 
 
 }

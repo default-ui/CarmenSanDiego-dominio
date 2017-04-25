@@ -164,7 +164,7 @@ class Juego {
 		if (paisActual.nombre == caso.paisDelRobo.nombre){
 			proximo = caso.planDeEscape.get(0)
 		} else if (paisActual.nombre == caso.planDeEscape.get(4).nombre){
-			proximo = null
+			proximo = caso.planDeEscape.get(0)
 		}
 		else{
 			proximo = caso.planDeEscape.get(caso.planDeEscape.indexOf(paisActual)+1)
