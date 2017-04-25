@@ -80,6 +80,8 @@ class ExpedienteAppModel {
 		"hobbies.png"
 	}
 	
-	
+	def getPathImagenVillano(){
+		"villano.png"
+	}
 	
 }

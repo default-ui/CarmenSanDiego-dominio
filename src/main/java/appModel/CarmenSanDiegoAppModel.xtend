@@ -5,23 +5,21 @@ import carmenSanDiego.Juego
 import carmenSanDiego.Lugar
 import carmenSanDiego.Mapamundi
 import carmenSanDiego.Pais
-import carmenSanDiego.Sexo
 import carmenSanDiego.Villano
+import java.util.ArrayList
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
-import utils.DummyData
-import java.util.ArrayList
-import org.uqbar.commons.utils.Transactional
 import org.uqbar.commons.utils.Transactional
 import utils.DummyData
 
 /**
  * AppModel del juego
  */
-@Observable
+
 @Transactional
+@Observable
 @Accessors
 class CarmenSanDiegoAppModel {
 	
@@ -126,9 +124,21 @@ class CarmenSanDiegoAppModel {
 		"mapamundi.png"
 	}
 	
+	def getPathImagenViajar() {
+		"viajar.png"
+	}
+	
+	def getPathImagenResolviendo() {
+		"resolviendo.png"
+	}
+	
+	def getPathImagenOrden() {
+		"orden.png"
+	}
 	
 	def getPathImagenIntro() {
 		"intro.jpg"
+	
 	}	
 	
 	def getPathImagenNuevoPais(){
@@ -137,6 +147,10 @@ class CarmenSanDiegoAppModel {
 	
 	def getPathImagenCaracteristicas(){
 		"caracteristicas.png"
+	}
+	
+	def getPathImagenInicio(){
+		"inicio.png"
 	}
 	
 	def getPathImagenConexiones(){
