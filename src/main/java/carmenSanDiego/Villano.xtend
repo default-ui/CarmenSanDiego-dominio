@@ -4,9 +4,10 @@ import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.ArrayList
 import org.uqbar.commons.utils.Observable
-
+import org.uqbar.commons.utils.Transactional
 
 @Accessors
+@Transactional
 @Observable
 class Villano {
 

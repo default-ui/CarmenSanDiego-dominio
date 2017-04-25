@@ -12,11 +12,13 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
 import utils.DummyData
+import org.uqbar.commons.utils.Transactional
 
 /**
  * AppModel del juego
  */
 @Observable
+@Transactional
 @Accessors
 class CarmenSanDiegoAppModel {
 	
@@ -36,13 +38,13 @@ class CarmenSanDiegoAppModel {
 	Pais paisSeleccionado = mapa.paises.get(0)
 	Villano villanoDeNuevaOrdenDeArresto
 	///
-	String inputValue	//for textboxs
-	Villano villanoTemp = null
-	String villanoNombre
-	String villanoCaracSeleccionada
-	List<Sexo> gender = Sexo.values.toList
-	String selectedGender
 	Lugar lugarAbierto
+	/// Otro appModels
+	ExpedienteAppModel expedienteAppModel = new ExpedienteAppModel
+	
+	new(){
+		
+	}
 	
 	
 	/************
@@ -108,42 +110,6 @@ class CarmenSanDiegoAppModel {
 	 	
 	 }
 	
-	/************
-	 * Villanos *
-	 ************/
-	 
-	def eliminarSena(){
-	 	villanoTemp.eliminarSena(villanoCaracSeleccionada)
-	 	villanoCaracSeleccionada = null
-	 }
-	
-	def agregarSena(){
-			villanoTemp.agregarSena(inputValue)
-			inputValue = null
-	}
-	
-	def eliminarHobbie(){
-		villanoTemp.eliminarHobbie(villanoCaracSeleccionada)
-	}
-	
-	def agregarHobbie(){
-		villanoTemp.agregarHobbie(inputValue)
-		inputValue = null
-	}
-	
-	def agregarVillano() {
-		juego.expediente.agregarVillano(villanoTemp)
-			}
-			
-	def esNuevoVillano() {
-		var res = true
-		for(Villano v : juego.expediente.villanos){
-			if(v.nombre == villanoTemp.nombre)
-				res = false
-			}
-		res
-	}
-	
 	
 	/************
 	 * Imagenes *
@@ -153,9 +119,6 @@ class CarmenSanDiegoAppModel {
 		"mapamundi.png"
 	}
 	
-	def getPathImagenExpediente() {
-		"expediente.png"
-	}
 	
 	def getPathImagenIntro() {
 		"intro.jpg"
@@ -177,13 +140,6 @@ class CarmenSanDiegoAppModel {
 		"lugares.png"
 	}
 	
-	def getPathImagenSenas(){
-		"senas.png"
-	}
-	
-	def getPathImagenHobbies(){
-		"hobbies.png"
-	}
 	
 
 
