@@ -14,14 +14,10 @@ class CasoTest {
 		
 		var caso = new Caso(villano, objeto, ruta, pais)
 		
-		assertEquals(
-			"¡¡¡Ha desaparecido zircon!!! Se encontraba 
-en exposición en el Museo Nacional de Springfield.
- El criminal fue muy prolijo y la escena del crimen no contaba
- con pista alguna, su misión como detective es descifrar el 
-responsable de tal crimen y apresarlo.", 
-			caso.reporte
-		)
-		
+		assertEquals("¡¡¡Ha desaparecido zircon!!!", caso.reporte.get(0))
+		assertEquals("Se encontraba en exposición en el Museo Nacional de Springfield.", caso.reporte.get(1))
+		assertEquals("El criminal fue muy prolijo y la escena del crimen no contaba con pista alguna.", caso.reporte.get(2))
+		assertEquals("Su misión como detective es descifrar el responsable de tal crimen y apresarlo.", caso.reporte.get(3))
+	
 	}
 }

@@ -40,7 +40,6 @@ class Expediente {
 	def void generarExpedienteAleatorio() {
 		
 		val listaVillanos = obtenerVillanos()
-		val listaHobbies = obtenerHobbies()
 		
 		for (i : 0 ..< listaVillanos.size) {
 
@@ -48,21 +47,16 @@ class Expediente {
 			val List<String> datosNuevoVillano = listaVillanos.get(i).split("  ")
 			var villano = new Villano(datosNuevoVillano.get(0), Sexo.valueOf(datosNuevoVillano.get(1)))
 			// agrego senas particulares segun orden de archivos csv
-			for(var k = 2; datosNuevoVillano.size > k; k++){
+			//for(var k = 2; datosNuevoVillano.size > k; k++){
+			for(var k = 2; 6 > k; k++){
 				villano.agregarSena(datosNuevoVillano.get(k))}
-			// consigo 5 caracteristicas random de cada tipo para el villano nuevo	
-			//TODO refactorizar todo esto	
-			for (j : 0 ..< 5) {
-				val hobbie = listaHobbies.get(randomGen.nextInt(listaHobbies.size()))
-				villano.agregarHobbie(hobbie)
+			// consigo 5 caracteristicas para el villano nuevo	
+			for(var k = 6; datosNuevoVillano.size > k; k++){
+				villano.agregarHobbie(datosNuevoVillano.get(k))
 			}
 			
 			villanos.add(villano)
 		}
-	}
-
-	def private obtenerHobbies() {
-		getListFromFile("/dataHobbies.csv")
 	}
 	
 	def private obtenerVillanos() {

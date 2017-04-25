@@ -26,7 +26,7 @@ class ExpedienteTest {
 		
 		expedienteAleatorio.generarExpedienteAleatorio()
 		
-		assertEquals(expedienteAleatorio.villanos.size,6)
+		assertEquals(expedienteAleatorio.villanos.size, 5)
 	}
 
 	@Test 
