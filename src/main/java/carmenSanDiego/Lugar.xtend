@@ -4,6 +4,8 @@ import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.LinkedList
 import org.uqbar.commons.utils.Observable
+import java.util.ArrayList
+import java.util.List
 
 @Observable abstract class Lugar {
 
@@ -29,15 +31,37 @@ import org.uqbar.commons.utils.Observable
 		var caracteristica = caracteristicas.remove( randomGen.nextInt(caracteristicas.size) ) + ". "
 		caracteristica
 	}
+	
+	def List<String> obtenerPistasPais(Pais siguienteDestino) {
+		var List<String> res = new ArrayList<String>
+		var List<String> carac = siguienteDestino.caracteristicas
+		for (i:0..<2){
+			var car = carac.get(randomGen.nextInt(carac.size))
+			res.add(car)
+			carac.remove(car)
+		}
+		res
+	}
 
 	/**
 	 * Obtengo una Seña Particular aleatoria del villano recibido por parametro
 	 */
-	def String obtenerPistaVillanoSenaParticular(Villano villano) {
-		var LinkedList<String> senas = new LinkedList<String> (villano.senasParticulares)
+	//def String obtenerPistaVillanoSenaParticular(Villano villano) {
+	//	var LinkedList<String> senas = new LinkedList<String> (villano.senasParticulares)
 		// se le da formato. Ejemplo: "Es de pelo negro."
-		var sena = "Es " + senas.remove( randomGen.nextInt(senas.size) ).toLowerCase + ". "
-		sena
+	//	var sena = "Es " + senas.remove( randomGen.nextInt(senas.size) ).toLowerCase + ". "
+	//	sena
+	//}
+	
+	def List<String> obtenerPistasVillanoSenaParticular(Villano villano) {
+		var List<String> res = new ArrayList<String>
+		var List<String> senas = villano.senasParticulares
+		for (i:0..<2){
+			var sena = senas.get(randomGen.nextInt(senas.size))
+			res.add(sena)
+			senas.remove(sena)
+		}
+		res
 	}
 
 	/**
