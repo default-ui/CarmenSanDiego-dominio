@@ -47,11 +47,8 @@ class CarmenSanDiegoAppModel {
 	String pistasEmbajada
 	Lugar lugarAbierto
 	/// Otro appModels
-	ExpedienteAppModel expedienteAppModel = new ExpedienteAppModel
+	ExpedienteAppModel expedienteAppModel = new ExpedienteAppModel(expediente)
 	
-	new(){
-		
-	}
 	
 	
 	/************
@@ -145,6 +142,13 @@ class CarmenSanDiegoAppModel {
 	
 	def getPathImagenLugares(){
 		"lugares.png"
+	}
+	
+	def tituloInicioDeJuego() {
+		var objetoDelRobo = juego.caso.objeto
+		// se setea en ExpedienteAppModel porque tambien lo necesita para uno de sus titulos
+		expedienteAppModel.objeto = objetoDelRobo
+		"Robo de: " + objetoDelRobo
 	}
 	
 	

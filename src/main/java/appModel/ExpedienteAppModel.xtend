@@ -14,7 +14,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 class ExpedienteAppModel {
 	
-	Expediente expediente = DummyData.crearExpedienteDummy
+	Expediente expediente
 	
 	String inputValue	//for textboxs
 	Villano villanoTemp = null
@@ -24,6 +24,10 @@ class ExpedienteAppModel {
 	List<Sexo> gender = Sexo.values.toList
 	String selectedGender
 	String objeto
+	
+	new(Expediente exp){
+		expediente = exp
+	}
 	
 	/************
 	 * Villanos *
