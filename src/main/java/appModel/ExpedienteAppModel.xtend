@@ -19,7 +19,8 @@ class ExpedienteAppModel {
 	String inputValue	//for textboxs
 	Villano villanoTemp = null
 	String villanoNombre
-	String villanoCaracSeleccionada
+	String hobbieSeleccionado
+	String senaSeleccionada
 	List<Sexo> gender = Sexo.values.toList
 	String selectedGender
 	String objeto
@@ -31,8 +32,8 @@ class ExpedienteAppModel {
 	 // TODO fijarse eso de que cuando no hay nada seleccionado no puedo editar en la ventana que se abre
 	 
 	def eliminarSena(){
-	 	villanoTemp.eliminarSena(villanoCaracSeleccionada)
-	 	villanoCaracSeleccionada = null
+	 	villanoTemp.eliminarSena(senaSeleccionada)
+	 	//villanoSenaSeleccionada = null
 	 }
 	
 	def agregarSena(){
@@ -41,7 +42,7 @@ class ExpedienteAppModel {
 	}
 	
 	def eliminarHobbie(){
-		villanoTemp.eliminarHobbie(villanoCaracSeleccionada)
+		villanoTemp.eliminarHobbie(hobbieSeleccionado)
 	}
 	
 	def agregarHobbie(){
