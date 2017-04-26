@@ -9,7 +9,6 @@ import carmenSanDiego.Villano
 import java.util.ArrayList
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.utils.Transactional
 import utils.DummyData
@@ -27,17 +26,8 @@ class CarmenSanDiegoAppModel {
 	Expediente expediente = DummyData.crearExpedienteDummy
 	Juego juego = new Juego(mapa, expediente)
 	Pais pais
-	Pais temp
-	Pais conexionAEliminar
-	Pais conexion
-	Lugar lugarAEliminar
-	Lugar lugar
 	List<Lugar> lugares = DummyData.crearArrayDeLugaresPosibles
 	List<Lugar> lugaresPistas = new ArrayList<Lugar>
-	String caracteristica
-	String caracteristicaAEliminar
-	String nuevoPaisNombre	
-	Pais paisSeleccionado = mapa.paises.get(0)
 	Villano villanoDeNuevaOrdenDeArresto
 	String pistasBanco
 	String pistasBiblioteca
@@ -46,56 +36,9 @@ class CarmenSanDiegoAppModel {
 	Lugar lugarAbierto
 	/// Otro appModels
 	ExpedienteAppModel expedienteAppModel = new ExpedienteAppModel(expediente)
+	MapamundiAppModel mapamundiAppModel = new MapamundiAppModel(mapa)
 	
 	
-	
-	/************
-	 * Mapamundi *
-	 ************/
-	
-	def agregarPais(){
-		validarCantidadLugares(temp.lugares.size)
-		temp.nombre = nuevoPaisNombre
-		mapa.paises.add(temp)
-	}
-	
-	def agregarCaracteristica(){
-		temp.agregarCaracteristica(caracteristica)
-	}
-	
-	def eliminarCaracteristica() {
-		temp.eliminarCaracteristica(caracteristicaAEliminar)
-	}
-	
-	def agregarConexion() {
-		temp.agregarConexion(conexion)
-	}
-	
-	def eliminarConexion() {
-		temp.eliminarConexion(conexionAEliminar)
-	}
-	
-	def agregarLugar() {
-		temp.agregarLugar(lugar)
-	}
-	
-	def eliminarLugar() {
-		temp.eliminarLugar(lugarAEliminar)
-	}
-	
-	def validarCantidadLugares(Integer cantidadLugares) {
-		val minimaCantidadDeLugares = 3
-		if (cantidadLugares > minimaCantidadDeLugares) {
-			this.excepcionLugares("mas", minimaCantidadDeLugares)
-		}		
-		if (cantidadLugares < minimaCantidadDeLugares) {
-			this.excepcionLugares("menos", minimaCantidadDeLugares)
-		}
-	}
-	
-	private def excepcionLugares(String diferencia, Integer minimaCantidadDeLugares) {
-		throw new UserException('''No puede ingresar '+diferencia+' de '+minimaCantidadDeLugares+' lugares''')
-	}
 	
 	/************
 	 * Lugares *
@@ -112,14 +55,16 @@ class CarmenSanDiegoAppModel {
 		
 	}
 	
+	def tituloInicioDeJuego() {
+		var objetoDelRobo = juego.caso.objeto
+		// se setea en ExpedienteAppModel porque tambien lo necesita para uno de sus titulos
+		expedienteAppModel.objeto = objetoDelRobo
+		"Robo de: " + objetoDelRobo
+	}
 	
 	/************
 	 * Imagenes *
 	 ************/
-	
-	def getPathImagenMapamundi() {
-		"mapamundi.png"
-	}
 	
 	def getPathImagenViajar() {
 		"viajar.png"
@@ -138,32 +83,7 @@ class CarmenSanDiegoAppModel {
 	
 	}	
 	
-	def getPathImagenNuevoPais(){
-		"nuevo_pais.png"
-	}
-	
-	def getPathImagenCaracteristicas(){
-		"caracteristicas.png"
-	}
-	
 	def getPathImagenInicio(){
 		"inicio.png"
 	}
-	
-	def getPathImagenConexiones(){
-		"conexiones.png"
-	}
-	
-	def getPathImagenLugares(){
-		"lugares.png"
-	}
-	
-	def tituloInicioDeJuego() {
-		var objetoDelRobo = juego.caso.objeto
-		// se setea en ExpedienteAppModel porque tambien lo necesita para uno de sus titulos
-		expedienteAppModel.objeto = objetoDelRobo
-		"Robo de: " + objetoDelRobo
-	}
-	
-	
 }
