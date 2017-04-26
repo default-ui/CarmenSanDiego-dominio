@@ -7,11 +7,13 @@ import carmenSanDiego.Mapamundi
 import carmenSanDiego.Pais
 import carmenSanDiego.Villano
 import java.util.ArrayList
+import java.util.HashMap
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.utils.Transactional
 import utils.DummyData
+import java.util.Map
 
 /**
  * AppModel del juego
@@ -34,6 +36,7 @@ class CarmenSanDiegoAppModel {
 	String pistasClub
 	String pistasEmbajada
 	Lugar lugarAbierto
+	Map<String, String> pistas = new HashMap<String, String>()
 	/// Otro appModels
 	ExpedienteAppModel expedienteAppModel = new ExpedienteAppModel(expediente)
 	MapamundiAppModel mapamundiAppModel = new MapamundiAppModel(mapa)
@@ -44,10 +47,10 @@ class CarmenSanDiegoAppModel {
 	 * Lugares *
 	 ************/
 	 
-	def pedirPista(){
+	def pedirPista(Lugar lugar) {
 		
 		juego.pedirPista(
-			lugarAbierto, 
+			lugar, 
 			juego.caso.responsable,
 			juego.proximoPais,
 			juego.ordenDeArresto
@@ -60,6 +63,16 @@ class CarmenSanDiegoAppModel {
 		// se setea en ExpedienteAppModel porque tambien lo necesita para uno de sus titulos
 		expedienteAppModel.objeto = objetoDelRobo
 		"Robo de: " + objetoDelRobo
+	}
+	
+	def pedirTodasLasPistas() {
+		for(Lugar lugar : lugaresPistas){
+			pistas.put(lugar.nombre ,pedirPista(lugar))
+		}
+	}
+	
+	def pistaActual() {
+		pistas.get(lugarAbierto.nombre)
 	}
 	
 	/************
