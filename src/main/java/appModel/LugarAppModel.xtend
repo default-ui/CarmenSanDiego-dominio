@@ -1,20 +1,18 @@
 package appModel
 
+import carmenSanDiego.CarmenSanDiegoRepo
 import carmenSanDiego.Lugar
-import carmenSanDiego.Villano
 import java.util.HashMap
 import java.util.Map
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.utils.Transactional
-import carmenSanDiego.CarmenSanDiegoRepo
 
 @Transactional
 @Observable
 @Accessors
 class LugarAppModel {
 	
-	Villano villanoDeNuevaOrdenDeArresto
 	Lugar lugarAbierto
 	Map<String, String> pistas = new HashMap<String, String>()
 	CarmenSanDiegoRepo repo
@@ -39,7 +37,7 @@ class LugarAppModel {
 	
 	def derrotaPorVillanoIncorrecto(){
 		var malasNot = #["Malas noticias :(", "Has detenido a " + repo.juego.caso.responsable.nombre + ".", "Tenias una orden de arresto contra: " 
-			+ villanoDeNuevaOrdenDeArresto.nombre + ".", "Lamentablemente este crimen quedara impune." 
+			+ repo.villanoDeNuevaOrdenDeArresto.nombre + ".", "Lamentablemente este crimen quedara impune." 
 		]
 		malasNot
 	}

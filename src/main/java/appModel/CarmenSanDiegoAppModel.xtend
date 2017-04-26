@@ -1,13 +1,8 @@
 package appModel
 
-import carmenSanDiego.Expediente
 import carmenSanDiego.Juego
 import carmenSanDiego.Lugar
-import carmenSanDiego.Mapamundi
-import java.util.ArrayList
-import java.util.HashMap
 import java.util.List
-import java.util.Map
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.utils.Transactional
@@ -24,8 +19,6 @@ class CarmenSanDiegoAppModel {
 	
 	Juego juego = new Juego(mapa, expediente)
 	List<Lugar> lugares = DummyData.crearArrayDeLugaresPosibles
-	List<Lugar> lugaresPistas = new ArrayList<Lugar>
-	Map<String, String> pistas = new HashMap<String, String>()
 	
 	// Otros appModels
 	ExpedienteAppModel expedienteAppModel = new ExpedienteAppModel(expediente)
@@ -39,7 +32,7 @@ class CarmenSanDiegoAppModel {
 		juego = new Juego(mapa, expediente)
 		juego.crearCaso
 		
-		lugaresPistas = juego.paisActual.lugares
+		repo.lugaresPistas = juego.paisActual.lugares
 
 		/// Otros appModels
 		expedienteAppModel = new ExpedienteAppModel(expediente)
