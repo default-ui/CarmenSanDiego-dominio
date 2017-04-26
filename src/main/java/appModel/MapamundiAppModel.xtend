@@ -24,6 +24,7 @@ class MapamundiAppModel {
 	Lugar lugarAEliminar
 	Lugar lugar
 	Pais paisSeleccionado
+	List<Lugar> lugares = DummyData.crearArrayDeLugaresPosibles
 	
 	new(Mapamundi map){
 		mapa = map
