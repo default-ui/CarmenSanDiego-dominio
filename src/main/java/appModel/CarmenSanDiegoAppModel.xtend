@@ -22,8 +22,7 @@ import utils.DummyData
 @Accessors
 class CarmenSanDiegoAppModel {
 	
-	Mapamundi mapa = DummyData.crearMapamundiDummy
-	Expediente expediente = DummyData.crearExpedienteDummy
+	
 	Juego juego = new Juego(mapa, expediente)
 	List<Lugar> lugares = DummyData.crearArrayDeLugaresPosibles
 	List<Lugar> lugaresPistas = new ArrayList<Lugar>
