@@ -7,6 +7,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.utils.Transactional
 import utils.DummyData
+import carmenSanDiego.CarmenSanDiegoRepo
 
 /**
  * AppModel del juego
@@ -19,24 +20,24 @@ class CarmenSanDiegoAppModel {
 	
 	Juego juego = new Juego(mapa, expediente)
 	List<Lugar> lugares = DummyData.crearArrayDeLugaresPosibles
+	CarmenSanDiegoRepo repositorio = new CarmenSanDiegoRepo()
+	Juego juego = new Juego(repositorio.mapa, repositorio.expediente)
 	
 	// Otros appModels
-	ExpedienteAppModel expedienteAppModel = new ExpedienteAppModel(expediente)
-	MapamundiAppModel mapamundiAppModel = new MapamundiAppModel(mapa)
+	
 	
 	/**
 	 * Inicializa valores para una nueva partida
 	 */
 	def iniciarNuevaPartida() {
 	 	
-		juego = new Juego(mapa, expediente)
+		juego = new Juego(repositorio.mapa, repositorio.expediente)
 		juego.crearCaso
 		
 		repo.lugaresPistas = juego.paisActual.lugares
 
 		/// Otros appModels
-		expedienteAppModel = new ExpedienteAppModel(expediente)
-		mapamundiAppModel = new MapamundiAppModel(mapa)
+		
 	 	
 	 }
 	 
@@ -55,7 +56,7 @@ class CarmenSanDiegoAppModel {
 	def tituloInicioDeJuego() {
 		var objetoDelRobo = juego.caso.objeto
 		// se setea en ExpedienteAppModel porque tambien lo necesita para uno de sus titulos
-		expedienteAppModel.objeto = objetoDelRobo
+		//repositorio.expedienteAppModel.objeto = objetoDelRobo
 		"Robo de: " + objetoDelRobo
 	}
 	

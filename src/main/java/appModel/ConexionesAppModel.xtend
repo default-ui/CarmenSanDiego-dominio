@@ -1,25 +1,34 @@
 package appModel
 
-import carmenSanDiego.Pais
+
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.utils.Transactional
 import org.eclipse.xtend.lib.annotations.Accessors
+import carmenSanDiego.CarmenSanDiegoRepo
+import carmenSanDiego.Pais
 
 @Observable
 @Transactional
 @Accessors
-class ConexionesAppModel {
+class ConexionesAppModel{
 	
 	Pais conexionAEliminar
 	Pais conexion
-	Pais temp
+	CarmenSanDiegoRepo repo
 	
+	new(CarmenSanDiegoRepo repositorio){
+		repo=repositorio
+	}
 	def agregarConexion() {
-		temp.agregarConexion(conexion)
+		repo.paisTemp.agregarConexion(conexion)
 	}
 	
 	def eliminarConexion() {
-		temp.eliminarConexion(conexionAEliminar)
+		repo.paisTemp.eliminarConexion(conexionAEliminar)
+	}
+	
+	def getPathImagenConexiones(){
+		"conexiones.png"
 	}
 	
 }
