@@ -17,7 +17,6 @@ import utils.DummyData
 /**
  * AppModel del juego
  */
-
 @Transactional
 @Observable
 @Accessors
@@ -29,10 +28,6 @@ class CarmenSanDiegoAppModel {
 	List<Lugar> lugares = DummyData.crearArrayDeLugaresPosibles
 	List<Lugar> lugaresPistas = new ArrayList<Lugar>
 	Villano villanoDeNuevaOrdenDeArresto
-	String pistasBanco
-	String pistasBiblioteca
-	String pistasClub
-	String pistasEmbajada
 	Lugar lugarAbierto
 	Map<String, String> pistas = new HashMap<String, String>()
 	
@@ -83,7 +78,7 @@ class CarmenSanDiegoAppModel {
 	
 	def pedirTodasLasPistas() {
 		for(Lugar lugar : lugaresPistas){
-			pistas.put(lugar.nombre ,pedirPista(lugar))
+			pistas.put(lugar.nombre, pedirPista(lugar))
 		}
 	}
 	
@@ -92,13 +87,12 @@ class CarmenSanDiegoAppModel {
 	}
 	
 		def victoria(){
-		var vict = #["En Hora Buena!!!", "Has detenido a " + juego.ordenDeArresto.villano.nombre + " y recuperado " + juego.caso.objeto, "Felicitaciones!!!!" ]
+		var vict = #["Enhorabuena!!!", "Has detenido a " + juego.ordenDeArresto.villano.nombre + " y recuperado " + juego.caso.objeto, "Felicitaciones!!!" ]
 		vict
 	}
 	
 	def derrotaPorVillanoIncorrecto(){
 		var malasNot = #["Malas noticias :(", "Has detenido a " + juego.caso.responsable.nombre + ".", "Tenias una orden de arresto contra: " 
-			//+ villanoDeNuevaOrdenDeArresto.nombre + ".", "Lamentablemente este crimen quedara impune." 
 			+ villanoDeNuevaOrdenDeArresto.nombre + ".", "Lamentablemente este crimen quedara impune." 
 		]
 		malasNot
