@@ -76,13 +76,14 @@ class CarmenSanDiegoAppModel {
 	}
 	
 		def victoria(){
-		var vict = #["En Hora Buena!!!", "Has detenido a " + juego.ordenDeArresto.villano.nombre + "y recuperado " + juego.caso.objeto, "Felicitaciones!!!!" ]
+		var vict = #["En Hora Buena!!!", "Has detenido a " + juego.ordenDeArresto.villano.nombre + " y recuperado " + juego.caso.objeto, "Felicitaciones!!!!" ]
 		vict
 	}
 	
 	def derrotaPorVillanoIncorrecto(){
 		var malasNot = #["Malas noticias :(", "Has detenido a " + juego.caso.responsable.nombre + ".", "Tenias una orden de arresto contra: " 
-			+ villanoDeNuevaOrdenDeArresto + ".", "Lamentablemente este crimen quedara impune." 
+			//+ villanoDeNuevaOrdenDeArresto.nombre + ".", "Lamentablemente este crimen quedara impune." 
+			+ villanoDeNuevaOrdenDeArresto.nombre + ".", "Lamentablemente este crimen quedara impune." 
 		]
 		malasNot
 	}

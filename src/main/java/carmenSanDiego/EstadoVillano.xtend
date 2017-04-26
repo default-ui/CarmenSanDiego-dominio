@@ -32,7 +32,7 @@ class EstadoVillano extends EstadoOcupante {
 			if(villano.nombre == ordenDeArresto.villano.nombre){
 				lugar.hayDetenido
 			}
-			resultado = resultado + ": " + villano.nombre + "."
+			resultado = resultado + ": " + ordenDeArresto.villano.nombre + "."
 		}
 	
 		
