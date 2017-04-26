@@ -1,13 +1,30 @@
 package appModel
 
+import carmenSanDiego.Lugar
+import carmenSanDiego.CarmenSanDiegoRepo
+import org.uqbar.commons.model.UserException
+import org.uqbar.commons.utils.Observable
+import org.uqbar.commons.utils.Transactional
+import org.eclipse.xtend.lib.annotations.Accessors
+
+@Observable
+@Transactional
+@Accessors
 class EditarLugaresAppModel {
+	Lugar lugarAEliminar
+	Lugar lugar
+	CarmenSanDiegoRepo repo
+	
+	new(CarmenSanDiegoRepo repositorio){
+		repo=repositorio
+	}
 	
 	def agregarLugar() {
-		temp.agregarLugar(lugar)
+		repo.paisTemp.agregarLugar(lugar)
 	}
 	
 	def eliminarLugar() {
-		temp.eliminarLugar(lugarAEliminar)
+		repo.paisTemp.eliminarLugar(lugarAEliminar)
 	}
 	
 	def validarCantidadLugares(Integer cantidadLugares) {
@@ -22,6 +39,10 @@ class EditarLugaresAppModel {
 	
 	private def excepcionLugares(String diferencia, Integer minimaCantidadDeLugares) {
 		throw new UserException('''No puede ingresar '+diferencia+' de '+minimaCantidadDeLugares+' lugares''')
+	}
+	
+	def getPathImagenLugares(){
+		"lugares.png"
 	}
 	
 }

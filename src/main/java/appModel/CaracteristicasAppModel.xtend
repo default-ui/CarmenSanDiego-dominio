@@ -1,25 +1,29 @@
 package appModel
 
-import carmenSanDiego.Pais
+import carmenSanDiego.CarmenSanDiegoRepo
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.utils.Transactional
-import org.eclipse.xtend.lib.annotations.Accessors
 
 @Observable
 @Transactional
 @Accessors
 class CaracteristicasAppModel {
 	
-	Pais temp
 	String caracteristica
 	String caracteristicaAEliminar
+	CarmenSanDiegoRepo repo
+
+	new(CarmenSanDiegoRepo repositorio){
+		repo=repositorio
+	}
 	
 	def agregarCaracteristica(){
-		temp.agregarCaracteristica(caracteristica)
+		repo.paisTemp.agregarCaracteristica(caracteristica)
 	}
 	
 	def eliminarCaracteristica() {
-		temp.eliminarCaracteristica(caracteristicaAEliminar)
+		repo.paisTemp.eliminarCaracteristica(caracteristicaAEliminar)
 	}
 	
 	def getPathImagenCaracteristicas(){
