@@ -37,7 +37,7 @@ class CarmenSanDiegoAppModel {
 	String pistasEmbajada
 	Lugar lugarAbierto
 	Map<String, String> pistas = new HashMap<String, String>()
-	/// Otro appModels
+	/// Otros appModels
 	ExpedienteAppModel expedienteAppModel = new ExpedienteAppModel(expediente)
 	MapamundiAppModel mapamundiAppModel = new MapamundiAppModel(mapa)
 	
@@ -80,7 +80,7 @@ class CarmenSanDiegoAppModel {
 		vict
 	}
 	
-	def derrotaPorVillanoIncorercto(){
+	def derrotaPorVillanoIncorrecto(){
 		var malasNot = #["Malas noticias :(", "Has detenido a " + juego.caso.responsable.nombre + ".", "Tenias una orden de arresto contra: " 
 			+ juego.ordenDeArresto.villano.nombre + ".", "Lamentablemente este crimen quedara impune." 
 		]
@@ -125,6 +125,4 @@ class CarmenSanDiegoAppModel {
 	def getPathImagenInicio(){
 		"inicio.png"
 	}
-
-	
 }

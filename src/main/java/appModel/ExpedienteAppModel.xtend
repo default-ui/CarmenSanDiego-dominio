@@ -1,13 +1,12 @@
 package appModel
 
 import carmenSanDiego.Expediente
-import utils.DummyData
+import carmenSanDiego.Sexo
 import carmenSanDiego.Villano
 import java.util.List
-import carmenSanDiego.Sexo
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.utils.Transactional
-import org.eclipse.xtend.lib.annotations.Accessors
 
 @Observable
 @Transactional
