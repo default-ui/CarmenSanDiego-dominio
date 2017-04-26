@@ -8,7 +8,9 @@ import java.util.ArrayList
 import java.util.List
 
 @Observable abstract class Lugar {
-
+	
+	
+	@Accessors Boolean detenido = false
 	@Accessors String nombre
 	@Accessors Boolean seEncuentraVillano
 	// TODO: cuando se inicialice el juego hay que asegurarse que el lugar en donde se encuentra el villano
@@ -53,6 +55,9 @@ import java.util.List
 		hobby
 	}
 	
+	def hayDetenido(){
+		detenido = true
+	}
 	
 
 }

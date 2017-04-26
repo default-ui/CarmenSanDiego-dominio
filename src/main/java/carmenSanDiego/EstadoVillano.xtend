@@ -12,7 +12,7 @@ class EstadoVillano extends EstadoOcupante {
 	override responder(Pais siguienteDestino, Lugar lugar, Villano villano, OrdenDeArresto ordenDeArresto) {
 	
 		if (lugar.seEncuentraVillano==true) 
-			detenerVillano(villano, ordenDeArresto)
+			detenerVillano(villano, ordenDeArresto, lugar)
 		else 
 			"Peligro, el villano está en el país. Tené cuidado"
 			
@@ -24,18 +24,17 @@ class EstadoVillano extends EstadoOcupante {
 	 * - la orden de arresto corresponde al villano
 	 * - la orden de arresto no corresponde al villano
 	 */
-	def private detenerVillano(Villano villano, OrdenDeArresto ordenDeArresto){
+	def private detenerVillano(Villano villano, OrdenDeArresto ordenDeArresto, Lugar lugar){
 		
-		var String resultado
+		var String resultado = "ALTO!!! Detengase"
 		
-		if(ordenDeArresto === null)
-			resultado = "El villano ha sido liberado por el juez por no tener orden de arresto"
-		else {
-			if (villano.nombre == ordenDeArresto.villano.nombre)
-				resultado = "Ha detenido a " + villano.nombre+" con exito!!!"					
-			else
-				resultado = "El villano ha sido liberado por el juez por tener orden de arresto incorrecta"				
+		if(ordenDeArresto != null){
+			if(villano.nombre == ordenDeArresto.villano.nombre){
+				lugar.hayDetenido
+			}
+			resultado = resultado + ": " + villano.nombre + "."
 		}
+	
 		
 		resultado
 				

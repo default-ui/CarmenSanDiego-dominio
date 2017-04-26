@@ -75,6 +75,32 @@ class CarmenSanDiegoAppModel {
 		pistas.get(lugarAbierto.nombre)
 	}
 	
+		def victoria(){
+		var vict = #["En Hora Buena!!!", "Has detenido a " + juego.ordenDeArresto.villano.nombre + "y recuperado " + juego.caso.objeto, "Felicitaciones!!!!" ]
+		vict
+	}
+	
+	def derrotaPorVillanoIncorercto(){
+		var malasNot = #["Malas noticias :(", "Has detenido a " + juego.caso.responsable.nombre + ".", "Tenias una orden de arresto contra: " 
+			+ juego.ordenDeArresto.villano.nombre + ".", "Lamentablemente este crimen quedara impune." 
+		]
+		malasNot
+	}
+	
+	def derrotaPorNoOrdenDeArresto(){
+		var sinOrden = #["Malas noticias :(", "No contabas con una orden de arresto para detener al criminal.", "Lamentablemente este crimen quedara impune."]
+		sinOrden
+	}
+	
+		
+	def buttonVictoria() {
+		"Disfrutar la victoria"
+	}
+	
+	def buttonDerrota() {
+		"Aceptar el error"
+	}
+	
 	/************
 	 * Imagenes *
 	 ************/
@@ -99,4 +125,6 @@ class CarmenSanDiegoAppModel {
 	def getPathImagenInicio(){
 		"inicio.png"
 	}
+
+	
 }
