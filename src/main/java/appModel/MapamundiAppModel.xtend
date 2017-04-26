@@ -7,6 +7,8 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.utils.Transactional
+import utils.DummyData
+import java.util.List
 
 @Observable
 @Transactional
@@ -24,6 +26,7 @@ class MapamundiAppModel {
 	Lugar lugarAEliminar
 	Lugar lugar
 	Pais paisSeleccionado
+	List<Lugar> lugares = DummyData.crearArrayDeLugaresPosibles
 	
 	new(Mapamundi map){
 		mapa = map
