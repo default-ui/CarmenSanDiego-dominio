@@ -35,8 +35,6 @@ class CarmenSanDiegoAppModel {
 	ExpedienteAppModel expedienteAppModel = new ExpedienteAppModel(expediente)
 	MapamundiAppModel mapamundiAppModel = new MapamundiAppModel(mapa)
 	
-	
-	
 	/**
 	 * Inicializa valores para una nueva partida
 	 */
@@ -50,7 +48,6 @@ class CarmenSanDiegoAppModel {
 		/// Otros appModels
 		expedienteAppModel = new ExpedienteAppModel(expediente)
 		mapamundiAppModel = new MapamundiAppModel(mapa)
-		
 	 	
 	 }
 	 
@@ -58,6 +55,14 @@ class CarmenSanDiegoAppModel {
 	 * Lugares *
 	 ************/
 	 
+	/**
+	 * Devuelve TRUE cuando NO estoy en el primer pais del caso
+	 * Es decir, tengo un pais anterior al cual volver
+	 */
+	def puedeVolver() {
+		juego.caso.paisDelRobo.nombre != juego.paisActual.nombre
+	}
+	
 	def pedirPista(Lugar lugar) {
 		
 		juego.pedirPista(
