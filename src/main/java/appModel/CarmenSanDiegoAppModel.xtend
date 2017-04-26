@@ -43,6 +43,23 @@ class CarmenSanDiegoAppModel {
 	
 	
 	
+	/**
+	 * Inicializa valores para una nueva partida
+	 */
+	def iniciarNuevaPartida() {
+	 	
+		juego = new Juego(mapa, expediente)
+		juego.crearCaso
+		
+		lugaresPistas = juego.paisActual.lugares
+
+		/// Otros appModels
+		expedienteAppModel = new ExpedienteAppModel(expediente)
+		mapamundiAppModel = new MapamundiAppModel(mapa)
+		
+	 	
+	 }
+	 
 	/************
 	 * Lugares *
 	 ************/
