@@ -1,30 +1,25 @@
 package appModel
 
-import carmenSanDiego.Lugar
 import carmenSanDiego.Mapamundi
 import carmenSanDiego.Pais
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.utils.Transactional
-import utils.DummyData
-import java.util.List
+import carmenSanDiego.CarmenSanDiegoRepo
+import org.uqbar.commons.model.UserException
 
 @Observable
 @Transactional
 @Accessors
 class MapamundiAppModel {
-	
+	CarmenSanDiegoRepo repo
 	Mapamundi mapa
 	
-	
-	String nuevoPaisNombre
-	
-	
-	Lugar lugarAEliminar
-	Lugar lugar
+	new(CarmenSanDiegoRepo repositorio){
+		repo=repositorio
+	}
+
 	Pais paisSeleccionado
-	List<Lugar> lugares = DummyData.crearArrayDeLugaresPosibles
 	
 	new(Mapamundi map){
 		mapa = map
@@ -35,7 +30,24 @@ class MapamundiAppModel {
 	 * Mapamundi *
 	 ************/
 	
+	def eliminarPais() {
+		if (paisSeleccionado==null) {
+					//new ErrorDialog(this, modelObject).open
+			throw new UserException('No hay país seleccionado')
+		} else {
+			repo.mapa.eliminarPais(paisSeleccionado.nombre)					
+		}
+	}
 	
+	def editarPais(){
+		if (paisSeleccionado==null) {
+					//new ErrorDialog(this, modelObject).open
+					throw new UserException('No hay país seleccionado')
+				}
+				repo.paisTemp=paisSeleccionado
+				repo.nuevoPaisNombre=repo.paisTemp.nombre
+				
+	}
 	
 	
 	
@@ -54,18 +66,12 @@ class MapamundiAppModel {
 		"mapamundi.png"
 	}
 	
-	def getPathImagenNuevoPais(){
-		"nuevo_pais.png"
-	}
 	
 	
 	
-	def getPathImagenConexiones(){
-		"conexiones.png"
-	}
 	
-	def getPathImagenLugares(){
-		"lugares.png"
-	}
+	
+	
+	
 	
 }
