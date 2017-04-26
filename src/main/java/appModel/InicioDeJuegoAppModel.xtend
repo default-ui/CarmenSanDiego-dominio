@@ -9,12 +9,19 @@ import carmenSanDiego.Lugar
 @Transactional
 @Observable
 @Accessors
-class OrdenDeArrestoAppModel {
+class InicioDeJuegoAppModel {
 	
 	CarmenSanDiegoRepo repo
 	
 	new(CarmenSanDiegoRepo repo) {
 		this.repo = repo
+	}
+	
+	def tituloInicioDeJuego() {
+		var objetoDelRobo = repo.juego.caso.objeto
+		// se setea en ExpedienteAppModel porque tambien lo necesita para uno de sus titulos
+		//repositorio.expedienteAppModel.objeto = objetoDelRobo
+		"Robo de: " + objetoDelRobo
 	}
 	
 	def pedirTodasLasPistas() {
@@ -32,7 +39,7 @@ class OrdenDeArrestoAppModel {
 		)
 	}
 	
-	def getPathImagenOrden() {
-		"orden.png"
+	def getPathImagenInicio(){
+		"inicio.png"
 	}
 }

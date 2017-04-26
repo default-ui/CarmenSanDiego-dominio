@@ -15,4 +15,8 @@ class ResolviendoCasoAppModel {
 	new(CarmenSanDiegoRepo repo) {
 		this.repo = repo
 	}
+	
+	def getPathImagenResolviendo() {
+		"resolviendo.png"
+	}
 }

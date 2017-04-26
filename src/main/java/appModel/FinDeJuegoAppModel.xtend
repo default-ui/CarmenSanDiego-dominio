@@ -16,4 +16,12 @@ class FinDeJuegoAppModel {
 		this.repo = repo
 	}
 	
+	
+	def getPathImagenLost(){
+		"lost.png"
+	}
+	
+	def getPathImagenWon(){
+		"won.png"
+	}
 }

@@ -18,7 +18,6 @@ import carmenSanDiego.CarmenSanDiegoRepo
 class CarmenSanDiegoAppModel {
 	
 	
-	Juego juego = new Juego(mapa, expediente)
 	List<Lugar> lugares = DummyData.crearArrayDeLugaresPosibles
 	CarmenSanDiegoRepo repositorio = new CarmenSanDiegoRepo()
 	Juego juego = new Juego(repositorio.mapa, repositorio.expediente)
@@ -35,10 +34,6 @@ class CarmenSanDiegoAppModel {
 		juego.crearCaso
 		
 		repo.lugaresPistas = juego.paisActual.lugares
-
-		/// Otros appModels
-		
-	 	
 	 }
 	 
 	/************
@@ -51,13 +46,6 @@ class CarmenSanDiegoAppModel {
 	 */
 	def puedeVolver() {
 		juego.caso.paisDelRobo.nombre != juego.paisActual.nombre
-	}
-	
-	def tituloInicioDeJuego() {
-		var objetoDelRobo = juego.caso.objeto
-		// se setea en ExpedienteAppModel porque tambien lo necesita para uno de sus titulos
-		//repositorio.expedienteAppModel.objeto = objetoDelRobo
-		"Robo de: " + objetoDelRobo
 	}
 	
 	def pedirTodasLasPistas() {
@@ -78,33 +66,8 @@ class CarmenSanDiegoAppModel {
 	/************
 	 * Imagenes *
 	 ************/
+
+
 	
-	def getPathImagenViajar() {
-		"viajar.png"
-	}
-	
-	def getPathImagenResolviendo() {
-		"resolviendo.png"
-	}
-	
-	def getPathImagenOrden() {
-		"orden.png"
-	}
-	
-	def getPathImagenIntro() {
-		"intro.jpg"
-	
-	}	
-	
-	def getPathImagenInicio(){
-		"inicio.png"
-	}
-	
-	def getPathImagenLost(){
-		"lost.png"
-	}
-	
-	def getPathImagenWon(){
-		"won.png"
-	}
+
 }
