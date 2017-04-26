@@ -58,7 +58,7 @@ class Pais {
 	}
 	
 	def Boolean lugarExiste(String lugar){
-		var Boolean existe = false
+		var existe = false
 		for (Lugar l: this.lugares){
 			if (l.nombre == lugar){
 				existe = existe || true
