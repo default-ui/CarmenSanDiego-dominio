@@ -82,7 +82,7 @@ class CarmenSanDiegoAppModel {
 	
 	def derrotaPorVillanoIncorrecto(){
 		var malasNot = #["Malas noticias :(", "Has detenido a " + juego.caso.responsable.nombre + ".", "Tenias una orden de arresto contra: " 
-			+ juego.ordenDeArresto.villano.nombre + ".", "Lamentablemente este crimen quedara impune." 
+			+ villanoDeNuevaOrdenDeArresto + ".", "Lamentablemente este crimen quedara impune." 
 		]
 		malasNot
 	}
@@ -124,5 +124,13 @@ class CarmenSanDiegoAppModel {
 	
 	def getPathImagenInicio(){
 		"inicio.png"
+	}
+	
+	def getPathImagenLost(){
+		"lost.png"
+	}
+	
+	def getPathImagenWon(){
+		"won.png"
 	}
 }
