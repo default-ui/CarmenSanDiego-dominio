@@ -34,4 +34,8 @@ class ViajarAppModel {
 	def getPathImagenViajar() {
 		"viajar.png"
 	}
+	
+	def puedeVolver() {
+		repo.juego.caso.paisDelRobo.nombre != repo.juego.paisActual.nombre
+	}
 }
