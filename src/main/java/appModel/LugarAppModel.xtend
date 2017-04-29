@@ -47,7 +47,7 @@ class LugarAppModel {
 	}
 	
 	def pistaActual() {
-		pistas.get(lugarAbierto.nombre)
+		repo.pistas.get(lugarAbierto.nombre)
 	}
 	
 	def villanoEquivocado() {

@@ -21,5 +21,8 @@ class CarmenSanDiegoRepo {
 	Map<String, String> pistas = new HashMap<String, String>()
 	Villano villanoDeNuevaOrdenDeArresto
 	List<Lugar> lugaresPistas = new ArrayList<Lugar>
+	Lugar lugar1
+	Lugar lugar2
+	Lugar lugar3
 	String nuevoPaisNombre
 }

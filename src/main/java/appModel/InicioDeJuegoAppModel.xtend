@@ -25,6 +25,9 @@ class InicioDeJuegoAppModel {
 	}
 	
 	def pedirTodasLasPistas() {
+		repo.lugar1=repo.lugaresPistas.get(0)
+		repo.lugar2=repo.lugaresPistas.get(1)
+		repo.lugar3=repo.lugaresPistas.get(2)
 		for(Lugar lugar : repo.lugaresPistas){
 			repo.pistas.put(lugar.nombre, pedirPista(lugar))
 		}

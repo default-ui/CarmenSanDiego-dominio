@@ -49,6 +49,11 @@ class MapamundiAppModel {
 				
 	}
 	
+	def nuevoPais(){
+		repo.paisTemp= new Pais("temp")
+		repo.nuevoPaisNombre=""	
+	}
+	
 	
 	
 	
