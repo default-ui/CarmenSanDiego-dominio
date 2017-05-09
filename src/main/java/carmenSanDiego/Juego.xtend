@@ -111,8 +111,8 @@ class Juego {
 
 	
 	
-	def pedirPista(Lugar lugar, Villano villano, Pais destino, OrdenDeArresto ordenDeArresto){
-		paisActual.pedirPistaOcupante(lugar, villano, destino, ordenDeArresto)
+	def pedirPista(Lugar lugar){
+		paisActual.pedirPistaOcupante(lugar, this.caso.responsable, this.proximoPais, this.ordenDeArresto)
 	}
 	
 	/**

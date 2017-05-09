@@ -24,12 +24,7 @@ class OrdenDeArrestoAppModel {
 	}
 	
 	def pedirPista(Lugar lugar) {
-		repo.juego.pedirPista(
-			lugar, 
-			repo.juego.caso.responsable,
-			repo.juego.proximoPais,
-			repo.juego.ordenDeArresto
-		)
+		repo.juego.pedirPista(lugar)
 	}
 	
 	def getPathImagenOrden() {
