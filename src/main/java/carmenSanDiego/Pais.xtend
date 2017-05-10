@@ -128,4 +128,19 @@ class Pais {
 	def void setearEscondite(){
 		lugares.get(randomGen.nextInt(lugares.size)).setSeEncuentraVillano(true)
 	}
+	
+	def getLugar(String lugar) {
+				var Lugar lugarRes;
+		for(lug : lugares){
+			if(lug.nombre == lugar){
+				lugarRes = lug 
+				}
+		}
+//		if(lugarRes == null){
+//			throw new Exception("No existe ese lugar")
+//		}
+		
+		return lugarRes
+	}
+	
 }
