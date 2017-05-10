@@ -129,13 +129,10 @@ class Juego {
 	}
 	
 	def getOrdenDeArrestoString() {
-
-		var res = '<Nadie>'
-		if (ordenDeArresto !== null) {
-			res = ordenDeArresto.villano.nombre
+		if (ordenDeArresto == null) {
+			return '<Nadie>'
 		}
-		res
-		
+		ordenDeArresto.villano.nombre		
 	}
 	
 	def getRecorrido(){
@@ -171,4 +168,13 @@ class Juego {
 		}
 		proximo
 	}
+	
+	def emitirOrdenDeArresto(Villano villano) {
+		this.ordenDeArresto = new OrdenDeArresto(villano)
+	}
+	
+	def getPais(String paisId) {
+		this.mapa.paises.findFirst[it.nombre == paisId]
+	}
+	
 }

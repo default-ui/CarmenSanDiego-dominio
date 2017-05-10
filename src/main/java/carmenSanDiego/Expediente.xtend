@@ -27,6 +27,12 @@ class Expediente {
 		this.villanos = villanos.filter([v | v.nombre != villanoNombre]).toList
 	}
 	
+	def getVillano(int id) {
+		for(Villano villano : this.villanos) {
+			if (villano.getId == id) return villano
+		}
+	}
+	
 	/**
 	 * Obtiene un villano aleatorio del expediente
 	 */

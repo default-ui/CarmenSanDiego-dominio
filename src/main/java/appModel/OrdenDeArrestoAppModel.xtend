@@ -30,4 +30,8 @@ class OrdenDeArrestoAppModel {
 	def getPathImagenOrden() {
 		"orden.png"
 	}
+	
+	def emitirOrdenDeArresto() {
+		repo.juego.emitirOrdenDeArresto(repo.villanoDeNuevaOrdenDeArresto)
+	}
 }
