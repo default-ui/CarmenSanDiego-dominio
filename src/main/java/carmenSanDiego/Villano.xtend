@@ -75,5 +75,10 @@ class Villano {
 		sb.toString
 				
 	}
+	
+	def getId() {
+		//throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		return null
+	}
 
 }
