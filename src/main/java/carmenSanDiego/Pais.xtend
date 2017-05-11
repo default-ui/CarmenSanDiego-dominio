@@ -136,10 +136,6 @@ class Pais {
 				lugarRes = lug 
 				}
 		}
-//		if(lugarRes == null){
-//			throw new Exception("No existe ese lugar")
-//		}
-		
 		return lugarRes
 	}
 	
