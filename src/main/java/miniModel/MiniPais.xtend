@@ -10,22 +10,21 @@ import org.eclipse.xtend.lib.annotations.Accessors
 class MiniPais {
 	
 	String nombre
-	List<String> caracteristicas
-	List<String> conexionesIds
-	List<Lugar> lugares
-	EstadoOcupante estadoOcupante
+	List<String> lugares
 	
 	new(Pais pais) {
 		this.nombre = pais.nombre
 		this.caracteristicas = pais.caracteristicas
 		this.conexionesIds = pais.conexiones.listIds
-		this.lugares = pais.lugares
 		this.estadoOcupante = pais.estadoOcupante
+		this.lugares = pais.lugares.nombres
 	}
 	
 	def listIds(List<Pais> paises) {
 		paises.map([it.nombre])
 	}
 	
-	
+	def getNombres(List<Lugar> lugares){
+		lugares.map([it.nombre])
+	}
 }
