@@ -3,20 +3,19 @@ package miniModel
 import carmenSanDiego.Juego
 import java.util.List
 import carmenSanDiego.Pais
-import carmenSanDiego.Lugar
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class EstadoJuego {
 	
-	List<Lugar> lugares
+	MiniPais pais
 	List<MiniPais> recorrido
 	List<MiniPais> paisesFallidos
-	List<MiniPais> viajesPosibles
 	
-	new(Juego juego){
-		this.recorrido = reducirPaises(juego.getRecorrido)
-		this.paisesFallidos = reducirPaises(juego.getFallidos)
-		this.viajesPosibles = reducirPaises(juego.paisActual.conexiones)
-		this.lugares = juego.paisActual.lugares
+	new(Juego juego) {
+		this.recorrido = juego.getRecorrido.reducirPaises
+		this.paisesFallidos = juego.getFallidos.reducirPaises
+		this.pais = juego.paisActual.toMiniPais
 	}
 	
 	def reducirPaises(List<Pais> paises) {

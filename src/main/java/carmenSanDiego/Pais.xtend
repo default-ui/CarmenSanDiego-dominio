@@ -130,17 +130,12 @@ class Pais {
 	}
 	
 	def getLugar(String lugar) {
-				var Lugar lugarRes;
-		for(lug : lugares){
-			if(lug.nombre == lugar){
-				lugarRes = lug 
-				}
-		}
-//		if(lugarRes == null){
-//			throw new Exception("No existe ese lugar")
-//		}
+		val lugarRes = lugares.findFirst[it.nombre == lugar]
 		
-		return lugarRes
+		if(lugarRes == null){
+			throw new Exception("No existe ese lugar")
+		}
+		lugarRes
 	}
 	
 }
