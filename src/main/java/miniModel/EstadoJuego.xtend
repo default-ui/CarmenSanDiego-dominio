@@ -10,23 +10,19 @@ import java.util.ArrayList
 @Accessors
 class EstadoJuego {
 	
-	List<Lugar> lugares
+	MiniPais pais
 	List<MiniPais> recorrido
 	List<MiniPais> paisesFallidos
-	List<MiniPais> viajesPosibles
 	List<MiniPais> mapamundi
 	List<MiniPaisConConexiones> mapamundiConexiones
 	
-	
-	
-	new(Juego juego){
-		this.recorrido = reducirPaises(juego.getRecorrido)
-		this.paisesFallidos = reducirPaises(juego.getFallidos)
-		this.viajesPosibles = reducirPaises(juego.paisActual.conexiones)
-		this.lugares = juego.paisActual.lugares
-		this.mapamundi = reducirPaises(juego.mapa.paises)
-		this.mapamundiConexiones = reducirPaisesConConexiones(juego.mapa.paises)
-	}
+	new(Juego juego) {
+		this.recorrido = juego.getRecorrido.reducirPaises
+		this.paisesFallidos = juego.getFallidos.reducirPaises
+		this.pais = juego.paisActual.toMiniPais
+    this.mapamundiConexiones = reducirPaisesConConexiones(juego.mapa.paises)
+    this.mapamundi = reducirPaises(juego.mapa.paises)
+  }
 	
 	def reducirPaises(List<Pais> paises) {
 		paises.map([it.toMiniPais])
