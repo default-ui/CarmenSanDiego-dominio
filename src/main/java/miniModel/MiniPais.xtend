@@ -16,14 +16,7 @@ class MiniPais {
 	
 	new(Pais pais) {
 		this.nombre = pais.nombre
-//		this.caracteristicas = pais.caracteristicas
-//		this.conexionesIds = pais.conexiones.listIds
-//		this.estadoOcupante = pais.estadoOcupante
 		this.lugares = pais.lugares.nombres
-	}
-	
-	def listIds(List<Pais> paises) {
-		paises.map([it.nombre])
 	}
 	
 	def getNombres(List<Lugar> lugares){
