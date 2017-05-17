@@ -3,7 +3,6 @@ package carmenSanDiego
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
-import java.util.Random
 
 @Observable
 class Caso {
@@ -13,7 +12,6 @@ class Caso {
 	@Accessors String objeto
 	@Accessors Pais paisDelRobo
 	@Accessors List<String> reporte
-	Random randomGen = new Random()
 
 	new(Villano responsable, String objeto, List<Pais> planDeEscape, Pais paisDelRobo) {
 		

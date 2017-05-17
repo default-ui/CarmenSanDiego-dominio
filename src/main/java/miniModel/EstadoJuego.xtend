@@ -1,11 +1,9 @@
 package miniModel
 
 import carmenSanDiego.Juego
-import java.util.List
 import carmenSanDiego.Pais
-import carmenSanDiego.Lugar
+import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
-import java.util.ArrayList
 
 @Accessors
 class EstadoJuego {

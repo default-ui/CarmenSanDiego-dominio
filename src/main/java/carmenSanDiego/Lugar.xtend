@@ -1,11 +1,9 @@
 package carmenSanDiego
 
+import java.util.LinkedList
 import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
-import java.util.LinkedList
 import org.uqbar.commons.utils.Observable
-import java.util.ArrayList
-import java.util.List
 
 @Observable abstract class Lugar {
 	

@@ -1,11 +1,13 @@
 package miniModel
 
-import java.util.List
-import carmenSanDiego.Pais
 import carmenSanDiego.Lugar
-import carmenSanDiego.EstadoOcupante
+import carmenSanDiego.Pais
+import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 
+/**
+ * clase MiniPais, sin conexiones, solo nombre de pais y lugares
+ */
 @Accessors
 class MiniPais {
 	

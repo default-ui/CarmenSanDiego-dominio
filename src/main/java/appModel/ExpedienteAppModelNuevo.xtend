@@ -1,10 +1,9 @@
 package appModel
 
-import org.uqbar.commons.utils.Observable
-import carmenSanDiego.Expediente
-import carmenSanDiego.Villano
 import carmenSanDiego.CarmenSanDiegoRepo
+import carmenSanDiego.Villano
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
 
 @Observable
 @Accessors
