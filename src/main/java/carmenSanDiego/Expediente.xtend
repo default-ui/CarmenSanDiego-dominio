@@ -86,4 +86,17 @@ class Expediente {
 				
 	}
 	
+	def getVillanoById(Integer id) {
+		this.villanos.findFirst([it.id == id])
+	}
+	
+	def eliminarVillanoConId(Integer id) {
+		villanos.remove(getVillanoById(id))
+	}
+	
+	def reemplazarVillanoConId(Integer id, Villano villano) {
+		eliminarVillanoConId(id)
+		agregarVillano(villano)
+	}
+	
 }

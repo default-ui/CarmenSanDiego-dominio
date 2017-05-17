@@ -16,6 +16,12 @@ class Villano {
 	Sexo sexo
 	List<String> senasParticulares = <String>newArrayList()
 	List<String> hobbies = <String>newArrayList()
+	
+	new(){
+		this.id = 0
+		this.nombre = ""
+		this.sexo = null
+	}
 
 	new(Integer id, String nombre){
 		this.id = id
