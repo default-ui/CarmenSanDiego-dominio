@@ -129,7 +129,7 @@ class Juego {
 	}
 	
 	def getOrdenDeArrestoString() {
-		if (ordenDeArresto == null) {
+		if (ordenDeArresto === null) {
 			return '<Nadie>'
 		}
 		ordenDeArresto.villano.nombre		

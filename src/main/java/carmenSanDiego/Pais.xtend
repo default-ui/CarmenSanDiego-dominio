@@ -132,7 +132,7 @@ class Pais {
 	def getLugar(String lugar) {
 		val lugarRes = lugares.findFirst[it.nombre == lugar]
 		
-		if(lugarRes == null){
+		if(lugarRes === null){
 			throw new Exception("No existe ese lugar")
 		}
 		lugarRes

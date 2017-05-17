@@ -28,7 +28,7 @@ class EstadoVillano extends EstadoOcupante {
 		
 		var String resultado = "ALTO!!! Detengase"
 		
-		if(ordenDeArresto != null){
+		if(ordenDeArresto !== null){
 			if(villano.nombre == ordenDeArresto.villano.nombre){
 				lugar.hayDetenido
 			}

@@ -51,11 +51,11 @@ class LugarAppModel {
 	}
 	
 	def villanoEquivocado() {
-		!this.lugarAbierto.detenido && repo.juego.ordenDeArresto != null
+		!this.lugarAbierto.detenido && repo.juego.ordenDeArresto !== null
 	}
 	
 	def sinOrdenDeArresto() {
-		repo.juego.ordenDeArresto == null
+		repo.juego.ordenDeArresto === null
 	}
 	
 	def objetoRobado() {
