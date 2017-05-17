@@ -13,15 +13,14 @@ class MiniMapamundi {
 	new(Juego juego) {
 		this.mapaConexiones = reducirPaisesConConexiones(juego.mapa.paises)
   		this.mapa = reducirPaises(juego.mapa.paises)
-  }
-  
-  //TODO: odigo repetido de estadoJuego ARREGLARLOOOO
-  
-		def reducirPaises(List<Pais> paises) {
+  	}
+  	
+	//TODO: codigo repetido de estadoJuego ARREGLARLOOOO
+	def reducirPaises(List<Pais> paises) {
 		paises.map([it.toMiniPais])
 	}
 	
-		def reducirPaisesConConexiones(List<Pais> paises) {
+	def reducirPaisesConConexiones(List<Pais> paises) {
 		paises.map([it.toMiniPaisConConexiones])
 	}
 	

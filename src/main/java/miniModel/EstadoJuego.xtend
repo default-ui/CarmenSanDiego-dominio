@@ -16,7 +16,7 @@ class EstadoJuego {
 		this.recorrido = juego.getRecorrido.reducirPaises
 		this.paisesFallidos = juego.getFallidos.reducirPaises
 		this.pais = juego.paisActual.toMiniPais
-  }
+	}
 	
 	def reducirPaises(List<Pais> paises) {
 		paises.map([it.toMiniPais])
@@ -26,7 +26,5 @@ class EstadoJuego {
 	def toMiniPais(Pais pais) {
 		new MiniPais(pais)
 	}
-	
-	
 	
 }
