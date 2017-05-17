@@ -122,6 +122,7 @@ class Mapamundi {
 	  lugar
 	}
 	
+	
 	def getPaisFromName(String nombre){
 		for(Pais p : this.paises) {
         	if(p.nombre.equals(nombre)) {
