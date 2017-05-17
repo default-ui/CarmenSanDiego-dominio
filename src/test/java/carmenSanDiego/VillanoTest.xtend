@@ -16,7 +16,7 @@ class VillanoTest {
 		sexoFemenino = Sexo.Femenino
 		sexoMasculino = Sexo.Masculino
 
-		carmen = new Villano('Carmen Sandiego', sexoFemenino)
+		carmen = new Villano(1, 'Carmen Sandiego', sexoFemenino)
 	}
 
 	@Test

@@ -17,7 +17,7 @@ class ExpedienteTest {
 	@Before def void setUp(){
 		expedienteAleatorio = new Expediente
 		expediente =  new Expediente
-		expediente.nuevoVillano("El Gato", Sexo.Masculino)
+		expediente.nuevoVillano(1, "El Gato", Sexo.Masculino)
 		randomMock = mock(Random)
 	}
 	

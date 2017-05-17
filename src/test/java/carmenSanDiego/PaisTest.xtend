@@ -31,7 +31,7 @@ class PaisTest {
 		lugarBanco = new Banco()
 		lugarClub = new Club()
 		
-		villanoMoriarty = new Villano("Moriarty", Sexo.Masculino)
+		villanoMoriarty = new Villano(1, "Moriarty", Sexo.Masculino)
 
 	}
 

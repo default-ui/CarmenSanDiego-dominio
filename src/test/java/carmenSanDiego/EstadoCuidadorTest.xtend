@@ -11,7 +11,7 @@ class EstadoCuidadorTest {
 		
 		assertEquals(
 			"No vimos a nadie con tales caracteristicas por esta zona, creo que te equivocaste.",
-			estadoCuidador.responder(new Pais("Argentina"), new Banco, new Villano("El gato", Sexo.Masculino), null) 
+			estadoCuidador.responder(new Pais("Argentina"), new Banco, new Villano(1, "El gato", Sexo.Masculino), null) 
 		)
 		
 	}

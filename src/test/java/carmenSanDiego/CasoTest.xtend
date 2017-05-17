@@ -7,7 +7,7 @@ class CasoTest {
 	
 	@Test def void reporteTest(){
 		
-		val villano = new Villano("El gato", Sexo.Masculino)
+		val villano = new Villano(1, "El gato", Sexo.Masculino)
 		val objeto = 'zircon'
 		val ruta = new ArrayList<Pais>
 		val pais = new Pais("Springfield") 

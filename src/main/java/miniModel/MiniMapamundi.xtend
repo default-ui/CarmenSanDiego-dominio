@@ -2,17 +2,17 @@ package miniModel
 
 import java.util.List
 import carmenSanDiego.Pais
-import carmenSanDiego.Juego
 import org.eclipse.xtend.lib.annotations.Accessors
+import carmenSanDiego.Mapamundi
 
 @Accessors
 class MiniMapamundi {
 	List<MiniPais> mapa
 	List<MiniPaisConConexiones> mapaConexiones
 
-	new(Juego juego) {
-		this.mapaConexiones = reducirPaisesConConexiones(juego.mapa.paises)
-  		this.mapa = reducirPaises(juego.mapa.paises)
+	new(Mapamundi mapa) {
+		this.mapaConexiones = reducirPaisesConConexiones(mapa.paises)
+  		this.mapa = reducirPaises(mapa.paises)
   	}
   	
 	//TODO: codigo repetido de estadoJuego ARREGLARLOOOO

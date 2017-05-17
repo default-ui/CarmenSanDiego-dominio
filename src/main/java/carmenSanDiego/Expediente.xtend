@@ -14,8 +14,8 @@ class Expediente {
 	var List<Villano> villanos = <Villano>newArrayList()
 	Random randomGen = new Random()
 
-	def void nuevoVillano(String nombre, Sexo sexo) {
-		val villano = new Villano(nombre, sexo)
+	def void nuevoVillano(Integer id, String nombre, Sexo sexo) {
+		val villano = new Villano(id, nombre, sexo)
 		this.villanos.add(villano)
 	}
 
@@ -51,7 +51,7 @@ class Expediente {
 
 			// creo el nuevo villano usando datos de la lista de villanos			
 			val List<String> datosNuevoVillano = listaVillanos.get(i).split("  ")
-			var villano = new Villano(datosNuevoVillano.get(0), Sexo.valueOf(datosNuevoVillano.get(1)))
+			var villano = new Villano(i, datosNuevoVillano.get(0), Sexo.valueOf(datosNuevoVillano.get(1)))
 			// agrego senas particulares segun orden de archivos csv
 			//for(var k = 2; datosNuevoVillano.size > k; k++){
 			for(var k = 2; 6 > k; k++){

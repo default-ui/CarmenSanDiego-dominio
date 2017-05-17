@@ -22,8 +22,8 @@ class EstadoVillanoTest {
 		
 		estadoVillano = new EstadoVillano
 		
-		villanoElGato = new Villano("El gato", Sexo.Masculino)
-		villanoScar = new Villano("Scar", Sexo.Masculino)
+		villanoElGato = new Villano(1, "El gato", Sexo.Masculino)
+		villanoScar = new Villano(1, "Scar", Sexo.Masculino)
 		ordenElGato = new OrdenDeArresto( villanoElGato )
 		ordenScar = new OrdenDeArresto( villanoScar )
 		

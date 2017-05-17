@@ -11,17 +11,20 @@ import org.uqbar.commons.utils.Transactional
 @Observable
 class Villano {
 
+	Integer id
 	String nombre
 	Sexo sexo
 	List<String> senasParticulares = <String>newArrayList()
 	List<String> hobbies = <String>newArrayList()
 
-	new(String nombre){
+	new(Integer id, String nombre){
+		this.id = id
 		this.nombre = nombre
 		this.senasParticulares = new ArrayList<String>()
 	}
 
-	new(String nombre, Sexo sexo) {
+	new(Integer id, String nombre, Sexo sexo) {
+		this.id = id
 		this.nombre = nombre
 		this.sexo = sexo
 		this.senasParticulares = new ArrayList<String>()
@@ -74,11 +77,6 @@ class Villano {
 		
 		sb.toString
 				
-	}
-	
-	def getId() {
-		//throw new UnsupportedOperationException("TODO: auto-generated method stub")
-		return null
 	}
 
 }

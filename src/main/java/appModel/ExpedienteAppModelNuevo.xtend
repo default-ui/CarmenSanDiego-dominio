@@ -22,7 +22,7 @@ class ExpedienteAppModelNuevo {
 	}
 	
 	def crearNuevoVillano() {
-		villanoTemp = new Villano("")
+		villanoTemp = new Villano(0, "")
 	}
 	
 
