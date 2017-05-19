@@ -46,12 +46,12 @@ class Expediente {
 	def void generarExpedienteAleatorio() {
 		
 		val listaVillanos = obtenerVillanos()
-		
+	
 		for (i : 0 ..< listaVillanos.size) {
-
+			
 			// creo el nuevo villano usando datos de la lista de villanos			
 			val List<String> datosNuevoVillano = listaVillanos.get(i).split("  ")
-			var villano = new Villano(i, datosNuevoVillano.get(0), Sexo.valueOf(datosNuevoVillano.get(1)))
+			var villano = new Villano(i+1, datosNuevoVillano.get(0), Sexo.valueOf(datosNuevoVillano.get(1)))
 			// agrego senas particulares segun orden de archivos csv
 			//for(var k = 2; datosNuevoVillano.size > k; k++){
 			for(var k = 2; 6 > k; k++){

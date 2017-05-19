@@ -11,6 +11,7 @@ import java.util.ArrayList
 @Accessors
 class Juego {
 
+	Integer id = 0
 	Mapamundi mapa
 	Expediente expediente
 	Pais paisActual = null
@@ -24,6 +25,14 @@ class Juego {
 	Pais paisAnterior = null
 
 	new(Mapamundi mapa, Expediente expediente) {
+		this.mapa = mapa
+		this.expediente = expediente
+		this.paisesVisitados = newArrayList()
+		this.ordenDeArresto = null
+	}
+	
+	new(Integer id, Mapamundi mapa, Expediente expediente) {
+		this.id = id
 		this.mapa = mapa
 		this.expediente = expediente
 		this.paisesVisitados = newArrayList()

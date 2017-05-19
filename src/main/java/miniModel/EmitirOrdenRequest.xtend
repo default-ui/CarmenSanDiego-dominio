@@ -9,8 +9,8 @@ class EmitirOrdenRequest {
   Integer casoId
   
   new () {
-  	villanoId = null
-  	casoId = null
+  	villanoId = 0
+  	casoId = 0
   }
   
 }

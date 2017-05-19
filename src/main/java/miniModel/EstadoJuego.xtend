@@ -8,11 +8,13 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 class EstadoJuego {
 	
+	Integer id
 	MiniPais pais
 	List<MiniPais> recorrido
 	List<MiniPais> paisesFallidos
 	
 	new(Juego juego) {
+		this.id = juego.id
 		this.recorrido = juego.getRecorrido.reducirPaises
 		this.paisesFallidos = juego.getFallidos.reducirPaises
 		this.pais = juego.paisActual.toMiniPais
