@@ -27,6 +27,10 @@ class Mapamundi {
 		paises.remove(getPaisFromName(name))
 	}	
 	
+	def eliminarPaisById(Integer id){
+		paises.remove(getPaisFromId(id))
+	}
+	
 	/** Reemplaza el pais por su modificacion */
 	def editarPais(String nombre, String nuevoNombre) {
 		eliminarPais(nombre)
@@ -39,6 +43,10 @@ class Mapamundi {
        
         paisDelRobo
         
+	}
+	
+	def agregarPais(Pais pais){
+		paises.add(pais)
 	}
 	
 	/**
@@ -129,6 +137,14 @@ class Mapamundi {
 	def getPaisFromName(String nombre){
 		for(Pais p : this.paises) {
         	if(p.nombre.equals(nombre)) {
+            	return p
+			}
+		}
+	}
+
+	def getPaisFromId(Integer id){
+		for(Pais p : this.paises) {
+        	if(p.id.equals(id)) {
             	return p
 			}
 		}

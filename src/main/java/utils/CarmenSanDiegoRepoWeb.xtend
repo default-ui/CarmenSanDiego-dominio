@@ -18,7 +18,6 @@ class CarmenSanDiegoRepoWeb {
 	Mapamundi mapa = DummyData.crearMapamundiDummy
 	Expediente expediente = DummyData.crearExpedienteDummy
 	Pais paisTemp
-	//Juego juego = new Juego(mapa, expediente)
 	Map<String, String> pistas = new HashMap<String, String>()
 	Villano villanoDeNuevaOrdenDeArresto
 	List<Lugar> lugaresPistas = new ArrayList<Lugar>
@@ -43,10 +42,13 @@ class CarmenSanDiegoRepoWeb {
 		}
 	}
 	
-	def getVillanoId() {
-		var lastId = expediente.villanos.size
-		lastId +1
+	def getNextIdVillano(){
+		expediente.villanos.maxBy[id].id + 1		
 		
 	}
 	
-}
+	def getNextIdPais(){
+		mapa.paises.maxBy[id].id + 1
+	}
+	
+	}

@@ -5,6 +5,8 @@ import java.util.List
 import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
+import miniModel.DataPais
+import miniModel.MiniPais
 
 @Observable
 @Accessors
@@ -19,12 +21,50 @@ class Pais {
 	Random randomGen = new Random()
 
 
-	// constructir oara JSON
+	// constructor para JSON
 	new(){
 		this.id = 0
 		this.nombre = ""
 		this.estadoOcupante = new EstadoCuidador()
 		
+	}
+	
+	// Constructor para pasar de JSON -> DataPais -> Pais
+	new(DataPais paisTemp, Mapamundi mapamundi){
+		this.id = paisTemp.id
+		this.nombre = paisTemp.nombre
+		this.conexiones = generarConexiones(paisTemp.conexiones, mapamundi)
+		this.lugares = generarLugares(paisTemp.lugares)
+	}
+	
+	/*
+	 * Genera instancias de lugares a partir de una lista de strings de los nombres de los mismos
+	 */
+	def generarLugares(List<String> lugaresStrings) {
+		var lugaresRes = new ArrayList<Lugar>
+		for(lug : lugaresStrings){
+			lugaresRes.add(lugarDesdeString(lug))
+		}
+		lugaresRes
+	}
+	
+	/*
+	 * crea una instancia de un lugar a partir de su nombre
+	 */
+	def lugarDesdeString(String nombre) {
+		Class.forName("carmenSanDiego."+nombre).newInstance as Lugar
+	}
+	
+	/*
+	 * Genera las conexiones de un pais a partir de un mapamundi(lista de paises) y una lista de minipaises (los busca por id)
+	 * Precondicion: todos las conexiones existen en el mapamundi
+	 */
+	def generarConexiones(List<MiniPais> conexionesTemp, Mapamundi mapamundi) {
+		var conexionesRes = new ArrayList<Pais>
+		for(conex : conexionesTemp){
+			conexionesRes.add(mapamundi.getPaisFromId(conex.id))
+		}
+		conexionesRes
 	}
 
 	new(String nombre) {
