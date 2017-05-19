@@ -51,13 +51,15 @@ class Mapamundi {
 		
 		// armo una lista con todos los datos de los paises, un pais por linea
 		var listaPaisesDatos = getListFromFile('/dataPaises.csv')
+		// contador para generar las id numericas de los paises
+		var paisId = 1
 		for (datosPais : listaPaisesDatos) {
 			
 			// separo la linea en una nueva lista
 			var listaDatosPais = new LinkedList(datosPais.split(','))
 			
 			// creo un pais, el nombre es el primer elemento de la lista			
-			var nuevoPais = new Pais(listaDatosPais.remove(0))
+			var nuevoPais = new Pais(paisId, listaDatosPais.remove(0))
 			
 			//agrego los lugares a los paises (son los primeros 3 entries desp. del nombre)
 			for(var i = 0; i < 3; i ++){
@@ -69,6 +71,7 @@ class Mapamundi {
 			}
 			
 			listaPaises.add(nuevoPais)
+			paisId++
 		}
 		
 		listaPaises

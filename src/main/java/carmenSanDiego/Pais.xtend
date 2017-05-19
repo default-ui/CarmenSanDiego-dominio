@@ -10,6 +10,7 @@ import org.uqbar.commons.utils.Observable
 @Accessors
 class Pais {
 
+	Integer id
 	String nombre
 	List<String> caracteristicas = <String>newArrayList()
 	List<Pais> conexiones = <Pais>newArrayList()
@@ -17,7 +18,22 @@ class Pais {
 	EstadoOcupante estadoOcupante
 	Random randomGen = new Random()
 
+
+	// constructir oara JSON
+	new(){
+		this.id = 0
+		this.nombre = ""
+		this.estadoOcupante = new EstadoCuidador()
+		
+	}
+
 	new(String nombre) {
+		this.nombre = nombre
+		this.estadoOcupante = new EstadoCuidador()
+	}
+	
+	new(Integer id, String nombre) {
+		this.id = id
 		this.nombre = nombre
 		this.estadoOcupante = new EstadoCuidador()
 	}

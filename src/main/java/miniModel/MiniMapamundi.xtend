@@ -32,9 +32,9 @@ class MiniMapamundi {
 		new MiniPaisConConexiones(pais)
 	}
 	
-	def getPaisById(String nombre){
+	def getPaisById(Integer id){
 		for(p : mapaConexiones) {
-        	if(p.nombre.equals(nombre)) {
+        	if(p.id.equals(id)) {
         		return p
 			}
 		}

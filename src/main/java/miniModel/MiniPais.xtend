@@ -1,25 +1,27 @@
 package miniModel
 
-import carmenSanDiego.Lugar
 import carmenSanDiego.Pais
-import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 
 /**
- * clase MiniPais, sin conexiones, solo nombre de pais y lugares
+ * clase MiniPais, sin conexiones ni lugares, solo id y nombre de pais
  */
 @Accessors
 class MiniPais {
 	
+	Integer id
 	String nombre
-	List<String> lugares
+	
+	new(){
+		this.id = 0
+		this.nombre = ""
+	}
 	
 	new(Pais pais) {
+		this.id = pais.id
 		this.nombre = pais.nombre
-		this.lugares = pais.lugares.nombres
+		
 	}
 	
-	def getNombres(List<Lugar> lugares){
-		lugares.map([it.nombre])
-	}
+
 }

@@ -10,9 +10,11 @@ import org.eclipse.xtend.lib.annotations.Accessors
 class Conexion {
 	
 	String nombre
+	Integer id
 	
 	new(Pais pais){
 		nombre = pais.nombre
+		id = pais.id
 	}
 	
 }
