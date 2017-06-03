@@ -13,6 +13,7 @@ class DataPais {
 	
 	Integer id
 	String nombre
+	List<String> caracteristicas = <String>newArrayList()
 	List<MiniPais> conexiones = <MiniPais>newArrayList()
 	List<String> lugares = <String>newArrayList()
 	

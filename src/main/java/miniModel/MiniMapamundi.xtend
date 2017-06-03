@@ -8,7 +8,7 @@ import carmenSanDiego.Mapamundi
 @Accessors
 class MiniMapamundi {
 	List<MiniPais> mapa
-	List<MiniPaisConConexiones> mapaConexiones
+	List<MiniPaisConConxYCarac> mapaConexiones
 
 	new(Mapamundi mapa) {
 		this.mapaConexiones = reducirPaisesConConexiones(mapa.paises)
@@ -29,7 +29,7 @@ class MiniMapamundi {
 	}
 	
 	def toMiniPaisConConexiones(Pais pais) {
-		new MiniPaisConConexiones(pais)
+		new MiniPaisConConxYCarac(pais)
 	}
 	
 	def getPaisById(Integer id){

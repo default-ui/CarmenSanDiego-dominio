@@ -10,13 +10,15 @@ import carmenSanDiego.Lugar
  * clase utilizada cuando se hace el get de pais by id
  */
 @Accessors
-class MiniPaisConConexiones extends MiniPais{
+class MiniPaisConConxYCarac extends MiniPais{
 	
 	List<String> lugares
+	List<String> caracteristicas
 	List<Conexion> conexiones
 	
 	new(Pais pais) {
 		super(pais)
+		this.caracteristicas = pais.caracteristicas
 		this.conexiones = reducirConexiones(pais.conexiones)
 		this.lugares = pais.lugares.nombres
 	}
