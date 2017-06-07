@@ -20,6 +20,9 @@ class DataPais {
 	new(){
 		this.id = 0
 		this.nombre = ""
+		this.caracteristicas = <String>newArrayList()
+		this.conexiones = <MiniPais>newArrayList()
+		this.lugares = <String>newArrayList()
 	}
 	
 }
